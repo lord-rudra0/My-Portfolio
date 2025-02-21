@@ -12,6 +12,7 @@ import Contact from './pages/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import ClickSpark from './components/ClickSpark';
+import { AuroraBackground } from './components/ui/aurora-background';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -40,7 +41,7 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
-        <div className="relative z-0 bg-primary transition-colors duration-300 dark:bg-primary light:bg-white">
+        <AuroraBackground>
           <ClickSpark
             sparkSize={10}
             sparkRadius={15}
@@ -51,7 +52,7 @@ function App() {
           <AnimatedRoutes />
           <Footer />
           <ScrollToTop />
-        </div>
+        </AuroraBackground>
       </Router>
     </ThemeProvider>
   );
