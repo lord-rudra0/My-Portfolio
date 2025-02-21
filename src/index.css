@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #050816;
+  --color-secondary: #aaa6c3;
+  --color-tertiary: #151030;
+  --color-accent: #98FF98;
+  --color-text: #ffffff;
+  --color-text-secondary: #94a3b8;
+}
+
+:root.light {
+  --color-primary: #ffffff;
+  --color-secondary: #1a1a1a;
+  --color-tertiary: #f8fafc;
+  --color-accent: #22c55e;
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+}
+
+* {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.nav-link {
+  @apply relative text-current font-medium cursor-pointer text-[14px] transition-all duration-300;
+  padding-bottom: 0.25rem;
+}
+
+.nav-link::after {
+  @apply content-[''] bg-[var(--color-accent)] h-[1px] w-[0%] left-1/2 -translate-x-1/2 -bottom-[3px] rounded-xl absolute transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-[100%];
+}
+
+/* Active Navigation Indicator */
+.nav-link.active::after {
+  @apply w-[100%];
+}
+
+/* Scroll Animations */
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Theme Transitions */
+.theme-transition {
+  @apply transition-all duration-300;
+}
+
+/* Dark mode styles */
+.dark {
+  @apply bg-primary;
+}
+
+.dark .text-secondary {
+  @apply text-secondary-dark;
+}
+
+.dark .bg-tertiary {
+  @apply bg-tertiary-dark;
+}
+
+/* Light mode styles */
+.light {
+  @apply bg-white;
+}
+
+.light .text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.light .bg-tertiary {
+  @apply bg-tertiary-light;
+}
+
+.light .hero-heading {
+  color: var(--color-secondary);
+}
+
+.light .hero-accent {
+  color: var(--color-accent);
+}
+
+.light .hero-description {
+  color: var(--color-text);
+}
+
+.light .social-link {
+  color: var(--color-secondary);
+}
+
+.light .know-more-btn {
+  color: var(--color-secondary);
+}
+
+/* Dark Theme Styles */
+.dark .hero-heading {
+  @apply text-white;
+}
+
+.dark .hero-accent {
+  @apply text-[#98FF98];
+}
+
+.dark .hero-description {
+  @apply text-gray-400;
+}
+
+.dark .social-link {
+  @apply text-white hover:text-[#98FF98];
+}
+
+.dark .know-more-btn {
+  @apply text-white hover:text-[#98FF98];
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[var(--color-accent)] rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[var(--color-accent)] brightness-90;
+}
+
+/* Dark theme styles */
+.dark .navbar-box {
+  @apply bg-white/5 border-white/10;
+}
+
+/* Light theme styles */
+.light .navbar-box {
+  @apply bg-black/5 border-black/10;
+}
+
+/* Project Card Styles */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.project-card .description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .description {
+  opacity: 1;
+}
+
+/* Light Mode Heading Styles */
+.light h1,
+.light h2,
+.light h3,
+.light h4,
+.light h5,
+.light h6 {
+  color: var(--color-accent); /* Use the accent color for headings in light mode */
+  font-weight: bold; /* Make headings bold */
+  margin-bottom: 1rem; /* Add some spacing below headings */
+}
+
+/* Dark Mode Heading Styles */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: var(--color-accent); /* Use the accent color for headings in dark mode */
+  font-weight: bold; /* Make headings bold */
+  margin-bottom: 1rem; /* Add some spacing below headings */
+}
+
+/* Specific styles for h1 in Hero section */
+.hero-heading {
+  font-size: 2.5rem; /* Adjust font size for h1 */
+  line-height: 1.2; /* Adjust line height */
+  color: var(--color-accent); /* Accent color for h1 */
+}
