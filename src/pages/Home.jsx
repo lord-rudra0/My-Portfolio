@@ -17,7 +17,7 @@ const Home = () => {
   };
 
   return (
-    <div className="overflow-hidden">
+    <div className="min-h-screen flex flex-col justify-center items-center text-white">
       <motion.section
         initial="hidden"
         animate="visible"
