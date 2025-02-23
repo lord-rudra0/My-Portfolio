@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { content } from '../data/content';
 import ProjectCard from './ProjectCard';
 import { useState } from 'react';
-
+import { InteractiveHoverButton } from './magicui/interactive-hover-button';
 const ProjectsPreview = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
@@ -43,12 +43,12 @@ const ProjectsPreview = () => {
               </motion.div>
             ))}
           </div>
-          <Link
-            to="/projects"
-            className="inline-block mt-12 px-6 py-3 text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-colors"
-          >
-            View All Projects
-          </Link>
+          <InteractiveHoverButton className="know-more-btn inline-flex items-center transition-all duration-300 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm">
+             <Link
+              to="/projects">
+              View All Projects
+            </Link>
+            </InteractiveHoverButton>
         </motion.div>
       </div>
     </section>

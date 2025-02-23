@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-
+import { InteractiveHoverButton } from './magicui/interactive-hover-button';
 const ContactCTA = () => {
   return (
     <section className="py-20 bg-tertiary">
@@ -16,12 +16,12 @@ const ContactCTA = () => {
           <p className="text-secondary text-lg mb-8 max-w-2xl mx-auto">
             Have a project in mind? Let's discuss how we can bring your ideas to life.
           </p>
-          <Link
-            to="/contact"
-            className="inline-block px-8 py-4 text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-colors text-lg font-medium"
-          >
-            Get in Touch
-          </Link>
+          <InteractiveHoverButton className="know-more-btn inline-flex items-center transition-all duration-300 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm">
+             <Link
+              to="/contact">
+              Get in Touch
+            </Link>
+            </InteractiveHoverButton>
         </motion.div>
       </div>
     </section>
