@@ -6,13 +6,13 @@ const About = () => {
   const { about } = content;
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center text-white">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="max-w-screen-lg mx-auto px-4"
-      >
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="min-h-screen bg-primary text-white pt-20"
+    >
+      <div className="max-w-screen-lg mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -51,8 +51,8 @@ const About = () => {
             ))}
           </div>
         </motion.div>
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 };
 

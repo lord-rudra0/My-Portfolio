@@ -218,7 +218,14 @@ body {
 
 /* Specific styles for h1 in Hero section */
 .hero-heading {
-  font-size: 2.5rem; /* Adjust font size for h1 */
-  line-height: 1.2; /* Adjust line height */
-  color: var(--color-accent); /* Accent color for h1 */
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  color: var(--color-accent);
+}
+
+.text-6xl {
+  font-size: 4rem;
 }

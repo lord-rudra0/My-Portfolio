@@ -5,7 +5,7 @@ import { content } from '../data/content';
 import { Link } from 'react-router-dom';
 import ClickSpark from './ClickSpark';
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
-import VortexBackground from './VortexBackground';
+import { WordRotate } from './ui/WordRotate';
 
 const Hero = () => {
   const { scrollY } = useScroll();
@@ -22,7 +22,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="h-screen w-full overflow-hidden relative bg-primary text-white">
+    <div className="h-screen w-full overflow-hidden relative">
       <ClickSpark
         sparkSize={10}
         sparkRadius={15}
@@ -37,25 +37,28 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           style={{ y, opacity }}
         >
+         
+
           <motion.div 
-            className="flex items-center gap-2 mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            <span className="hero-accent text-xl">👋</span>
-            <h1 className="text-5xl font-bold hero-heading">Hey! It&apos;s me Devraj,</h1>
-          </motion.div>
-          
-          <motion.div 
-            className="mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <h2 className="text-5xl md:text-7xl font-bold leading-tight">
-              <span className="hero-heading">Crafting </span>
-              <span className="hero-accent">purpose driven experiences </span>
+            <h2 className="text-5xl md:text-7xl font-bold leading-tight mb-1">
+              <span className="hero-accent ">Namaste! </span>
+              <span className="hero-heading" style={{ marginLeft: '1rem' }}>It&apos;s me, Rudra Pratap Singh</span>
+              <span className="hero-heading" style={{ marginLeft: '1rem' }}>I am <span className="mx-2" />
+            <WordRotate words={["Web", "App"]} className="text-6xl" /> <span className="mx-2" />Developer</span>
+            </h2>
+          </motion.div>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+          >
+            <h2 className="text-5xl md:text-7xl font-bold leading-tight mb-2">
+              <span className="hero-accent">Crafting purpose-driven experiences </span>
               <span className="hero-heading">that inspire & engage.</span>
             </h2>
           </motion.div>
