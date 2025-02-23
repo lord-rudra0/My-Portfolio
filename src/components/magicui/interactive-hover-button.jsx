@@ -1,14 +1,18 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTheme } from '../../context/ThemeContext';
 
 export const InteractiveHoverButton = React.forwardRef(
   ({ children, className, ...props }, ref) => {
+    const { theme } = useTheme();
+
     return (
       <button
         ref={ref}
         className={cn(
-          "group relative w-auto cursor-pointer overflow-hidden rounded-full border bg-background p-2 px-6 text-center font-semibold",
+          "group relative w-auto cursor-pointer overflow-hidden rounded-full border p-2 px-6 text-center font-semibold transition-colors duration-300",
+          theme === 'dark' ? 'bg-transparent text-white hover:bg-white hover:text-primary' : 'bg-background text-primary hover:bg-gray-800 hover:text-white',
           className,
         )}
         {...props}

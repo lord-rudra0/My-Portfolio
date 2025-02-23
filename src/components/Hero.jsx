@@ -50,9 +50,11 @@ const Hero = () => {
               <span className="hero-heading" style={{ marginLeft: '1rem' }}>It&apos;s me,
               <span className="mx-2" />
                <spam className="hero-accent">Rudra</spam>
-               <span className="mx-2" /> Pratap <span className="mx-2" />
+               <span className="mx-2" />
+                Pratap 
+                <span className="mx-2" />
                <spam className="hero-accent">Singh</spam>
-              </span>
+               <span className="mx-2" /></span>
               <span className="hero-heading" style={{ marginLeft: '1rem' }}>I am <span className="mx-2" />
             <WordRotate words={["Web", "App"]} className="text-8xl" /> <span className="mx-2" />Developer</span>
             </h2>
