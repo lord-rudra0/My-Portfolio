@@ -41,7 +41,7 @@ const Home = () => {
         viewport={{ once: true }}
         variants={sectionVariants}
       >
-        <Education />
+        <Skills />
       </motion.section>
 
       <motion.section
@@ -50,8 +50,10 @@ const Home = () => {
         viewport={{ once: true }}
         variants={sectionVariants}
       >
-        <Skills />
+        <Education />
       </motion.section>
+
+
 
       <motion.section
         initial="hidden"

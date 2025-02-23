@@ -221,11 +221,19 @@ body {
   display: flex;
   align-items: center;
   white-space: nowrap;
-  font-size: 2.5rem;
+  font-size: 4.5rem;
   line-height: 1.1;
   color: var(--color-accent);
 }
 
 .text-6xl {
+  font-size: 4rem;
+}
+
+.namaste-text {
+  font-size: 2.5rem; /* Adjust this value as needed */
+}
+
+.hero-accent {
   font-size: 4rem;
 }

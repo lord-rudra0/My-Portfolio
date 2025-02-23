@@ -1,17 +1,13 @@
 export const content = {
-  hero: {
-    name: "John Doe",
-    title: "Full Stack Developer",
-    tagline: "Building innovative web solutions with modern technologies",
-    description: "I specialize in creating beautiful, high-performance web applications using React, Node.js, and modern web technologies."
-  },
   about: {
-    shortBio: "Passionate software developer with 8+ years of experience in full-stack development, specializing in React and Node.js.",
-    fullBio: `I am a dedicated software developer with a strong foundation in both frontend and backend development. 
-    My journey in technology began with a curiosity about how things work, which led me to pursue a career in software development.
-    
-    Over the years, I've had the opportunity to work on various projects that have helped me develop a deep understanding of modern web technologies.
-    I specialize in building responsive web applications using React, Node.js, and various cloud platforms.`,
+    shortBio: `I am a passionate web developer driven by problem-solving and a deep love for mathematics.
+               I thrive on building end-to-end solutions that are scalable, sustainable, and impactful, blending technical innovation with social responsibility.`,
+    fullBio: `I am a passionate web and app developer currently studying Computer Science at Amal Jyothi College of Engineering. 
+              My goal is to create user-centered solutions that are both functional and visually appealing. 
+              I hold a B.Sc. in Mathematics and Physics from Awadh University, Ayodhya.
+              With a strong foundation in programming, problem-solving, mathematics, and Physics,
+               I am always eager to learn new technologies to enhance my skills.
+               .`,
     experience: [
       {
         title: "Senior Full Stack Developer",
@@ -23,16 +19,16 @@ export const content = {
   },
   education: [
     {
-      degree: "Master of Science in Computer Science",
-      school: "University of Technology",
-      year: "2018-2020",
-      description: "Specialized in Artificial Intelligence and Machine Learning. Graduated with honors."
+      degree: "Bachelor of Science in Mathematics and Physics ",
+      College: "Awadh University, Ayodhya",
+      year: "2020-2023",
+      description: "Specialized in Mathematics and Physics with optional of Cryptography and Number Theory."
     },
     {
-      degree: "Bachelor of Engineering in Software Engineering",
-      school: "Tech Institute",
-      year: "2014-2018",
-      description: "Focus on software development and system architecture. Dean's list all semesters."
+      degree: "Bachelor of Technology in Computer Science and Engineering",
+      College: "Amal Jyothi College of Engineering and Technology",
+      year: "2022-2026",
+      description: "Currently pursuing Computer Science with focus on software development, data structures, algorithms, and modern web technologies."
     },
     {
       degree: "Web Development Bootcamp",

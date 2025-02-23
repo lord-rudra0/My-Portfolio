@@ -45,23 +45,19 @@ const Hero = () => {
             transition={{ delay: 0.4 }}
           >
             <h2 className="text-5xl md:text-7xl font-bold leading-tight mb-1">
-              <span className="hero-accent ">Namaste! </span>
-              <span className="hero-heading" style={{ marginLeft: '1rem' }}>It&apos;s me, Rudra Pratap Singh</span>
+
+              <span className="hero-accent namaste-text">🙏Namaste! </span>
+              <span className="hero-heading" style={{ marginLeft: '1rem' }}>It&apos;s me,
+              <span className="mx-2" />
+               <spam className="hero-accent">Rudra</spam>
+               <span className="mx-2" /> Pratap <span className="mx-2" />
+               <spam className="hero-accent">Singh</spam>
+              </span>
               <span className="hero-heading" style={{ marginLeft: '1rem' }}>I am <span className="mx-2" />
-            <WordRotate words={["Web", "App"]} className="text-6xl" /> <span className="mx-2" />Developer</span>
+            <WordRotate words={["Web", "App"]} className="text-8xl" /> <span className="mx-2" />Developer</span>
             </h2>
           </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-          >
-            <h2 className="text-5xl md:text-7xl font-bold leading-tight mb-2">
-              <span className="hero-accent">Crafting purpose-driven experiences </span>
-              <span className="hero-heading">that inspire & engage.</span>
-            </h2>
-          </motion.div>
+         
         </motion.div>
 
         <div className="flex flex-col items-end gap-8">
@@ -79,7 +75,9 @@ const Hero = () => {
               transition={{ delay: 0.6 }}
             >
               <p>
-                I work with brands globally to build pixel-perfect, engaging, and accessible digital experiences that drive results and achieve business goals.
+              A passionate web developer who thrives on problem-solving and building scalable, impactful solutions. 
+              With a strong foundation in mathematics, I create sustainable systems that drive innovation.
+               
               </p>
             </motion.div>
           </div>
