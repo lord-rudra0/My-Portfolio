@@ -5,6 +5,7 @@ import ProjectsPreview from '../components/ProjectsPreview';
 import Skills from '../components/Skills';
 import Education from '../components/Education';
 import ContactCTA from '../components/ContactCTA';
+import { content } from '../data/content';
 
 const Home = () => {
   const sectionVariants = {
@@ -15,6 +16,8 @@ const Home = () => {
       transition: { duration: 0.6 }
     }
   };
+
+  const currentProjects = content.currentProjects;
 
   return (
     <div className="overflow-hidden">
@@ -53,15 +56,13 @@ const Home = () => {
         <Education />
       </motion.section>
 
-
-
       <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={sectionVariants}
       >
-        <ProjectsPreview />
+        <ProjectsPreview projects={currentProjects} />
       </motion.section>
 
       <motion.section

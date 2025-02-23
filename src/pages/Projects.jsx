@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 const Projects = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const finishedProjects = content.finishedProjects;
 
   const handleHover = (index) => {
     setHoveredIndex(index);
@@ -39,7 +40,7 @@ const Projects = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {content.projects.map((project, index) => (
+            {finishedProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 className={`transition-opacity duration-300 ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-50' : 'opacity-100'}`}

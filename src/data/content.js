@@ -45,34 +45,41 @@ export const content = {
     { name: "Python", level: 75 },
     { name: "AWS", level: 70 }
   ],
-  projects: [
+  currentProjects: [
     {
       id: 1,
+      title: "YouTube Clone",
+      description: "A clone of YouTube built with React and Node.js",
+      longDescription: "A video streaming platform that allows users to upload, view, and share videos.",
+      technologies: ["React", "Node.js", "Express", "MongoDB"],
+      image: "https://via.placeholder.com/800x600",
+      demoUrl: "https://youtube.com",
+      codeUrl: "https://github.com",
+      status: "current"
+    }
+  ],
+  finishedProjects: [
+    {
+      id: 2,
       title: "E-commerce Platform",
       description: "A full-featured e-commerce platform built with React and Node.js",
       longDescription: "A comprehensive e-commerce solution featuring product management, cart functionality, payment processing, and order management.",
       technologies: ["React", "Node.js", "MongoDB", "Stripe"],
       image: "https://via.placeholder.com/800x600",
-      gallery: [
-        "https://via.placeholder.com/800x600",
-        "https://via.placeholder.com/800x600"
-      ],
       demoUrl: "https://example.com",
-      codeUrl: "https://github.com"
+      codeUrl: "https://github.com",
+      status: "finished"
     },
     {
-      id: 2,
+      id: 3,
       title: "Social Media Dashboard",
       description: "Real-time social media analytics dashboard",
       longDescription: "A real-time dashboard for tracking and analyzing social media metrics across multiple platforms.",
       technologies: ["React", "Socket.io", "Chart.js", "Node.js"],
       image: "https://via.placeholder.com/800x600",
-      gallery: [
-        "https://via.placeholder.com/800x600",
-        "https://via.placeholder.com/800x600"
-      ],
       demoUrl: "https://example.com",
-      codeUrl: "https://github.com"
+      codeUrl: "https://github.com",
+      status: "finished"
     }
   ],
   contact: {

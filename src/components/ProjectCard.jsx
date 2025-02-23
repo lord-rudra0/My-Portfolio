@@ -18,7 +18,7 @@ const ProjectCard = ({ project, index, isActive, onHover }) => {
           className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
         />
         <div className="p-4">
-          <h3 className="text-3xl font-bold mb-2">{project.title}</h3>
+          <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
           <div className="flex flex-wrap gap-2 mb-4">
             {project.technologies.map((tech, i) => (
               <span key={i} className="px-3 py-1 bg-blue-600 rounded-full text-sm">
@@ -66,7 +66,7 @@ const ProjectCard = ({ project, index, isActive, onHover }) => {
         className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
       >
         <div className="p-6 text-white">
-          <p className="text-lg text-gray-200 mb-4">
+          <p className="text-gray-200 mb-4">
             {project.description}
           </p>
         </div>

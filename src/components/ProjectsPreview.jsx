@@ -4,7 +4,8 @@ import { content } from '../data/content';
 import ProjectCard from './ProjectCard';
 import { useState } from 'react';
 import { InteractiveHoverButton } from './magicui/interactive-hover-button';
-const ProjectsPreview = () => {
+
+const ProjectsPreview = ({ projects }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const handleHover = (index) => {
@@ -29,19 +30,23 @@ const ProjectsPreview = () => {
           <h2 className="text-4xl font-bold text-white mb-4">Projects</h2>
           <p className="text-secondary mb-8">Check out some of my recent work</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {content.projects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                className={`transition-opacity duration-300 ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-50' : 'opacity-100'}`}
-              >
-                <ProjectCard 
-                  project={project} 
-                  index={index} 
-                  isActive={isActive} 
-                  onHover={() => handleHover(index)}
-                />
-              </motion.div>
-            ))}
+            {projects && projects.length > 0 ? (
+              projects.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  className={`transition-opacity duration-300 ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-50' : 'opacity-100'}`}
+                >
+                  <ProjectCard 
+                    project={project} 
+                    index={index} 
+                    isActive={isActive} 
+                    onHover={() => handleHover(index)}
+                  />
+                </motion.div>
+              ))
+            ) : (
+              <p>No projects available.</p>
+            )}
           </div>
           <InteractiveHoverButton className="know-more-btn inline-flex items-center transition-all duration-300 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm">
              <Link
