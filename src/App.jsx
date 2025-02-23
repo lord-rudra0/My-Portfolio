@@ -41,16 +41,13 @@ function App() {
     <ThemeProvider>
       <Router>
         <div className="relative z-0 bg-primary transition-colors duration-300 dark:bg-primary light:bg-white">
+          <ClickSpark
+            sparkSize={10}
+            sparkRadius={15}
+            sparkCount={8}
+            duration={400}
+          />
           <Navbar />
-          {/* Disable ClickSpark on the Contact page */}
-          {location.pathname !== '/contact' && (
-            <ClickSpark
-              sparkSize={10}
-              sparkRadius={15}
-              sparkCount={8}
-              duration={400}
-            />
-          )}
           <AnimatedRoutes />
           <Footer />
           <ScrollToTop />

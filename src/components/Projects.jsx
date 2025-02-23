@@ -4,7 +4,7 @@ const Projects = () => {
       id: 1,
       title: "E-commerce Platform",
       description: "A full-featured e-commerce platform built with React and Node.js",
-      image: "https://via.placeholder.com/400x300",
+      image: "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=600",
       demo: "https://example.com",
       code: "https://github.com"
     },
