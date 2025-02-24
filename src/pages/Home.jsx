@@ -6,6 +6,7 @@ import Skills from '../components/Skills';
 import Education from '../components/Education';
 import ContactCTA from '../components/ContactCTA';
 import { content } from '../data/content';
+import ClickSpark from '../components/ClickSpark';
 
 const Home = () => {
   const sectionVariants = {
@@ -21,6 +22,12 @@ const Home = () => {
 
   return (
     <div className="overflow-hidden">
+      <ClickSpark
+        sparkSize={10}
+        sparkRadius={15}
+        sparkCount={8}
+        duration={400}
+      />
       <motion.section
         initial="hidden"
         animate="visible"

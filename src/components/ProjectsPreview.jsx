@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { content } from '../data/content';
 import ProjectCard from './ProjectCard';
 import { useState } from 'react';
 import { InteractiveHoverButton } from './magicui/interactive-hover-button';
@@ -13,8 +12,6 @@ const ProjectsPreview = ({ projects }) => {
   };
 
   const isActive = (path) => {
-    // Logic to determine if the project is active
-    // This can be based on the current URL or any other criteria
     return window.location.pathname === path; // Example logic
   };
 
@@ -49,11 +46,8 @@ const ProjectsPreview = ({ projects }) => {
             )}
           </div>
           <InteractiveHoverButton className="know-more-btn inline-flex items-center transition-all duration-300 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm">
-             <Link
-              to="/projects">
-              View All Projects
-            </Link>
-            </InteractiveHoverButton>
+            <Link to="/projects">View All Projects</Link>
+          </InteractiveHoverButton>
         </motion.div>
       </div>
     </section>
