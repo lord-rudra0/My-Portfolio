@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import { content } from '../data/content';
 
+
 const Contact = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const { contact } = content;

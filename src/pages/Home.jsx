@@ -22,12 +22,6 @@ const Home = () => {
 
   return (
     <div className="overflow-hidden">
-      <ClickSpark
-        sparkSize={10}
-        sparkRadius={15}
-        sparkCount={8}
-        duration={400}
-      />
       <motion.section
         initial="hidden"
         animate="visible"
@@ -80,6 +74,11 @@ const Home = () => {
       >
         <ContactCTA />
       </motion.section>
+
+      <ClickSpark
+        sparkSize={10}
+        sparkRadius={15}
+      />
     </div>
   );
 };
