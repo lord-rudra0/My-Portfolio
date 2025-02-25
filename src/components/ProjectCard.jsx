@@ -17,13 +17,13 @@ const ProjectCard = ({ project, index, isActive, onHover }) => {
       />
       <div className="p-4">
         <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-        <div className="flex flex-wrap gap-2 mb-4">
+        {/* <div className="flex flex-wrap gap-2 mb-4">
           {project.technologies.map((tech, i) => (
             <span key={i} className="px-3 py-1 bg-blue-600 rounded-full text-sm">
               {tech}
             </span>
           ))}
-        </div>
+        </div> */}
         <div className="flex items-center justify-between">
           <div className="flex gap-4">
             <a

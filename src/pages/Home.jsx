@@ -2,11 +2,10 @@ import { motion } from 'framer-motion';
 import Hero from '../components/Hero';
 import AboutPreview from '../components/AboutPreview';
 import ProjectsPreview from '../components/ProjectsPreview';
-import Skills from '../components/Skills';
 import Education from '../components/Education';
 import ContactCTA from '../components/ContactCTA';
 import { content } from '../data/content';
-import ClickSpark from '../components/ClickSpark';
+import Skill from '../components/Skill';
 
 const Home = () => {
   const sectionVariants = {
@@ -45,7 +44,7 @@ const Home = () => {
         viewport={{ once: true }}
         variants={sectionVariants}
       >
-        <Skills />
+        <Skill />
       </motion.section>
 
       <motion.section
@@ -74,11 +73,6 @@ const Home = () => {
       >
         <ContactCTA />
       </motion.section>
-
-      <ClickSpark
-        sparkSize={10}
-        sparkRadius={15}
-      />
     </div>
   );
 };

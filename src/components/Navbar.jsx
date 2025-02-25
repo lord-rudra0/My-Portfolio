@@ -1,13 +1,13 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import { useTheme } from '../context/ThemeContext';
+// import { FaBars, FaTimes } from 'react-icons/fa';
+// import { useTheme } from '../context/ThemeContext';
 import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
-  const [nav, setNav] = useState(false);
-  const { theme } = useTheme();
+  // const [nav, setNav] = useState(false);
+  // const { theme } = useTheme();
   const { scrollY } = useScroll();
   const location = useLocation();
   
@@ -37,7 +37,7 @@ const Navbar = () => {
   return (
     <motion.div 
       style={{ height: headerHeight }}
-      className="flex flex-col justify-center items-center w-full fixed z-50 theme-transition"
+      className="flex flex-col justify-center items-center w-full fixed z-50 theme-transition mt-4"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -56,11 +56,9 @@ const Navbar = () => {
           className="flex items-center"
           style={{ margin: logoMargin }}
         >
-          <img 
-            src="https://cdn.textstudio.com/output/sample/normal/6/5/9/4/copy-logo-73-14956.png" 
-            alt="Logo" 
-            className="h-8 transition-transform duration-300"
-          />
+          <span className="h-8 transition-transform duration-300">
+            RPS
+          </span>
         </motion.div>
 
         <motion.div 

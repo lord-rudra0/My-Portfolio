@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { content } from '../data/content';
 import Education from '../components/Education';
-import ClickSpark from '../components/ClickSpark';
+import Skill from '../components/Skill';
 
 const About = () => {
   const { about } = content;
@@ -53,10 +53,7 @@ const About = () => {
           </div>
         </motion.div>
 
-        <ClickSpark
-            sparkSize={10}
-            sparkRadius={15}
-        />
+        <Skill />
       </div>
     </motion.div>
   );

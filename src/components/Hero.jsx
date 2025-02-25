@@ -1,9 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { content } from '../data/content';
 import { Link } from 'react-router-dom';
-import ClickSpark from './ClickSpark';
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { WordRotate } from './ui/WordRotate';
 
@@ -23,12 +21,6 @@ const Hero = () => {
 
   return (
     <div className="h-screen w-full overflow-hidden relative">
-      <ClickSpark
-        sparkSize={10}
-        sparkRadius={15}
-        sparkCount={8}
-        duration={400}
-      />
       <div className="max-w-screen-xl mx-auto flex flex-col justify-center h-full px-4 md:px-12">
         <motion.div 
           className="flex flex-col items-start text-left max-w-3xl"
@@ -111,11 +103,13 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
             >
-              <InteractiveHoverButton
-                className="know-more-btn inline-flex items-center transition-all duration-300 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm"
-              >
-                Know me better
-              </InteractiveHoverButton>
+<InteractiveHoverButton 
+  className="know-more-btn inline-flex items-center transition-all duration-300 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm"
+  onClick={() => (window.location.href = "/about")}
+>
+  Know me better
+</InteractiveHoverButton>
+
             </motion.div>
           </div>
         </div>

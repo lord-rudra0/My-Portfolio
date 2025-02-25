@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { content } from '../data/content';
-import ClickSpark from '../components/ClickSpark';
 import ProjectCard from '../components/ProjectCard';
 import { useState } from 'react';
 
@@ -14,12 +13,6 @@ const Projects = () => {
 
   return (
     <div className="relative">
-      <ClickSpark
-        sparkSize={10}
-        sparkRadius={15}
-        sparkCount={8}
-        duration={400}
-      />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
