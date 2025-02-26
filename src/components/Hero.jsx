@@ -1,9 +1,10 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { MdEmail } from 'react-icons/md';
+// import { MdEmail } from 'react-icons/md';
 import { content } from '../data/content';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { WordRotate } from './ui/WordRotate';
+// import {  TypingAnimation } from './magicui/typing-animation';
 
 const Hero = () => {
   const { scrollY } = useScroll();
@@ -23,7 +24,7 @@ const Hero = () => {
     <div className="h-screen w-full overflow-hidden relative">
       <div className="max-w-screen-xl mx-auto flex flex-col justify-center h-full px-4 md:px-12">
         <motion.div 
-          className="flex flex-col items-start text-left max-w-3xl"
+          className="flex flex-col items-start text-left max-w-3xl mb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
@@ -36,19 +37,28 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <h2 className="text-5xl md:text-7xl font-bold leading-tight mb-1">
+            <h2 className="text-5xl md:text-7xl font-bold leading-tight mb-1 ">
 
-              <span className="hero-accent namaste-text">🙏Namaste! </span>
-              <span className="hero-heading" style={{ marginLeft: '1rem' }}>It&apos;s me,
+              <span className="namaste-text hero-accent">🙏Namaste! </span>
+              <span className="hero-heading" >Rudra
               <span className="mx-2" />
-               <spam className="hero-accent">Rudra</spam>
+               <spam className="hero-accent"> Pratap </spam>
                <span className="mx-2" />
-                Pratap 
+               Singh
                 <span className="mx-2" />
-               <spam className="hero-accent">Singh</spam>
+               <spam className="hero-accent"> , 
+               here  </spam>
+               <span className="mx-2" />
+                <span className="mx-2" />
                <span className="mx-2" /></span>
-              <span className="hero-heading" style={{ marginLeft: '1rem' }}>I am <span className="mx-2" />
-            <WordRotate words={["Web", "App"]} className="text-8xl" /> <span className="mx-2" />Developer</span>
+               <div className="flex items-center">
+                     <span className="hero-heading">I am a</span>
+                   <div className="mx- w-[220px] text-center">
+                     <WordRotate words={["Web", "App"]} className="text-8xl inline-block" />
+                   </div>
+                    <span className="hero-heading">Developer</span>
+                </div>
+                {/* <TypingAnimation>Typing Animation</TypingAnimation>; */}
             </h2>
           </motion.div>
          

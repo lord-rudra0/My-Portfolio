@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion';
 import { content } from '../data/content';
 import ProjectCard from '../components/ProjectCard';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 const Projects = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  // const [hoveredIndex, setHoveredIndex] = useState(null);
   const finishedProjects = content.finishedProjects;
 
-  const handleHover = (index) => {
-    setHoveredIndex(index);
-  };
+  // const handleHover = (index) => {
+  //   setHoveredIndex(index);
+  // };
 
   return (
     <div className="relative">
@@ -26,13 +26,13 @@ const Projects = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl font-bold mb-4">My Projects</h1>
+            <h1 className="text-4xl font-bold mb-4 text-center text-white mt-10">My Finished Projects</h1>
             <p className="text-secondary text-lg">
-              Here are some of the projects I've worked on
+              Here are some of the projects I&#39;ve worked on
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {finishedProjects.map((project, index) => (
               <motion.div
                 key={project.id}
@@ -46,7 +46,11 @@ const Projects = () => {
                 />
               </motion.div>
             ))}
-          </div>
+          </div> */}
+          <section>
+        {/* <h2 className="text-3xl font-bold mb-6 text-center"> Projects</h2> */}
+        <ProjectCard projects={finishedProjects} />
+      </section>
         </div>
       </motion.div>
     </div>

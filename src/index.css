@@ -132,7 +132,7 @@ body {
 }
 
 .dark .know-more-btn {
-  @apply text-white hover:text-[#98FF98];
+  @apply text-white hover:text-[#000000];
 }
 
 /* Custom Scrollbar */
@@ -231,12 +231,12 @@ body {
 }
 
 .namaste-text {
-  font-size: 2.5rem; /* Adjust this value as needed */
+  font-size: 1.0rem; /* Adjust this value as needed */
 }
 
-.hero-accent {
+/* .hero-accent {
   font-size: 4rem;
-}
+} */
 
 
 

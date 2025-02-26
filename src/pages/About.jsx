@@ -2,16 +2,18 @@ import { motion } from 'framer-motion';
 import { content } from '../data/content';
 import Education from '../components/Education';
 import Skill from '../components/Skill';
+import { useTheme } from '../context/ThemeContext';
 
 const About = () => {
   const { about } = content;
+  const { theme } = useTheme();
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen bg-primary text-white pt-20"
+      className={`min-h-screen bg-${theme} text-white pt-20`}
     >
       <div className="max-w-screen-lg mx-auto px-4">
         <motion.div

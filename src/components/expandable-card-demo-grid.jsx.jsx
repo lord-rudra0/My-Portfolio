@@ -2,7 +2,6 @@
 import { useEffect, useId, useRef, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { useOutsideClick } from "./hook/use-outside-click"
-import { useTheme } from '../context/ThemeContext'
 
 const CloseIcon = () => {
   return (
@@ -28,12 +27,11 @@ const CloseIcon = () => {
   )
 }
 
-export default function ProjectCard({ projects }) {
+export default function ExpandableCardDemo({ projects }) {
   const [active, setActive] = useState(null)
   const [hoveredCard, setHoveredCard] = useState(null)
   const id = useId()
   const ref = useRef(null)
-  const { theme } = useTheme()
 
   useEffect(() => {
     function onKeyDown(event) {
@@ -53,6 +51,10 @@ export default function ProjectCard({ projects }) {
   }, [active])
 
   useOutsideClick(ref, () => setActive(null))
+
+  if (!projects || projects.length === 0) {
+    return null
+  }
 
   return (
     <>
@@ -83,11 +85,11 @@ export default function ProjectCard({ projects }) {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className={`w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col ${theme === 'dark' ? 'bg-neutral-900' : 'bg-white'} sm:rounded-3xl overflow-hidden shadow-2xl relative z-20`}
+              className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden shadow-2xl relative z-20"
             >
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <img
-                  src={active.src || active.image}
+                  src={active.image || "/placeholder.svg"}
                   alt={active.title}
                   className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
                 />
@@ -98,13 +100,13 @@ export default function ProjectCard({ projects }) {
                   <div className="">
                     <motion.h3
                       layoutId={`title-${active.title}-${id}`}
-                      className={`font-medium ${theme === 'dark' ? 'text-neutral-200' : 'text-neutral-700'} text-base`}
+                      className="font-medium text-neutral-700 dark:text-neutral-200 text-base"
                     >
                       {active.title}
                     </motion.h3>
                     <motion.p
                       layoutId={`description-${active.description}-${id}`}
-                      className={`text-neutral-600 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'} text-base`}
+                      className="text-neutral-600 dark:text-neutral-400 text-base"
                     >
                       {active.description}
                     </motion.p>
@@ -116,7 +118,7 @@ export default function ProjectCard({ projects }) {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      href={active.ctaLink || active.demoUrl}
+                      href={active.demoUrl || active.ctaLink}
                       target="_blank"
                       rel="noreferrer"
                       className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white hover:bg-green-600 transition-colors duration-300"
@@ -128,7 +130,7 @@ export default function ProjectCard({ projects }) {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      href={active.githubRepo || active.codeUrl}
+                      href={`https://github.com/${active.githubRepo}`}
                       target="_blank"
                       rel="noreferrer"
                       className="px-4 py-3 text-sm rounded-full font-bold bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-300"
@@ -153,7 +155,7 @@ export default function ProjectCard({ projects }) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className={`text-neutral-600 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'} text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto`}
+                    className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400"
                   >
                     {active.content || active.longDescription}
                     {active.technologies && (
@@ -195,7 +197,7 @@ export default function ProjectCard({ projects }) {
                 duration: 0.3,
                 ease: "easeInOut",
               }}
-              className={`p-4 flex flex-col ${theme === 'dark' ? 'bg-neutral-900 hover:bg-[#5F6769] text-white hover:text-black' : 'bg-white hover:bg-neutral-900 text-black hover:text-white'} rounded-xl cursor-pointer transform-gpu`}
+              className="p-4 flex flex-col bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer transform-gpu"
             >
               <div className="flex gap-4 flex-col w-full">
                 <motion.div
@@ -204,7 +206,7 @@ export default function ProjectCard({ projects }) {
                 >
                   <motion.div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <img
-                    src={project.src || project.image}
+                    src={project.image || "/placeholder.svg"}
                     alt={project.title}
                     className="h-60 w-full rounded-lg object-cover object-top transform-gpu transition-transform duration-500 group-hover:scale-105"
                   />
@@ -212,13 +214,13 @@ export default function ProjectCard({ projects }) {
                 <div className="flex justify-center items-center flex-col">
                   <motion.h3
                     layoutId={`title-${project.title}-${id}`}
-                    className={`font-medium ${theme === 'dark' ? 'text-neutral-200 group-hover:text-black' : 'text-neutral-800 group-hover:text-white'} text-center md:text-left text-base transition-colors duration-300`}
+                    className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left text-base group-hover:text-primary transition-colors duration-300"
                   >
                     {project.title}
                   </motion.h3>
                   <motion.p
                     layoutId={`description-${project.description}-${id}`}
-                    className={`text-neutral-600 ${theme === 'dark' ? 'text-neutral-400 group-hover:text-black' : 'text-neutral-600 group-hover:text-white'} text-center md:text-left text-sm transition-colors duration-300`}
+                    className="text-neutral-600 dark:text-neutral-400 text-center md:text-left text-sm"
                   >
                     {project.description}
                   </motion.p>
