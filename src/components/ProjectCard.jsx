@@ -195,7 +195,7 @@ export default function ProjectCard({ projects }) {
                 duration: 0.3,
                 ease: "easeInOut",
               }}
-              className={`p-4 flex flex-col ${theme === 'dark' ? 'bg-neutral-900 hover:bg-[#5F6769] text-white hover:text-black' : 'bg-white hover:bg-neutral-900 text-black hover:text-white'} rounded-xl cursor-pointer transform-gpu`}
+              className={`p-4 flex flex-col ${theme === 'dark' ? 'bg-neutral-900 hover:bg-[#5F6769] text-white hover:text-black' : 'bg-white hover:bg-[#5F6769] text-black hover:text-white'} rounded-xl cursor-pointer transform-gpu`}
             >
               <div className="flex gap-4 flex-col w-full">
                 <motion.div
@@ -206,7 +206,7 @@ export default function ProjectCard({ projects }) {
                   <img
                     src={project.src || project.image}
                     alt={project.title}
-                    className="h-60 w-full rounded-lg object-cover object-top transform-gpu transition-transform duration-500 group-hover:scale-105"
+                    className="h-60 w-full rounded-lg object-cover object-top transform-gpu transition-transform duration-500 group-hover:scale-105 rounded-xl"
                   />
                 </motion.div>
                 <div className="flex justify-center items-center flex-col">
