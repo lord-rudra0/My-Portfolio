@@ -37,7 +37,7 @@ const Navbar = () => {
   return (
     <motion.div 
       style={{ height: headerHeight }}
-      className="flex flex-col justify-center items-center w-full fixed z-50 theme-transition mt-4"
+      className="flex flex-col justify-center items-center w-full fixed z-50 theme-transition mt-6"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}

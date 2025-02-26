@@ -98,7 +98,7 @@ export default function ProjectCard({ projects }) {
                   <div className="">
                     <motion.h3
                       layoutId={`title-${active.title}-${id}`}
-                      className={`font-medium ${theme === 'dark' ? 'text-neutral-200' : 'text-neutral-700'} text-base`}
+                      className={`font-medium ${theme === 'dark' ? 'text-white' : 'text-black'} text-base`}
                     >
                       {active.title}
                     </motion.h3>
@@ -195,7 +195,7 @@ export default function ProjectCard({ projects }) {
                 duration: 0.3,
                 ease: "easeInOut",
               }}
-              className={`p-4 flex flex-col ${theme === 'dark' ? 'bg-neutral-900 hover:bg-[#5F6769] text-white hover:text-black' : 'bg-white hover:bg-[#5F6769] text-black hover:text-white'} rounded-xl cursor-pointer transform-gpu`}
+              className={`p-4 flex flex-col ${theme === 'dark' ? 'bg-neutral-900 hover:bg-[#000000] text-white hover:text-white' : 'bg-[#F4F4F4] hover:bg-[#FFFDBB] text-black hover:text-black'} rounded-xl cursor-pointer transform-gpu`}
             >
               <div className="flex gap-4 flex-col w-full">
                 <motion.div
@@ -212,13 +212,13 @@ export default function ProjectCard({ projects }) {
                 <div className="flex justify-center items-center flex-col">
                   <motion.h3
                     layoutId={`title-${project.title}-${id}`}
-                    className={`font-medium ${theme === 'dark' ? 'text-neutral-200 group-hover:text-black' : 'text-neutral-800 group-hover:text-white'} text-center md:text-left text-base transition-colors duration-300`}
+                    className={`font-medium ${theme === 'dark' ? 'text-white' : 'text-black'} text-center md:text-left text-base transition-colors duration-300`}
                   >
                     {project.title}
                   </motion.h3>
                   <motion.p
                     layoutId={`description-${project.description}-${id}`}
-                    className={`text-neutral-600 ${theme === 'dark' ? 'text-neutral-400 group-hover:text-black' : 'text-neutral-600 group-hover:text-white'} text-center md:text-left text-sm transition-colors duration-300`}
+                    className={`text-neutral-600 ${theme === 'dark' ? 'text-white group-hover:text-white' : 'text-neutral-600 group-hover:text-neutral-600'} text-center md:text-left text-sm transition-colors duration-300`}
                   >
                     {project.description}
                   </motion.p>

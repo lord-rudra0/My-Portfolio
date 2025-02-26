@@ -54,6 +54,7 @@ const Home = () => {
         viewport={{ once: true }}
         variants={sectionVariants}
       >
+      <h2 className="text-4xl font-bold text-white mb-0 text-center">Skills</h2>
         <Skill />
       </motion.section>
 
@@ -72,6 +73,7 @@ const Home = () => {
         viewport={{ once: true }}
         variants={sectionVariants}
       >
+      <h2 className="text-4xl font-bold text-white mb-0 text-center">On Going Projects</h2>
         <ProjectCard projects={currentProjects} />
       </motion.section>
 

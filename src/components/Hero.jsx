@@ -4,7 +4,7 @@ import { content } from '../data/content';
 // import { Link } from 'react-router-dom';
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { WordRotate } from './ui/WordRotate';
-// import {  TypingAnimation } from './magicui/typing-animation';
+import   TypingAnimation  from './magicui/typing-animation';
 
 const Hero = () => {
   const { scrollY } = useScroll();
@@ -40,7 +40,11 @@ const Hero = () => {
             <h2 className="text-5xl md:text-7xl font-bold leading-tight mb-1 ">
 
               <span className="namaste-text hero-accent">🙏Namaste! </span>
-              <span className="hero-heading" >Rudra
+              <TypingAnimation className="hero-heading">
+                Rudra Pratap Singh,
+                Here
+              </TypingAnimation>
+              {/* <span className="hero-heading" >Rudra
               <span className="mx-2" />
                <spam className="hero-accent"> Pratap </spam>
                <span className="mx-2" />
@@ -50,7 +54,7 @@ const Hero = () => {
                here  </spam>
                <span className="mx-2" />
                 <span className="mx-2" />
-               <span className="mx-2" /></span>
+               <span className="mx-2" /></span> */}
                <div className="flex items-center">
                      <span className="hero-heading">I am a</span>
                    <div className="mx- w-[220px] text-center">
@@ -58,7 +62,7 @@ const Hero = () => {
                    </div>
                     <span className="hero-heading">Developer</span>
                 </div>
-                {/* <TypingAnimation>Typing Animation</TypingAnimation>; */}
+                
             </h2>
           </motion.div>
          

@@ -1,13 +1,7 @@
 export const content = {
   about: {
-    shortBio: `I am a passionate web developer driven by problem-solving and a deep love for mathematics.
-               I thrive on building end-to-end solutions that are scalable, sustainable, and impactful, blending technical innovation with social responsibility.`,
-    fullBio: `I am a passionate web and app developer currently studying Computer Science at Amal Jyothi College of Engineering. 
-              My goal is to create user-centered solutions that are both functional and visually appealing. 
-              I hold a B.Sc. in Mathematics and Physics from Awadh University, Ayodhya.
-              With a strong foundation in programming, problem-solving, mathematics, and Physics,
-               I am always eager to learn new technologies to enhance my skills.
-               .`,
+    shortBio: `I am a passionate web developer driven by problem-solving and a deep love for mathematics.I thrive on building end-to-end solutions that are scalable, sustainable, and impactful, blending technical innovation with social responsibility.`,
+    fullBio: `I am a passionate web and app developer currently studying Computer Science at Amal Jyothi College of Engineering.My goal is to create user-centered solutions that are both functional and visually appealing.I hold a B.Sc. in Mathematics and Physics from Awadh University, Ayodhya.With a strong foundation in programming, problem-solving, mathematics, and Physics,I am always eager to learn new technologies to enhance my skills.`,
     experience: [
       {
         title: "Senior Full Stack Developer",
