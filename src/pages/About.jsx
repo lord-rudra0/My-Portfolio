@@ -4,6 +4,7 @@ import Education from '../components/Education';
 import Skill from '../components/Skill';
 import { useTheme } from '../context/ThemeContext';
 import BlurText from '../components/ui/ScrollFloat';
+import { VelocityScroll } from "../components/magicui/scroll-based-velocity"
 
 const About = () => {
   const { theme } = useTheme();
@@ -31,41 +32,58 @@ const About = () => {
                 className={`text-2xl mb-8 text-center ${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'}`}
               /> 
 
-          {/* <div className="text-secondary text-lg space-y-6">
-            {about.fullBio.split('\n\n').map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
-          </div> */}
         </motion.div>
+
+        
 
         <Education />
 
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl font-bold mb-6">Experience</h2>
-          <div className="space-y-8">
-            {about.experience.map((exp, index) => (
-              <motion.div 
-                key={index} 
-                className="border-l-2 border-blue-600 pl-6"
-                whileHover={{ x: 10 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <h3 className="text-xl font-bold">{exp.title}</h3>
-                <p className="text-secondary">{exp.company} | {exp.period}</p>
-                <p className="mt-2">{exp.description}</p>
-              </motion.div>
-            ))}
+        <div className="mt-20">
+          <h1 className="text-4xl font-bold mb-12 text-center text-white">Skills</h1>
+          <div className="relative flex w-full flex-col items-center justify-center overflow-hidden mb-16">
+          <div className="w-full flex flex-col gap-[2px]">
+            {/* Top animated line */}
+            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse"></div>
+
+            <VelocityScroll numRows={1} defaultVelocity={0.5}>
+              <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl`}>
+                Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
+                Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
+                NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
+                TensorFlow ✧ Git ✧ GitHub ✧ Unity ✧ Postman ✧ Docker
+              </span>
+            </VelocityScroll>
+
+            {/* Bottom animated line */}
+            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse"></div>
           </div>
-        </motion.div> */}
 
-        <h1 className="text-4xl font-bold mb-8 text-center mt-16 text-white">Skills</h1>
+          <div className="w-full mt-16">
+          <Skill />
+          </div>
 
-        <Skill />
+          <div className="w-full flex flex-col gap-[2px] mt-16">
+            {/* Top animated line */}
+            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse"></div>
+
+            <VelocityScroll numRows={1} defaultVelocity={-0.5}>
+              <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl`}>
+                Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
+                Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
+                NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
+                TensorFlow ✧ Git ✧ GitHub ✧ Unity ✧ Postman ✧ Docker
+              </span>
+            </VelocityScroll>
+
+            {/* Bottom animated line */}
+            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse"></div>
+          </div>
+
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
+        </div>
+         
+        </div>
       </div>
     </motion.div>
   );

@@ -3,6 +3,7 @@ import { useEffect, useId, useRef, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { useOutsideClick } from "./hook/use-outside-click"
 import { useTheme } from '../context/ThemeContext'
+import PropTypes from 'prop-types'
 
 const CloseIcon = () => {
   return (
@@ -178,8 +179,8 @@ export default function ProjectCard({ projects }) {
       <ul className="max-w-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-4 p-4">
         {projects.map((project) => (
           <motion.div
-            layoutId={`card-${project.title}-${id}`}
-            key={project.title}
+            layoutId={`card-${project.id}-${id}`}
+            key={project.id}
             onClick={() => setActive(project)}
             onHoverStart={() => setHoveredCard(project.title)}
             onHoverEnd={() => setHoveredCard(null)}
@@ -199,7 +200,7 @@ export default function ProjectCard({ projects }) {
             >
               <div className="flex gap-4 flex-col w-full">
                 <motion.div
-                  layoutId={`image-${project.title}-${id}`}
+                  layoutId={`image-${project.id}-${id}`}
                   className="relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-300"
                 >
                   <motion.div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -211,13 +212,13 @@ export default function ProjectCard({ projects }) {
                 </motion.div>
                 <div className="flex justify-center items-center flex-col">
                   <motion.h3
-                    layoutId={`title-${project.title}-${id}`}
+                    layoutId={`title-${project.id}-${id}`}
                     className={`font-medium ${theme === 'dark' ? 'text-white' : 'text-black'} text-center md:text-left text-base transition-colors duration-300`}
                   >
                     {project.title}
                   </motion.h3>
                   <motion.p
-                    layoutId={`description-${project.description}-${id}`}
+                    layoutId={`description-${project.id}-${id}`}
                     className={`text-neutral-600 ${theme === 'dark' ? 'text-white group-hover:text-white' : 'text-neutral-600 group-hover:text-neutral-600'} text-center md:text-left text-sm transition-colors duration-300`}
                   >
                     {project.description}
@@ -231,4 +232,21 @@ export default function ProjectCard({ projects }) {
     </>
   )
 }
+
+ProjectCard.propTypes = {
+  projects: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      longDescription: PropTypes.string,
+      technologies: PropTypes.arrayOf(PropTypes.string),
+      image: PropTypes.string,
+      src: PropTypes.string,
+      demoUrl: PropTypes.string,
+      codeUrl: PropTypes.string,
+      status: PropTypes.string
+    })
+  ).isRequired
+};
 
