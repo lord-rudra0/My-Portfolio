@@ -3,9 +3,9 @@ import { content } from '../data/content';
 import Education from '../components/Education';
 import Skill from '../components/Skill';
 import { useTheme } from '../context/ThemeContext';
+import BlurText from '../components/ui/ScrollFloat';
 
 const About = () => {
-  const { about } = content;
   const { theme } = useTheme();
 
   return (
@@ -22,17 +22,25 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <h1 className="text-4xl font-bold mb-8">About Me</h1>
-          <div className="text-secondary text-lg space-y-6">
+          <h1 className="text-4xl font-bold mb-8 text-center mt-16 text-white">About Me</h1>
+          <BlurText
+                text={content.about.fullBio}
+                delay={150}
+                animateBy="words"
+                direction="top"
+                className={`text-2xl mb-8 text-center ${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'}`}
+              /> 
+
+          {/* <div className="text-secondary text-lg space-y-6">
             {about.fullBio.split('\n\n').map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
-          </div>
+          </div> */}
         </motion.div>
 
         <Education />
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -53,7 +61,9 @@ const About = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
+
+        <h1 className="text-4xl font-bold mb-8 text-center mt-16 text-white">Skills</h1>
 
         <Skill />
       </div>

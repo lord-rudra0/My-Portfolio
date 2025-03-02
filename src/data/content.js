@@ -25,10 +25,10 @@ export const content = {
       description: "Currently pursuing Computer Science with focus on software development, data structures, algorithms, and modern web technologies."
     },
     {
-      degree: "Web Development Bootcamp",
-      school: "Code Academy",
-      year: "2013",
-      description: "Intensive 12-week program covering full-stack web development."
+      degree: "Full Stack Web Development",
+      school: "Udemy",
+      year: "2024",
+      description: "Intensive Web Development program covering full-stack web development."
     }
   ],
   skills: [

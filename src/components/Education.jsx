@@ -1,5 +1,7 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { content } from '../data/content';
+import { useRef } from 'react';
+import PropTypes from 'prop-types';
 
 const TimelineItem = ({ item, index, side = 'left' }) => {
   return (
@@ -23,8 +25,7 @@ const TimelineItem = ({ item, index, side = 'left' }) => {
       </motion.div>
 
       <div className="relative flex items-center justify-center">
-        <div className="w-4 h-4 bg-blue-500 rounded-full"></div>
-        <div className="absolute w-1 h-full bg-blue-500 opacity-20"></div>
+        <div className="w-4 h-4 bg-blue-500 rounded-full z-10"></div>
       </div>
 
       <div className="w-full md:w-1/2"></div>
@@ -32,9 +33,35 @@ const TimelineItem = ({ item, index, side = 'left' }) => {
   );
 };
 
+TimelineItem.propTypes = {
+  item: PropTypes.shape({
+    degree: PropTypes.string.isRequired,
+    school: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
+    description: PropTypes.string
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+  side: PropTypes.oneOf(['left', 'right'])
+};
+
 const Education = () => {
+  const sectionRef = useRef(null);
+  const ref = useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+    container: sectionRef
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   return (
-    <section className="py-20 bg-primary">
+    <section ref={sectionRef} className="py-20 bg-primary overflow-hidden">
       <div className="max-w-screen-lg mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -46,7 +73,31 @@ const Education = () => {
           <p className="text-secondary">My academic journey and achievements</p>
         </motion.div>
 
-        <div className="relative">
+        <div ref={ref} className="relative">
+          {/* Animated Timeline Line */}
+          <motion.div
+            className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500/20 via-blue-500/50 to-blue-500/20"
+            style={{
+              scaleY,
+              transformOrigin: "top"
+            }}
+          >
+            {/* Shine Effect */}
+            <motion.div
+              className="absolute top-0 left-0 w-full h-[200%] bg-gradient-to-b from-transparent via-blue-400 to-transparent"
+              initial={{ y: "-100%" }}
+              animate={{
+                y: ["0%", "100%"],
+              }}
+              transition={{
+                repeat: Infinity,
+                duration: 3,
+                ease: "easeInOut",
+                repeatDelay: 0.5
+              }}
+            />
+          </motion.div>
+
           {content.education.map((item, index) => (
             <TimelineItem 
               key={index} 

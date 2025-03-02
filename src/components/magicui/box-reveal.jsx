@@ -1,6 +1,7 @@
-"use client";;
+"use client";
 import { motion, useAnimation, useInView } from "motion/react";
 import { useEffect, useRef } from "react";
+import PropTypes from 'prop-types';
 
 export const BoxReveal = ({
   children,
@@ -55,4 +56,11 @@ export const BoxReveal = ({
         }} />
     </div>)
   );
+};
+
+BoxReveal.propTypes = {
+  children: PropTypes.node.isRequired,
+  width: PropTypes.string,
+  boxColor: PropTypes.string,
+  duration: PropTypes.number
 };
