@@ -6,6 +6,7 @@ import { useTheme } from '../context/ThemeContext';
 import BlurText from '../components/ui/ScrollFloat';
 import { VelocityScroll } from "../components/magicui/scroll-based-velocity"
 import ContactCTA from '../components/ContactCTA';
+// import { TextReveal } from '../components/ui/text-reveal';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },

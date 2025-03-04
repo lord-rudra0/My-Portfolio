@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 
 const BlurText = ({
   text = '',
-  delay = 200,
+  delay = 50,
   className = '',
   animateBy = 'words', // 'words' or 'letters'
   direction = 'top', // 'top' or 'bottom'
   threshold = 0.1,
-  rootMargin = '0px',
+  rootMargin = '-20px',
   animationFrom,
   animationTo,
-  easing = 'easeOutCubic',
+  easing = 'easeOutQuad',
   onAnimationComplete,
 }) => {
   const elements = animateBy === 'words' ? text.split(' ') : text.split('');
@@ -22,15 +22,10 @@ const BlurText = ({
 
   const defaultFrom =
     direction === 'top'
-      ? { filter: 'blur(10px)', opacity: 0, transform: 'translate3d(0,-50px,0)' }
-      : { filter: 'blur(10px)', opacity: 0, transform: 'translate3d(0,50px,0)' };
+      ? { filter: 'blur(5px)', opacity: 0, transform: 'translate3d(0,-30px,0)' }
+      : { filter: 'blur(5px)', opacity: 0, transform: 'translate3d(0,30px,0)' };
 
   const defaultTo = [
-    {
-      filter: 'blur(5px)',
-      opacity: 0.5,
-      transform: direction === 'top' ? 'translate3d(0,5px,0)' : 'translate3d(0,-5px,0)',
-    },
     { filter: 'blur(0px)', opacity: 1, transform: 'translate3d(0,0,0)' },
   ];
 
@@ -57,7 +52,14 @@ const BlurText = ({
       to: inView
         ? async (next) => {
           for (const step of (animationTo || defaultTo)) {
-            await next(step);
+            await next({
+              ...step,
+              config: { 
+                tension: 400,
+                friction: 26,
+                easing 
+              }
+            });
           }
           animatedCount.current += 1;
           if (animatedCount.current === elements.length && onAnimationComplete) {
@@ -66,7 +68,11 @@ const BlurText = ({
         }
         : animationFrom || defaultFrom,
       delay: i * delay,
-      config: { easing },
+      config: { 
+        tension: 400,
+        friction: 26,
+        easing 
+      },
     }))
   );
 

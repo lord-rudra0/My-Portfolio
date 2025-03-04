@@ -41,10 +41,11 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
-        <div className="relative z-0 bg-primary transition-colors duration-300 dark:bg-primary light:bg-white">
-        
+        <div className="flex flex-col min-h-screen relative z-0 bg-primary transition-colors duration-300 dark:bg-black light:bg-white">
           <Navbar />
-          <AnimatedRoutes />
+          <main className="flex-grow">
+            <AnimatedRoutes />
+          </main>
           <Footer />
           <ScrollToTop />
         </div>

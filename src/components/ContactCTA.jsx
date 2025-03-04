@@ -1,18 +1,14 @@
 import { motion } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { InteractiveHoverButton } from './magicui/interactive-hover-button';
 import { useTheme } from '../context/ThemeContext';
 
 const ContactCTA = () => {
-  const location = useLocation();
   const { theme } = useTheme();
-  const isContactPage = location.pathname === '/contact';
-  const isAboutPage = location.pathname === '/about';
-  const useWiderWidth = isContactPage || isAboutPage;
   
   return (
     <section className="py-10">
-      <div className={`${useWiderWidth ? 'max-w-5xl' : 'max-w-3xl'} mx-auto px-4`}>
+      <div className="max-w-6xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -26,8 +22,8 @@ const ContactCTA = () => {
             Have a project in mind? Let&apos;s discuss how we can bring your ideas to life.
           </p>
           <div className="flex justify-center">
-            <InteractiveHoverButton className={`know-more-btn inline-flex items-center transition-all duration-300 ${theme === 'dark' ? 'bg-blue-900/50 hover:bg-blue-800' : 'bg-blue-100 hover:bg-blue-200'} px-6 py-3 rounded-full backdrop-blur-sm`}>
-              <Link to="/contact" className={`${theme === 'dark' ? 'text-white' : 'text-gray-900'} font-medium`}>
+            <InteractiveHoverButton className={`know-more-btn inline-flex items-center transition-all duration-300  px-6 py-3 rounded-full backdrop-blur-sm`}>
+              <Link to="/contact" className={`font-medium`}>
                 Get in Touch
               </Link>
             </InteractiveHoverButton>

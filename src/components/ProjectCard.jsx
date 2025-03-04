@@ -84,7 +84,7 @@ export default function ProjectCard({ projects }) {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className={`w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col ${theme === 'dark' ? 'bg-gray-800/50' : 'bg-white'} sm:rounded-3xl overflow-hidden shadow-2xl relative z-20`}
+              className={`w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col ${theme === 'dark' ? 'bg-neutral-900' : 'bg-white'} sm:rounded-3xl overflow-hidden shadow-2xl relative z-20`}
             >
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <img
@@ -176,7 +176,7 @@ export default function ProjectCard({ projects }) {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="max-w-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-4 p-4">
+      <ul className="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-8 p-4 [&>*:nth-child(even)]:md:mt-10">
         {projects.map((project) => (
           <motion.div
             layoutId={`card-${project.id}-${id}`}
@@ -196,7 +196,7 @@ export default function ProjectCard({ projects }) {
                 duration: 0.3,
                 ease: "easeInOut",
               }}
-              className={`p-4 flex flex-col ${theme === 'dark' ? 'bg-gray-800/50 hover:bg-[#000000] text-white hover:text-white' : 'bg-[#F4F4F4] hover:bg-[#FFFDBB] text-black hover:text-black'} rounded-xl cursor-pointer transform-gpu`}
+              className={`p-4 flex flex-col ${theme === 'dark' ? 'bg-gray-800/50 hover:bg-gray-900 text-white hover:text-white' : 'bg-[#F4F4F4] hover:bg-[#FFFDBB] text-black hover:text-black'} rounded-xl cursor-pointer transform-gpu shadow-lg hover:shadow-xl transition-all duration-300`}
             >
               <div className="flex gap-4 flex-col w-full">
                 <motion.div
@@ -207,25 +207,17 @@ export default function ProjectCard({ projects }) {
                   <img
                     src={project.src || project.image}
                     alt={project.title}
-                    className="h-60 w-full rounded-lg object-cover object-top transform-gpu transition-transform duration-500 group-hover:scale-105 rounded-xl"
+                    className="w-full h-72 rounded-lg object-cover object-top transform-gpu transition-transform duration-500 group-hover:scale-105 rounded-xl"
                   />
                 </motion.div>
-                <div className="flex justify-center items-center flex-col">
-                  <motion.h3
-                    layoutId={`title-${project.id}-${id}`}
-                    className={`font-medium ${theme === 'dark' ? 'text-white' : 'text-black'} text-center md:text-left text-base transition-colors duration-300`}
-                  >
-                    {project.title}
-                  </motion.h3>
-                  <motion.p
-                    layoutId={`description-${project.id}-${id}`}
-                    className={`text-neutral-600 ${theme === 'dark' ? 'text-white group-hover:text-white' : 'text-neutral-600 group-hover:text-neutral-600'} text-center md:text-left text-sm transition-colors duration-300`}
-                  >
-                    {project.description}
-                  </motion.p>
-                </div>
               </div>
             </motion.div>
+            <motion.h3
+              layoutId={`title-${project.title}-${id}`}
+              className={`font-medium ${theme === 'dark' ? 'text-white' : 'text-black'} text-center text-xl mt-4 transition-colors duration-300`}
+            >
+              {project.title}
+            </motion.h3>
           </motion.div>
         ))}
       </ul>
