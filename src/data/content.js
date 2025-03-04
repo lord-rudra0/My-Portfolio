@@ -116,7 +116,9 @@ export const content = {
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com"
+      twitter: "https://twitter.com",
+      instagram: "https://instagram.com",
+      whatsapp: "https://wa.me/1234567890"
     }
   }
 };

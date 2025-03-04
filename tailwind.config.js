@@ -65,7 +65,9 @@ export default {
   		},
   		animation: {
   			shine: 'shine var(--duration) infinite linear',
-  			'background-position-spin': 'background-position-spin 3000ms infinite alternate'
+  			'background-position-spin': 'background-position-spin 3000ms infinite alternate',
+        'borderFlow': 'borderFlow 3s linear infinite',
+        'runningLine': 'runningLine 2s linear infinite'
   		},
   		keyframes: {
   			shine: {
@@ -86,7 +88,23 @@ export default {
   				'100%': {
   					backgroundPosition: 'bottom center'
   				}
-  			}
+  			},
+        'borderFlow': {
+          '0%': {
+            transform: 'translateX(-100%)'
+          },
+          '100%': {
+            transform: 'translateX(100%)'
+          }
+        },
+        'runningLine': {
+          '0%': {
+            transform: 'translateX(-100%) rotate(45deg)'
+          },
+          '100%': {
+            transform: 'translateX(100%) rotate(45deg)'
+          }
+        }
   		}
   	}
   },

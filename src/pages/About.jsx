@@ -25,64 +25,57 @@ const About = () => {
         >
           <h1 className="text-4xl font-bold mb-8 text-center mt-16 text-white">About Me</h1>
           <BlurText
-                text={content.about.fullBio}
-                delay={150}
-                animateBy="words"
-                direction="top"
-                className={`text-2xl mb-8 text-center ${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'}`}
-              /> 
-
+            text={content.about.fullBio}
+            delay={150}
+            animateBy="words"
+            direction="top"
+            className={`text-2xl mb-8 text-center ${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'}`}
+          />
         </motion.div>
-
-        
 
         <Education />
 
         <div className="mt-20">
           <h1 className="text-4xl font-bold mb-12 text-center text-white">Skills</h1>
           <div className="relative flex w-full flex-col items-center justify-center overflow-hidden mb-16">
-          <div className="w-full flex flex-col gap-[2px]">
-            {/* Top animated line */}
-            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse"></div>
+            <div className="w-full flex flex-col gap-[2px]">
+              {/* Top animated line */}
+              <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse"></div>
 
-            <VelocityScroll numRows={1} defaultVelocity={0.5}>
-              <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl`}>
-                Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
-                Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
-                NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
-                TensorFlow ✧ Git ✧ GitHub ✧ Unity ✧ Postman ✧ Docker
-              </span>
-            </VelocityScroll>
+              <VelocityScroll numRows={1} defaultVelocity={0.5}>
+                <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl`}>
+                  Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
+                  Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
+                  NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
+                  TensorFlow ✧ Git ✧ GitHub ✧ Unity ✧ Postman ✧ Docker
+                </span>
+              </VelocityScroll>
 
-            {/* Bottom animated line */}
-            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse"></div>
+              {/* Bottom animated line */}
+              <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse"></div>
+            </div>
+
+            <div className="w-full mt-16">
+              <Skill />
+            </div>
+
+            <div className="w-full flex flex-col gap-[2px] mt-16">
+              {/* Top animated line */}
+              <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse"></div>
+
+              <VelocityScroll numRows={1} defaultVelocity={-0.5}>
+                <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl`}>
+                  Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
+                  Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
+                  NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
+                  TensorFlow ✧ Git ✧ GitHub ✧ Unity ✧ Postman ✧ Docker
+                </span>
+              </VelocityScroll>
+
+              {/* Bottom animated line */}
+              <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse"></div>
+            </div>
           </div>
-
-          <div className="w-full mt-16">
-          <Skill />
-          </div>
-
-          <div className="w-full flex flex-col gap-[2px] mt-16">
-            {/* Top animated line */}
-            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse"></div>
-
-            <VelocityScroll numRows={1} defaultVelocity={-0.5}>
-              <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl`}>
-                Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
-                Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
-                NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
-                TensorFlow ✧ Git ✧ GitHub ✧ Unity ✧ Postman ✧ Docker
-              </span>
-            </VelocityScroll>
-
-            {/* Bottom animated line */}
-            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse"></div>
-          </div>
-
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
-        </div>
-         
         </div>
       </div>
     </motion.div>
