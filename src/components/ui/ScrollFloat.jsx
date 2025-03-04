@@ -17,17 +17,30 @@ const BlurText = ({
 }) => {
   const elements = animateBy === 'words' ? text.split(' ') : text.split('');
   const [inView, setInView] = useState(false);
+  const [initialRender, setInitialRender] = useState(true);
   const ref = useRef();
   const animatedCount = useRef(0);
 
+  // Initial state - all text visible but blurred
+  const initialState = { 
+    filter: 'blur(2.5px)', 
+    opacity: 0.7, 
+    transform: 'translate3d(0,0,0)' 
+  };
+
   const defaultFrom =
     direction === 'top'
-      ? { filter: 'blur(5px)', opacity: 0, transform: 'translate3d(0,-30px,0)' }
-      : { filter: 'blur(5px)', opacity: 0, transform: 'translate3d(0,30px,0)' };
+      ? { ...initialState, transform: 'translate3d(0,-10px,0)' }
+      : { ...initialState, transform: 'translate3d(0,10px,0)' };
 
   const defaultTo = [
     { filter: 'blur(0px)', opacity: 1, transform: 'translate3d(0,0,0)' },
   ];
+
+  // Set initial render to false after component mounts
+  useEffect(() => {
+    setInitialRender(false);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -48,9 +61,15 @@ const BlurText = ({
   const springs = useSprings(
     elements.length,
     elements.map((_, i) => ({
-      from: animationFrom || defaultFrom,
+      // Start with all text visible but blurred
+      from: initialRender ? initialState : (animationFrom || defaultFrom),
       to: inView
         ? async (next) => {
+          // If it's the initial render, wait a moment before starting animations
+          if (initialRender) {
+            await new Promise(resolve => setTimeout(resolve, 300));
+          }
+          
           for (const step of (animationTo || defaultTo)) {
             await next({
               ...step,
@@ -66,8 +85,9 @@ const BlurText = ({
             onAnimationComplete();
           }
         }
-        : animationFrom || defaultFrom,
-      delay: i * delay,
+        : initialRender ? initialState : (animationFrom || defaultFrom),
+      // Only apply sequential delay after initial render
+      delay: initialRender ? 0 : i * delay,
       config: { 
         tension: 400,
         friction: 26,
