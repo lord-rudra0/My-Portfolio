@@ -35,12 +35,22 @@ const Hero = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.8 }}
           >
             <h2 className="text-5xl md:text-7xl font-bold leading-tight mb-1 ">
-
-              <span className="namaste-text hero-accent">🙏Namaste! </span>
-              <TypingAnimation className="hero-heading">
+              <motion.span 
+                className="namaste-text hero-accent"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+              >
+                🙏Namaste!{" "}
+              </motion.span>
+              <TypingAnimation 
+                className="hero-heading"
+                delay={300}
+                duration={150}
+              >
                 Rudra Pratap Singh,
                 Here
               </TypingAnimation>

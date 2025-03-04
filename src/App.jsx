@@ -11,13 +11,14 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
-
+import ScrollToTopOnMount from './components/ScrollToTopOnMount';
 
 function AnimatedRoutes() {
   const location = useLocation();
 
   return (
     <AnimatePresence mode="wait">
+      <ScrollToTopOnMount />
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
