@@ -84,7 +84,7 @@ export default function ProjectCard({ projects }) {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className={`w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col ${theme === 'dark' ? 'bg-neutral-900' : 'bg-white'} sm:rounded-3xl overflow-hidden shadow-2xl relative z-20`}
+              className={`w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col ${theme === 'dark' ? 'bg-gray-800/50' : 'bg-white'} sm:rounded-3xl overflow-hidden shadow-2xl relative z-20`}
             >
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <img
@@ -196,7 +196,7 @@ export default function ProjectCard({ projects }) {
                 duration: 0.3,
                 ease: "easeInOut",
               }}
-              className={`p-4 flex flex-col ${theme === 'dark' ? 'bg-neutral-900 hover:bg-[#000000] text-white hover:text-white' : 'bg-[#F4F4F4] hover:bg-[#FFFDBB] text-black hover:text-black'} rounded-xl cursor-pointer transform-gpu`}
+              className={`p-4 flex flex-col ${theme === 'dark' ? 'bg-gray-800/50 hover:bg-[#000000] text-white hover:text-white' : 'bg-[#F4F4F4] hover:bg-[#FFFDBB] text-black hover:text-black'} rounded-xl cursor-pointer transform-gpu`}
             >
               <div className="flex gap-4 flex-col w-full">
                 <motion.div

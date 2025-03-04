@@ -165,24 +165,24 @@ const Contact = () => {
 
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
         className={`min-h-screen bg-primary ${textColor} py-20`}
-      >
-        <div className="max-w-screen-lg mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+    >
+      <div className="max-w-screen-lg mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
             className="text-center mb-20"
           >
             <h1 className={`text-4xl font-bold mb-6 mt-16 ${textColor}`}>Get in Touch</h1>
             <p className={`text-lg max-w-2xl mx-auto ${secondaryTextColor}`}>
               I&apos;m always open to new opportunities and collaborations
-            </p>
-          </motion.div>
+          </p>
+        </motion.div>
 
           {/* Server Status Indicator */}
           {/* <motion.div
@@ -238,8 +238,8 @@ const Contact = () => {
                       I&apos;m currently available for freelance projects and full-time opportunities. 
                       Let&apos;s discuss how we can work together to bring your ideas to life.
                     </p>
-                  </div>
-                </div>
+              </div>
+            </div>
               </motion.div>
 
               {/* Social Links */}
@@ -256,8 +256,8 @@ const Contact = () => {
                     <motion.a
                       key={social}
                       href={contact.social[social]}
-                      target="_blank"
-                      rel="noreferrer"
+                  target="_blank"
+                  rel="noreferrer"
                       className={`group relative overflow-hidden rounded-xl ${inputBgColor} border-2 ${borderColor}
                         hover:border-[var(--color-accent)] transition-all duration-300`}
                       whileHover={{ y: -5 }}
@@ -282,8 +282,8 @@ const Contact = () => {
                     <motion.a
                       key={social}
                       href={contact.social[social]}
-                      target="_blank"
-                      rel="noreferrer"
+                  target="_blank"
+                  rel="noreferrer"
                       className={`group relative overflow-hidden rounded-xl ${inputBgColor} border-2 ${borderColor}
                         hover:border-[var(--color-accent)] transition-all duration-300`}
                       whileHover={{ y: -5 }}
@@ -298,11 +298,11 @@ const Contact = () => {
                         <span className={`text-sm font-medium capitalize ${secondaryTextColor} group-hover:${accentColor} transition-colors duration-300`}>
                           {social}
                         </span>
-                      </div>
+              </div>
                     </motion.a>
                   ))}
-                </div>
-              </motion.div>
+            </div>
+          </motion.div>
             </motion.div>
 
             {/* Contact Form */}
@@ -317,8 +317,8 @@ const Contact = () => {
                 <FaPaperPlane className="text-2xl" />
                 Send me a Message
               </h2>
-              
-              <motion.div
+
+          <motion.div
                 custom={1}
                 variants={inputVariants}
                 initial="hidden"
@@ -333,7 +333,7 @@ const Contact = () => {
                     ${borderColor}`}
                 />
                 <AnimatePresence>
-                  {errors.name && (
+                {errors.name && (
                     <motion.p
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -361,7 +361,7 @@ const Contact = () => {
                     ${borderColor}`}
                 />
                 <AnimatePresence>
-                  {errors.email && (
+                {errors.email && (
                     <motion.p
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -389,7 +389,7 @@ const Contact = () => {
                     ${borderColor}`}
                 />
                 <AnimatePresence>
-                  {errors.message && (
+                {errors.message && (
                     <motion.p
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -447,7 +447,7 @@ const Contact = () => {
                 )}
               </AnimatePresence>
             </motion.form>
-          </div>
+              </div>
 
           {/* Contact Information Section */}
           <motion.div
@@ -543,15 +543,15 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`${secondaryTextColor} hover:text-green-600 dark:hover:text-green-400 leading-relaxed text-base transition-colors duration-300`}
-                  >
-                    Send Message
+              >
+                Send Message
                   </a>
                 </div>
               </motion.div>
             </div>
           </motion.div>
-        </div>
-      </motion.div>
+      </div>
+    </motion.div>
 
       <motion.section
         initial="hidden"
