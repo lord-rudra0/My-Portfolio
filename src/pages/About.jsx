@@ -5,6 +5,16 @@ import Skill from '../components/Skill';
 import { useTheme } from '../context/ThemeContext';
 import BlurText from '../components/ui/ScrollFloat';
 import { VelocityScroll } from "../components/magicui/scroll-based-velocity"
+import ContactCTA from '../components/ContactCTA';
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6 }
+  }
+};
 
 const About = () => {
   const { theme } = useTheme();
@@ -78,6 +88,15 @@ const About = () => {
           </div>
         </div>
       </div>
+
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
+      >
+        <ContactCTA />
+      </motion.section>
     </motion.div>
   );
 };

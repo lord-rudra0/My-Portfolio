@@ -1,7 +1,18 @@
 import { motion } from 'framer-motion';
 import { content } from '../data/content';
 import ProjectCard from '../components/ProjectCard';
+import ContactCTA from '../components/ContactCTA';
 // import { useState } from 'react';
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6 }
+  }
+};
+
 
 const Projects = () => {
   // const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -48,9 +59,18 @@ const Projects = () => {
             ))}
           </div> */}
           <section>
-        {/* <h2 className="text-3xl font-bold mb-6 text-center"> Projects</h2> */}
-        <ProjectCard projects={finishedProjects} />
-      </section>
+            {/* <h2 className="text-3xl font-bold mb-6 text-center"> Projects</h2> */}
+            <ProjectCard projects={finishedProjects} />
+          </section>
+          
+          <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={sectionVariants}
+          >
+            <ContactCTA />
+          </motion.section>
         </div>
       </motion.div>
     </div>
