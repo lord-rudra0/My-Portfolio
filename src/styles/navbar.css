@@ -1,0 +1,19 @@
+@media (min-width: 768px) and (min-height: 600px) {
+  .desktop-nav {
+    display: flex;
+  }
+  
+  .mobile-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 767px), (max-height: 599px) {
+  .desktop-nav {
+    display: none;
+  }
+  
+  .mobile-nav {
+    display: block;
+  }
+} 

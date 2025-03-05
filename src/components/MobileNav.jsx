@@ -2,6 +2,7 @@ import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import { FaHome, FaUser, FaCode, FaEnvelope } from 'react-icons/fa';
+import '../styles/navbar.css';
 
 const MobileNav = ({ links }) => {
   const location = useLocation();
@@ -30,7 +31,7 @@ const MobileNav = ({ links }) => {
 
   return (
     <motion.div 
-      className="md:hidden fixed bottom-0 left-0 right-0 bg-black/10 backdrop-blur-lg border-t border-white/10 z-50"
+      className="mobile-nav fixed bottom-0 left-0 right-0 bg-black/10 backdrop-blur-lg border-t border-white/10 z-50"
       initial={{ y: 100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}

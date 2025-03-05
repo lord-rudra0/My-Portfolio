@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 // import { useTheme } from '../context/ThemeContext';
 import ThemeToggle from './ThemeToggle';
 import MobileNav from './MobileNav';
+import '../styles/navbar.css';
 
 const Navbar = () => {
   // const [nav, setNav] = useState(false);
@@ -65,7 +66,7 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <motion.div 
-            className="hidden md:flex items-center justify-center"
+            className="desktop-nav items-center justify-center"
             style={{ gap: itemSpacing }}
           >
             {links.map(({ id, link, path }) => (
