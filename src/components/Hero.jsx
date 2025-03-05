@@ -81,7 +81,7 @@ const Hero = () => {
         <div className="flex flex-col items-end gap-8">
           <div className="w-full flex items-center justify-end gap-8">
             <motion.div 
-              className="w-32 h-[1px] bg-[var(--color-accent)] opacity-50"
+              className="w-32 h-[1px] bg-[var(--color-accent)] opacity-50 hidden md:block"
               initial="hidden"
               animate="visible"
               variants={lineAnimation}
@@ -102,7 +102,7 @@ const Hero = () => {
 
           <div className="w-full flex justify-between items-center">
             <motion.div 
-              className="flex items-center space-x-4"
+              className="hidden md:flex items-center space-x-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
@@ -126,14 +126,14 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
+              className="mx-auto md:mx-0"
             >
-<InteractiveHoverButton 
-  className="know-more-btn inline-flex items-center transition-all duration-300 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm"
-  onClick={() => (window.location.href = "/about")}
->
-  Know me better
-</InteractiveHoverButton>
-
+              <InteractiveHoverButton 
+                className="know-more-btn inline-flex items-center transition-all duration-300 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm"
+                onClick={() => (window.location.href = "/about")}
+              >
+                Know me better
+              </InteractiveHoverButton>
             </motion.div>
           </div>
         </div>
