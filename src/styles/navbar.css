@@ -16,4 +16,8 @@
   .mobile-nav {
     display: block;
   }
+
+  .mobile-scroll-top {
+    bottom: calc(4rem + 1rem); /* Height of mobile nav + margin */
+  }
 } 

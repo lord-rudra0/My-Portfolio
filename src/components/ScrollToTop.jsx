@@ -12,7 +12,7 @@ const ScrollToTop = () => {
 
   return (
     <motion.button
-      className="fixed bottom-8 right-8 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors"
+      className="fixed right-4 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors lg:bottom-8 lg:right-8 mobile-scroll-top"
       style={{ opacity, scale }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
