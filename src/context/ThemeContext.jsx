@@ -24,7 +24,7 @@ export const ThemeProvider = ({ children }) => {
     // End transition after animation completes
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 800); // Match the animation duration
+    }, 1200); // Match the new animation duration
   };
 
   return (

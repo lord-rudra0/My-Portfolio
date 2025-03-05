@@ -23,7 +23,7 @@ const BlurText = ({
 
  
   const initialState = { 
-    filter: 'blur(2.5px)', 
+    filter: 'blur(2px)', 
     opacity: 0.7, 
     transform: 'translate3d(0,0,0)' 
   };
