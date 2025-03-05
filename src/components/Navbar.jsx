@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 // import { FaBars, FaTimes } from 'react-icons/fa';
 // import { useTheme } from '../context/ThemeContext';
 import ThemeToggle from './ThemeToggle';
+import MobileNav from './MobileNav';
 
 const Navbar = () => {
   // const [nav, setNav] = useState(false);
@@ -35,76 +36,82 @@ const Navbar = () => {
   };
 
   return (
-    <motion.div 
-      style={{ height: headerHeight }}
-      className="flex flex-col justify-center items-center w-full fixed z-50 theme-transition mt-6"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <>
       <motion.div 
-        style={{ 
-          width: boxWidth,
-          padding: boxPadding,
-          backgroundColor: boxBg,
-          borderWidth: boxBorder,
-          backdropFilter: `blur(${blur}px)`,
-        }}
-        className="rounded-full flex items-center justify-between border-white/10"
+        style={{ height: headerHeight }}
+        className="flex flex-col justify-center items-center w-full fixed z-50 theme-transition mt-6"
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
       >
         <motion.div 
-          className="flex items-center"
-          style={{ margin: logoMargin }}
+          style={{ 
+            width: boxWidth,
+            padding: boxPadding,
+            backgroundColor: boxBg,
+            borderWidth: boxBorder,
+            backdropFilter: `blur(${blur}px)`,
+          }}
+          className="rounded-full flex items-center justify-between border-white/10"
         >
-          <span className="h-8 transition-transform duration-300">
-            RPS
-          </span>
-        </motion.div>
+          <motion.div 
+            className="flex items-center"
+            style={{ margin: logoMargin }}
+          >
+            <span className="h-8 transition-transform duration-300">
+              RPS
+            </span>
+          </motion.div>
 
-        <motion.div 
-          className="flex items-center justify-center"
-          style={{ gap: itemSpacing }}
-        >
-          {links.map(({ id, link, path }) => (
-            <motion.div 
-              key={id} 
-              className="relative"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <RouterLink 
-                to={path}
-                className={`nav-link capitalize flex items-center justify-center ${
-                  isActive(path) ? 'text-[var(--color-accent)]' : ''
-                }`}
+          {/* Desktop Navigation */}
+          <motion.div 
+            className="hidden md:flex items-center justify-center"
+            style={{ gap: itemSpacing }}
+          >
+            {links.map(({ id, link, path }) => (
+              <motion.div 
+                key={id} 
+                className="relative"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {link}
-              </RouterLink>
-              {isActive(path) && (
-                <motion.div
-                  className="absolute top-1/2 -right-3 w-1.5 h-1.5 bg-[var(--color-accent)] rounded-full"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 20
-                  }}
-                  style={{ marginTop: '-4px' }}
-                />
-              )}
-            </motion.div>
-          ))}
-        </motion.div>
+                <RouterLink 
+                  to={path}
+                  className={`nav-link capitalize flex items-center justify-center ${
+                    isActive(path) ? 'text-[var(--color-accent)]' : ''
+                  }`}
+                >
+                  {link}
+                </RouterLink>
+                {isActive(path) && (
+                  <motion.div
+                    className="absolute top-1/2 -right-3 w-1.5 h-1.5 bg-[var(--color-accent)] rounded-full"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 20
+                    }}
+                    style={{ marginTop: '-4px' }}
+                  />
+                )}
+              </motion.div>
+            ))}
+          </motion.div>
 
-        <motion.div 
-          className="flex items-center"
-          style={{ margin: logoMargin }}
-        >
-          <ThemeToggle />
+          <motion.div 
+            className="flex items-center"
+            style={{ margin: logoMargin }}
+          >
+            <ThemeToggle />
+          </motion.div>
         </motion.div>
       </motion.div>
-    </motion.div>
+
+      {/* Mobile Navigation */}
+      <MobileNav links={links} />
+    </>
   );
 };
 
