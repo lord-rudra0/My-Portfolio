@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const ThemeContext = createContext();
 
@@ -7,6 +8,7 @@ export const ThemeProvider = ({ children }) => {
     const savedTheme = localStorage.getItem('theme');
     return savedTheme || 'dark';
   });
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -16,14 +18,24 @@ export const ThemeProvider = ({ children }) => {
   }, [theme]);
 
   const toggleTheme = () => {
+    setIsTransitioning(true);
+    // Change theme immediately as the transition starts
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
+    // End transition after animation completes
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 500);
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, isTransitioning }}>
       {children}
     </ThemeContext.Provider>
   );
+};
+
+ThemeProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export const useTheme = () => {

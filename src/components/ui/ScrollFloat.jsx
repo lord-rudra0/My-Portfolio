@@ -21,7 +21,7 @@ const BlurText = ({
   const ref = useRef();
   const animatedCount = useRef(0);
 
-  // Initial state - all text visible but blurred
+ 
   const initialState = { 
     filter: 'blur(2.5px)', 
     opacity: 0.7, 

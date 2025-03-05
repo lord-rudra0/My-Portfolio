@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { AnimatePresence } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { ThemeProvider } from './context/ThemeContext';
+import { ThemeProvider, useTheme } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -12,6 +12,7 @@ import Contact from './pages/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollToTopOnMount from './components/ScrollToTopOnMount';
+import ThemeTransition from './components/ThemeTransition';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -29,7 +30,9 @@ function AnimatedRoutes() {
   );
 }
 
-function App() {
+function AppContent() {
+  const { isTransitioning } = useTheme();
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -39,19 +42,26 @@ function App() {
   }, []);
 
   return (
+    <Router>
+      <div className="flex flex-col min-h-screen relative z-0 bg-primary transition-colors duration-300 dark:bg-black light:bg-white">
+        <ThemeTransition isTransitioning={isTransitioning} />
+        <Navbar />
+        <main className="flex-grow">
+          <AnimatedRoutes />
+        </main>
+        <Footer />
+        <ScrollToTop />
+      </div>
+    </Router>
+  );
+}
+
+function App() {
+  return (
     <ThemeProvider>
-      <Router>
-        <div className="flex flex-col min-h-screen relative z-0 bg-primary transition-colors duration-300 dark:bg-black light:bg-white">
-          <Navbar />
-          <main className="flex-grow">
-            <AnimatedRoutes />
-          </main>
-          <Footer />
-          <ScrollToTop />
-        </div>
-      </Router>
+      <AppContent />
     </ThemeProvider>
   );
 }
 
-export default App
+export default App;
