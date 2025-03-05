@@ -68,7 +68,7 @@ const Hero = () => {
                <div className="flex items-center">
                      <span className="hero-heading">I am a</span>
                    <div className="mx- w-[220px] text-center">
-                     <WordRotate words={["Web", "App"]} className="text-8xl inline-block" />
+                     <WordRotate words={["Web", "App"]} className="text-8xl inline-block webName" />
                    </div>
                     <span className="hero-heading">Developer</span>
                 </div>

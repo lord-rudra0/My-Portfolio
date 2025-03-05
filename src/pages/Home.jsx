@@ -4,7 +4,7 @@ import AboutPreview from '../components/AboutPreview';
 // import Education from '../components/Education';
 import ContactCTA from '../components/ContactCTA';
 import { content } from '../data/content';
-import Skill from '../components/Skill';
+// import Skill from '../components/Skill';
 // import { currentProjects, finishedProjects } from "../data/content"
 import ProjectCard from "../components/ProjectCard"
 import { useTheme } from '../context/ThemeContext';
@@ -48,7 +48,7 @@ const Home = () => {
         <AboutPreview />
       </motion.section>
 
-      <motion.section
+      {/* <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -56,7 +56,7 @@ const Home = () => {
       >
       <h2 className="text-4xl font-bold text-white mb-0 text-center">Skills</h2>
         <Skill />
-      </motion.section>
+      </motion.section> */}
 
       {/* <motion.section
         initial="hidden"
