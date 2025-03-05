@@ -19,7 +19,6 @@ const Navbar = () => {
   const boxBg = useTransform(scrollY, [0, 100], ['rgba(255,255,255,0)', 'rgba(255,255,255,0.05)']);
   const boxBorder = useTransform(scrollY, [0, 100], ['0px', '1px']);
   const itemSpacing = useTransform(scrollY, [0, 100], [40, 20]);
-  const logoMargin = useTransform(scrollY, [0, 100], ['0 4rem', '0 0.75rem']);
   const blur = useTransform(scrollY, [0, 100], [0, 8]);
 
   const links = [
@@ -53,20 +52,20 @@ const Navbar = () => {
             borderWidth: boxBorder,
             backdropFilter: `blur(${blur}px)`,
           }}
-          className="rounded-full flex items-center justify-between border-white/10"
+          className="rounded-full flex items-center justify-between border-white/10 mx-2 md:mx-0"
         >
           <motion.div 
-            className="flex items-center"
-            style={{ margin: logoMargin }}
+            className="flex items-center flex-1"
+            style={{ margin: '0 0.5rem md:0 4rem' }}
           >
-            <span className="h-8 transition-transform duration-300">
+            <span className="h-8 text-lg md:text-xl font-semibold transition-transform duration-300">
               RPS
             </span>
           </motion.div>
 
           {/* Desktop Navigation */}
           <motion.div 
-            className="desktop-nav items-center justify-center"
+            className="md:flex desktop-nav items-center justify-center flex-[2]"
             style={{ gap: itemSpacing }}
           >
             {links.map(({ id, link, path }) => (
@@ -102,10 +101,12 @@ const Navbar = () => {
           </motion.div>
 
           <motion.div 
-            className="flex items-center"
-            style={{ margin: logoMargin }}
+            className="flex items-center justify-end"
+            style={{ margin: '0 0.25rem md:0 4rem' }}
           >
-            <ThemeToggle />
+            <div className="scale-75 md:scale-100">
+              <ThemeToggle />
+            </div>
           </motion.div>
         </motion.div>
       </motion.div>
