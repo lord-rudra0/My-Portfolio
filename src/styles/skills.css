@@ -1,0 +1,21 @@
+/* Add these styles for better mobile responsiveness */
+@media (max-width: 768px) {
+  .skill-cloud {
+    transform: scale(0.8);
+  }
+}
+
+/* Ensure container is responsive */
+.skill-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Center the IconCloud on all screens */
+.icon-cloud-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}

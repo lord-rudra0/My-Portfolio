@@ -70,4 +70,51 @@
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
+}
+
+/* Add these styles for mobile navigation animations */
+.mobile-nav {
+  transform-origin: bottom;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+  transition: all 0.3s ease;
+}
+
+.nav-link:active {
+  transform: scale(0.95);
+}
+
+/* Hover effects for the icons */
+@media (hover: hover) {
+  .nav-link:hover {
+    color: var(--color-accent);
+  }
+}
+
+/* Active tab indicator animation */
+.nav-link.active::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+}
+
+/* Smooth transitions for color changes */
+.nav-link, 
+.nav-link * {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Glass effect for the bottom nav */
+.mobile-nav {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 } 
