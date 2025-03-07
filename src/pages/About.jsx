@@ -18,6 +18,75 @@ const sectionVariants = {
   }
 };
 
+// Add this new CSS at the top of your About.jsx or in your styles
+const tunnelStyle = `
+  .tunnel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .tunnel-entrance {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    z-index: 20;
+    pointer-events: none;
+  }
+
+  .tunnel-left {
+    left: 0;
+    background: radial-gradient(
+      ellipse at left,
+      var(--color-primary) 0%,
+      var(--color-primary) 40%,
+      transparent 70%
+    );
+    transform-origin: left;
+    animation: tunnelPulseLeft 3s ease-in-out infinite;
+  }
+
+  .tunnel-right {
+    right: 0;
+    background: radial-gradient(
+      ellipse at right,
+      var(--color-primary) 0%,
+      var(--color-primary) 40%,
+      transparent 70%
+    );
+    transform-origin: right;
+    animation: tunnelPulseRight 3s ease-in-out infinite;
+  }
+
+  @keyframes tunnelPulseLeft {
+    0%, 100% { transform: scaleX(1); }
+    50% { transform: scaleX(1.1); }
+  }
+
+  @keyframes tunnelPulseRight {
+    0%, 100% { transform: scaleX(1); }
+    50% { transform: scaleX(1.1); }
+  }
+
+  .glow-line {
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-accent) 50%,
+      transparent 100%
+    );
+    opacity: 0.6;
+    animation: glowPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+`;
+
 const About = () => {
   const { theme } = useTheme();
 
@@ -28,6 +97,29 @@ const About = () => {
       exit={{ opacity: 0 }}
       className={`min-h-screen bg-${theme} text-white pt-20`}
     >
+      <style>
+        {`
+          .perspective-1000 {
+            perspective: 1000px;
+          }
+
+          @keyframes pulse {
+            0% { transform: translateZ(0) scale(1); }
+            100% { transform: translateZ(-20px) scale(0.95); }
+          }
+
+          @keyframes moveGradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+          }
+
+          .transform-gpu {
+            transform: translateZ(0);
+            will-change: transform;
+          }
+        `}
+      </style>
+
       <div className="max-w-screen-lg mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -50,43 +142,123 @@ const About = () => {
 
         <div className="mt-20">
           <h1 className="text-4xl font-bold mb-12 text-center text-white">Skills</h1>
-          <div className="relative flex w-full flex-col items-center justify-center overflow-hidden mb-16">
+          <div className="relative flex w-full flex-col items-center justify-center overflow-visible mb-16 px-[100px]">
+            {/* First Skills Scroll */}
             <div className="w-full flex flex-col gap-[2px]">
-              {/* Top animated line */}
-              <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse"></div>
+              <div className="relative w-full perspective-1000">
+                {/* Left Portal - Showing even more of the circle */}
+                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden">
+                  <div className="absolute left-[10%] top-0 w-[200px] h-[200px]">
+                    {[...Array(8)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="absolute inset-0 rounded-full border-2 border-green-500/30"
+                        style={{
+                          transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
+                          animation: `pulse ${2 + i * 0.2}s infinite alternate`,
+                          boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
+                        }}
+                      />
+                    ))}
+                    <div className="absolute inset-[20%] rounded-full blur-md" />
+                  </div>
+                </div>
 
-              <VelocityScroll numRows={1} defaultVelocity={0.5}>
-                <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl`}>
-                  Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
-                  Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
-                  NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
-                  TensorFlow ✧ Git ✧ GitHub ✧ Unity ✧ Postman ✧ Docker
-                </span>
-              </VelocityScroll>
+                {/* Right Portal - Showing even more of the circle */}
+                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden">
+                  <div className="absolute right-[10%] top-0 w-[200px] h-[200px]">
+                    {[...Array(8)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="absolute inset-0 rounded-full border-2 border-green-500/30"
+                        style={{
+                          transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
+                          animation: `pulse ${2 + i * 0.2}s infinite alternate`,
+                          boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
+                        }}
+                      />
+                    ))}
+                    <div className="absolute inset-[20%] rounded-full blur-md" />
+                  </div>
+                </div>
 
-              {/* Bottom animated line */}
-              <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse"></div>
+                {/* VelocityScroll remains unchanged */}
+                <div className="relative z-20 transform-gpu">
+                  <VelocityScroll 
+                    numRows={1} 
+                    defaultVelocity={0.5}
+                    className="[mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]"
+                  >
+                    <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl`}>
+                      Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
+                      Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
+                      NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
+                      TensorFlow ✧ Git ✧ GitHub ✧ Unity ✧ Postman ✧ Docker
+                    </span>
+                  </VelocityScroll>
+                </div>
+              </div>
             </div>
 
             <div className="w-full mt-16">
               <Skill />
             </div>
 
+            {/* Second Skills Scroll - Apply the same changes */}
             <div className="w-full flex flex-col gap-[2px] mt-16">
-              {/* Top animated line */}
-              <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse"></div>
+              <div className="relative w-full perspective-1000">
+                {/* Left Portal - Showing even more of the circle */}
+                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden">
+                  <div className="absolute left-[10%] top-0 w-[200px] h-[200px]">
+                    {[...Array(8)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="absolute inset-0 rounded-full border-2 border-green-500/30"
+                        style={{
+                          transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
+                          animation: `pulse ${2 + i * 0.2}s infinite alternate`,
+                          boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
+                        }}
+                      />
+                    ))}
+                    <div className="absolute inset-[20%] rounded-full blur-md" />
+                  </div>
+                </div>
 
-              <VelocityScroll numRows={1} defaultVelocity={-0.5}>
-                <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl`}>
-                  Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
-                  Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
-                  NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
-                  TensorFlow ✧ Git ✧ GitHub ✧ Unity ✧ Postman ✧ Docker
-                </span>
-              </VelocityScroll>
+                {/* Right Portal - Showing even more of the circle */}
+                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden">
+                  <div className="absolute right-[10%] top-0 w-[200px] h-[200px]">
+                    {[...Array(8)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="absolute inset-0 rounded-full border-2 border-green-500/30"
+                        style={{
+                          transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
+                          animation: `pulse ${2 + i * 0.2}s infinite alternate`,
+                          boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
+                        }}
+                      />
+                    ))}
+                    <div className="absolute inset-[20%] rounded-full blur-md" />
+                  </div>
+                </div>
 
-              {/* Bottom animated line */}
-              <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse"></div>
+                {/* VelocityScroll remains unchanged */}
+                <div className="relative z-20 transform-gpu">
+                  <VelocityScroll 
+                    numRows={1} 
+                    defaultVelocity={-0.5}
+                    className="[mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]"
+                  >
+                    <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl`}>
+                      Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
+                      Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
+                      NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
+                      TensorFlow ✧ Git ✧ GitHub ✧ Unity ✧ Postman ✧ Docker
+                    </span>
+                  </VelocityScroll>
+                </div>
+              </div>
             </div>
           </div>
         </div>

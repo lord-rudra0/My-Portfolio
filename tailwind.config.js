@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -67,7 +67,8 @@ export default {
   			shine: 'shine var(--duration) infinite linear',
   			'background-position-spin': 'background-position-spin 3000ms infinite alternate',
         'borderFlow': 'borderFlow 3s linear infinite',
-        'runningLine': 'runningLine 2s linear infinite'
+        'runningLine': 'runningLine 2s linear infinite',
+        'ping': 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
   		},
   		keyframes: {
   			shine: {
@@ -104,9 +105,25 @@ export default {
           '100%': {
             transform: 'translateX(100%) rotate(45deg)'
           }
-        }
-  		}
+        },
+        ping: {
+          '75%, 100%': {
+            transform: 'scale(1.5)',
+            opacity: 0,
+          },
+        },
+  		},
+  		backdropFilter: {
+  			'none': 'none',
+  			'blur': 'blur(4px)',
+  		},
+  		transformStyle: {
+  			'preserve-3d': 'preserve-3d',
+  		},
+  		perspective: {
+  			'none': 'none',
+  			'1000': '1000px',
+  		},
   	}
   },
-  plugins: [require("tailwindcss-animate")],
 }

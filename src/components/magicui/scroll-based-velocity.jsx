@@ -95,6 +95,7 @@ export function VelocityScroll({ defaultVelocity = 5, numRows = 2, children, cla
       )}
       {...props}
     >
+      {/* Remove the default gradient overlays */}
       {Array.from({ length: numRows }).map((_, i) => (
         <ParallaxText key={i} baseVelocity={defaultVelocity * (i % 2 === 0 ? 1 : -1)}>
           {children}

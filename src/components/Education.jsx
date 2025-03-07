@@ -1,11 +1,24 @@
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaGraduationCap } from 'react-icons/fa';
-import { useTheme } from '../context/ThemeContext'; // Import your theme context
+import { useTheme } from '../context/ThemeContext';
+import { useRef } from 'react';
 
 const Education = () => {
-  const { theme } = useTheme(); // Get current theme
+  const { theme } = useTheme();
+  const containerRef = useRef(null);
+  
+  // Scroll animations setup
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Transform values for scroll animations
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.2], [0.8, 1]);
+  const y = useTransform(scrollYProgress, [0, 0.2], [100, 0]);
   
   // Define colors based on theme
   const colors = {
@@ -39,22 +52,55 @@ const Education = () => {
     backdropFilter: 'blur(10px)'
   };
 
+  // Animation variants for timeline elements
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const iconVariants = {
+    hidden: { scale: 0, rotate: -180 },
+    visible: { 
+      scale: 1, 
+      rotate: 0,
+      transition: { 
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <motion.div
-      initial="hidden"
-      animate="visible"
+      ref={containerRef}
+      style={{
+        opacity,
+        scale,
+        y
+      }}
       className="py-10"
     >
       <VerticalTimeline animate={true} lineColor={colors.border}>
         {/* BSc Mathematics and Physics */}
-  <VerticalTimelineElement
-    className="vertical-timeline-element--education"
+        <VerticalTimelineElement
+          className="vertical-timeline-element--education"
           contentStyle={timelineElementStyle}
           contentArrowStyle={{ borderRight: `7px solid ${colors.border}` }}
           date="2020-2023"
           iconStyle={{ background: colors.icon, color: '#fff' }}
           icon={
             <motion.div
+              variants={iconVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
               className="w-full h-full flex items-center justify-center"
@@ -64,8 +110,11 @@ const Education = () => {
           }
         >
           <motion.div
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
             className="relative overflow-hidden group"
           >
             <h3 className="vertical-timeline-element-title text-xl font-bold" style={{ color: colors.text }}>
@@ -85,17 +134,21 @@ const Education = () => {
               style={{ skewX: -20 }}
             />
           </motion.div>
-  </VerticalTimelineElement>
+        </VerticalTimelineElement>
 
         {/* BTech Computer Science */}
-  <VerticalTimelineElement
-    className="vertical-timeline-element--education"
+        <VerticalTimelineElement
+          className="vertical-timeline-element--education"
           contentStyle={timelineElementStyle}
           contentArrowStyle={{ borderRight: `7px solid ${colors.border}` }}
           date="2022-2026"
           iconStyle={{ background: colors.icon, color: '#fff' }}
           icon={
             <motion.div
+              variants={iconVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
               className="w-full h-full flex items-center justify-center"
@@ -105,8 +158,11 @@ const Education = () => {
           }
         >
           <motion.div
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
             className="relative overflow-hidden group"
           >
             <h3 className="vertical-timeline-element-title text-xl font-bold" style={{ color: colors.text }}>
@@ -126,9 +182,9 @@ const Education = () => {
               style={{ skewX: -20 }}
             />
           </motion.div>
-  </VerticalTimelineElement>
+        </VerticalTimelineElement>
 
-        {/* Full Stack Web Development - Make this the last education entry */}
+        {/* Full Stack Web Development */}
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
           contentStyle={timelineElementStyle}
@@ -137,6 +193,10 @@ const Education = () => {
           iconStyle={{ background: colors.icon, color: '#fff' }}
           icon={
             <motion.div
+              variants={iconVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
               className="w-full h-full flex items-center justify-center"
@@ -146,8 +206,11 @@ const Education = () => {
           }
         >
           <motion.div
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
             className="relative overflow-hidden group"
           >
             <h3 className="vertical-timeline-element-title text-xl font-bold" style={{ color: colors.text }}>
@@ -168,21 +231,6 @@ const Education = () => {
             />
           </motion.div>
         </VerticalTimelineElement>
-
-        {/* Final dot - make this the very last element with isLast prop */}
-        {/* <VerticalTimelineElement
-          iconStyle={{ background: 'rgb(22, 163, 74)', color: '#fff' }}
-          icon={
-            <motion.div
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-              className="w-full h-full flex items-center justify-center"
-            >
-              <FaGraduationCap className="text-2xl" />
-            </motion.div>
-          }
-          isLast={true}
-        /> */}
       </VerticalTimeline>
 
       <style>
@@ -195,6 +243,12 @@ const Education = () => {
           }
           .vertical-timeline-element:last-child .vertical-timeline-element-icon {
             margin-bottom: 0;
+          }
+          .vertical-timeline-element {
+            margin: 2em 0;
+          }
+          .vertical-timeline.vertical-timeline--animate .vertical-timeline-element-content.is-hidden {
+            visibility: visible !important;
           }
         `}
       </style>
