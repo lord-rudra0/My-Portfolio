@@ -1,114 +1,204 @@
-import { motion, useScroll, useSpring } from 'framer-motion';
-import { content } from '../data/content';
-import { useRef } from 'react';
-import PropTypes from 'prop-types';
-
-const TimelineItem = ({ item, index, side = 'left' }) => {
-  return (
-    <motion.div 
-      className={`flex ${side === 'left' ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col items-center gap-4 mb-8`}
-      initial={{ opacity: 0, x: side === 'left' ? -50 : 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.2 }}
-    >
-      <motion.div 
-        className="w-full md:w-1/2 p-6 bg-tertiary rounded-lg shadow-lg hover:shadow-xl transition-shadow"
-        whileHover={{ scale: 1.02 }}
-      >
-        <h3 className="text-xl font-bold text-white mb-2">{item.degree}</h3>
-        <p className="text-secondary mb-2">{item.school}</p>
-        <p className="text-blue-400">{item.year}</p>
-        {item.description && (
-          <p className="text-secondary mt-2">{item.description}</p>
-        )}
-      </motion.div>
-
-      <div className="relative flex items-center justify-center">
-        <div className="w-4 h-4 bg-blue-500 rounded-full z-10"></div>
-      </div>
-
-      <div className="w-full md:w-1/2"></div>
-    </motion.div>
-  );
-};
-
-TimelineItem.propTypes = {
-  item: PropTypes.shape({
-    degree: PropTypes.string.isRequired,
-    school: PropTypes.string.isRequired,
-    year: PropTypes.string.isRequired,
-    description: PropTypes.string
-  }).isRequired,
-  index: PropTypes.number.isRequired,
-  side: PropTypes.oneOf(['left', 'right'])
-};
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
+import { motion } from 'framer-motion';
+import { FaGraduationCap } from 'react-icons/fa';
+import { useTheme } from '../context/ThemeContext'; // Import your theme context
 
 const Education = () => {
-  const sectionRef = useRef(null);
-  const ref = useRef(null);
+  const { theme } = useTheme(); // Get current theme
   
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-    container: sectionRef
-  });
+  // Define colors based on theme
+  const colors = {
+    background: theme === 'dark' 
+      ? 'rgba(34, 197, 94, 0.1)'
+      : 'rgba(255, 255, 255, 0.9)',
+    text: theme === 'dark' 
+      ? '#fff' 
+      : '#1a1a1a',
+    subtitle: theme === 'dark' 
+      ? '#4ade80'
+      : '#16a34a',
+    description: theme === 'dark' 
+      ? 'rgba(255, 255, 255, 0.7)' 
+      : 'rgba(0, 0, 0, 0.7)',
+    border: theme === 'dark'
+      ? 'rgba(34, 197, 94, 0.2)'
+      : 'rgba(34, 197, 94, 0.3)',
+    icon: theme === 'dark'
+      ? 'rgb(34, 197, 94)'
+      : '#16a34a'
+  };
 
-  const scaleY = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+  const timelineElementStyle = {
+    background: theme === 'dark' ? 'rgba(31, 41, 55, 0.5)' : 'rgba(255, 255, 255, 0.5)',
+    color: colors.text,
+    border: `1px solid ${colors.border}`,
+    boxShadow: theme === 'dark' 
+      ? 'none' 
+      : '0 3px 10px rgba(0, 0, 0, 0.1)',
+    backdropFilter: 'blur(10px)'
+  };
 
   return (
-    <section ref={sectionRef} className="py-20 bg-primary overflow-hidden">
-      <div className="max-w-screen-lg mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl font-bold text-white mb-4">Education</h2>
-          <p className="text-secondary">My academic journey and achievements</p>
-        </motion.div>
-
-        <div ref={ref} className="relative">
-          {/* Animated Timeline Line */}
-          <motion.div
-            className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500/20 via-blue-500/50 to-blue-500/20"
-            style={{
-              scaleY,
-              transformOrigin: "top"
-            }}
-          >
-            {/* Shine Effect */}
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      className="py-10"
+    >
+      <VerticalTimeline animate={true} lineColor={colors.border}>
+        {/* BSc Mathematics and Physics */}
+  <VerticalTimelineElement
+    className="vertical-timeline-element--education"
+          contentStyle={timelineElementStyle}
+          contentArrowStyle={{ borderRight: `7px solid ${colors.border}` }}
+          date="2020-2023"
+          iconStyle={{ background: colors.icon, color: '#fff' }}
+          icon={
             <motion.div
-              className="absolute top-0 left-0 w-full h-[200%] bg-gradient-to-b from-transparent via-blue-400 to-transparent"
-              initial={{ y: "-100%" }}
-              animate={{
-                y: ["0%", "100%"],
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 3,
-                ease: "easeInOut",
-                repeatDelay: 0.5
-              }}
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              className="w-full h-full flex items-center justify-center"
+            >
+              <FaGraduationCap className="text-2xl" />
+            </motion.div>
+          }
+        >
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            className="relative overflow-hidden group"
+          >
+            <h3 className="vertical-timeline-element-title text-xl font-bold" style={{ color: colors.text }}>
+              Bachelor of Science in Mathematics and Physics
+            </h3>
+            <h4 className="vertical-timeline-element-subtitle mt-2" style={{ color: colors.subtitle }}>
+              Awadh University, Ayodhya
+            </h4>
+            <p className="mt-2" style={{ color: colors.description }}>
+              Specialized in Mathematics and Physics with optional of Cryptography and Number Theory.
+            </p>
+            
+            <motion.div
+              className={`absolute inset-0 bg-gradient-to-r from-transparent ${
+                theme === 'dark' ? 'via-white/10' : 'via-black/5'
+              } to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000`}
+              style={{ skewX: -20 }}
             />
           </motion.div>
+  </VerticalTimelineElement>
 
-          {content.education.map((item, index) => (
-            <TimelineItem 
-              key={index} 
-              item={item} 
-              index={index} 
-              side={index % 2 === 0 ? 'left' : 'right'} 
+        {/* BTech Computer Science */}
+  <VerticalTimelineElement
+    className="vertical-timeline-element--education"
+          contentStyle={timelineElementStyle}
+          contentArrowStyle={{ borderRight: `7px solid ${colors.border}` }}
+          date="2022-2026"
+          iconStyle={{ background: colors.icon, color: '#fff' }}
+          icon={
+            <motion.div
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              className="w-full h-full flex items-center justify-center"
+            >
+              <FaGraduationCap className="text-2xl" />
+            </motion.div>
+          }
+        >
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            className="relative overflow-hidden group"
+          >
+            <h3 className="vertical-timeline-element-title text-xl font-bold" style={{ color: colors.text }}>
+              Bachelor of Technology in Computer Science and Engineering
+            </h3>
+            <h4 className="vertical-timeline-element-subtitle mt-2" style={{ color: colors.subtitle }}>
+              Amal Jyothi College of Engineering and Technology
+            </h4>
+            <p className="mt-2" style={{ color: colors.description }}>
+              Currently pursuing Computer Science with focus on software development, data structures, algorithms, and modern web technologies.
+            </p>
+            
+            <motion.div
+              className={`absolute inset-0 bg-gradient-to-r from-transparent ${
+                theme === 'dark' ? 'via-white/10' : 'via-black/5'
+              } to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000`}
+              style={{ skewX: -20 }}
             />
-          ))}
-        </div>
-      </div>
-    </section>
+          </motion.div>
+  </VerticalTimelineElement>
+
+        {/* Full Stack Web Development - Make this the last education entry */}
+        <VerticalTimelineElement
+          className="vertical-timeline-element--education"
+          contentStyle={timelineElementStyle}
+          contentArrowStyle={{ borderRight: `7px solid ${colors.border}` }}
+          date="2024"
+          iconStyle={{ background: colors.icon, color: '#fff' }}
+          icon={
+            <motion.div
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              className="w-full h-full flex items-center justify-center"
+            >
+              <FaGraduationCap className="text-2xl" />
+            </motion.div>
+          }
+        >
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            className="relative overflow-hidden group"
+          >
+            <h3 className="vertical-timeline-element-title text-xl font-bold" style={{ color: colors.text }}>
+              Full Stack Web Development
+            </h3>
+            <h4 className="vertical-timeline-element-subtitle mt-2" style={{ color: colors.subtitle }}>
+              Udemy
+            </h4>
+            <p className="mt-2" style={{ color: colors.description }}>
+              Intensive Web Development program covering full-stack web development.
+            </p>
+            
+            <motion.div
+              className={`absolute inset-0 bg-gradient-to-r from-transparent ${
+                theme === 'dark' ? 'via-white/10' : 'via-black/5'
+              } to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000`}
+              style={{ skewX: -20 }}
+            />
+          </motion.div>
+        </VerticalTimelineElement>
+
+        {/* Final dot - make this the very last element with isLast prop */}
+        {/* <VerticalTimelineElement
+          iconStyle={{ background: 'rgb(22, 163, 74)', color: '#fff' }}
+          icon={
+            <motion.div
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              className="w-full h-full flex items-center justify-center"
+            >
+              <FaGraduationCap className="text-2xl" />
+            </motion.div>
+          }
+          isLast={true}
+        /> */}
+      </VerticalTimeline>
+
+      <style>
+        {`
+          .vertical-timeline::before {
+            background: ${colors.border};
+          }
+          .vertical-timeline-element:last-child::before {
+            display: none;
+          }
+          .vertical-timeline-element:last-child .vertical-timeline-element-icon {
+            margin-bottom: 0;
+          }
+        `}
+      </style>
+    </motion.div>
   );
 };
 

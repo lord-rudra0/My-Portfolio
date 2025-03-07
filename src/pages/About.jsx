@@ -6,6 +6,7 @@ import { useTheme } from '../context/ThemeContext';
 import BlurText from '../components/ui/ScrollFloat';
 import { VelocityScroll } from "../components/magicui/scroll-based-velocity"
 import ContactCTA from '../components/ContactCTA';
+// import Test from '../components/Education';
 // import { TextReveal } from '../components/ui/text-reveal';
 
 const sectionVariants = {
@@ -45,6 +46,7 @@ const About = () => {
         </motion.div>
 
         <Education />
+          {/* <Test /> */}
 
         <div className="mt-20">
           <h1 className="text-4xl font-bold mb-12 text-center text-white">Skills</h1>

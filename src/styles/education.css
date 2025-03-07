@@ -1,0 +1,149 @@
+/* Mobile timeline styles */
+@media (max-width: 768px) {
+  /* Container for each education item */
+  .education-item {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Timeline line container */
+  .timeline-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: rgba(59, 130, 246, 0.2);
+    z-index: 1;
+  }
+
+  /* Timeline dot */
+  .timeline-dot {
+    position: relative;
+    z-index: 2;
+    background: #3B82F6;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    margin: 1rem auto;
+  }
+
+  /* Content box */
+  .education-content {
+    position: relative;
+    z-index: 2;
+    background: var(--color-tertiary);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  /* Shine effect container */
+  .shine-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+}
+
+/* Desktop timeline styles */
+@media (min-width: 769px) {
+  .timeline-line {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .education-item:nth-child(odd) .education-content {
+    margin-right: 2rem;
+  }
+
+  .education-item:nth-child(even) .education-content {
+    margin-left: 2rem;
+  }
+}
+
+/* Timeline styles */
+.timeline-dot-container {
+  position: relative;
+  height: 100%;
+}
+
+/* Mobile specific styles */
+@media (max-width: 767px) {
+  .timeline-dot-container {
+    margin: 2rem 0;
+  }
+
+  /* Ensure the lines connect properly */
+  .timeline-dot-container::before,
+  .timeline-dot-container::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background: rgba(59, 130, 246, 0.2);
+  }
+
+  .timeline-dot-container::before {
+    top: -2rem;
+    height: 2rem;
+  }
+
+  .timeline-dot-container::after {
+    bottom: -2rem;
+    height: 2rem;
+  }
+}
+
+/* Desktop specific styles */
+@media (min-width: 768px) {
+  .timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    transform: translateX(-50%);
+    background: rgba(59, 130, 246, 0.2);
+  }
+
+  /* Adjust spacing for timeline items */
+  .timeline-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+}
+
+/* Animation styles */
+.shine-effect {
+  position: absolute;
+  width: 100%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(59, 130, 246, 0.6) 50%,
+    transparent 100%
+  );
+  animation: shine 2s linear infinite;
+}
+
+@keyframes shine {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+} 
