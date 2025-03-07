@@ -1,0 +1,20 @@
+/* Add these styles to force remove any top margins */
+.h-screen,
+.h-screen > div,
+.h-screen > div > div,
+.hero-heading,
+.namaste-text,
+.hero-accent {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Adjust the content position from the top */
+.h-screen > div {
+  padding-top: var(--navbar-height, 4rem) !important; /* Adjust this value based on your navbar height */
+}
+
+/* Remove any potential inherited margins */
+* {
+  margin-block-start: 0;
+}

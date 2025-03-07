@@ -8,4 +8,9 @@ export default defineConfig({
       '@': '/src', // ✅ Add this line to fix import alias issues
     },
   },
+  server: {
+    port: 3000,
+    host: true,
+    open: true
+  }
 });

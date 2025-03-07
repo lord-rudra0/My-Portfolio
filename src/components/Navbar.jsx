@@ -67,7 +67,7 @@ const Navbar = () => {
     <>
       <motion.div 
         style={{ height: headerHeight }}
-        className="flex flex-col justify-center items-center w-full fixed z-50 theme-transition mt-6 px-4 md:px-8"
+        className="flex flex-col justify-center items-center w-full fixed z-50 theme-transition mt-4"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
@@ -82,7 +82,7 @@ const Navbar = () => {
             maxWidth: '1400px',
             margin: '0 auto',
           }}
-          className="rounded-full flex items-center border-white/10 relative w-full"
+          className="rounded-full flex items-center border-white/10 relative w-full mx-4"
         >
           <motion.div 
             className="flex items-center"

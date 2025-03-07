@@ -17,12 +17,13 @@
     display: block;
   }
 
-  /* Fixed styles for mobile navbar */
+  /* Remove bottom margin for small screens */
   .theme-transition {
-    margin-top: 0 !important;
+    margin-top: 0.5rem !important; /* Small top margin */
+    margin-bottom: 0 !important;
   }
 
-  /* Fix the navbar box size and position for mobile */
+  /* Fixed navbar styles for mobile */
   .mobile-nav-fixed {
     position: fixed;
     top: 0;
@@ -32,28 +33,11 @@
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transform: none !important;
   }
 
-  /* Fix the navbar container for mobile */
-  .mobile-nav-container {
-    width: 100% !important;
-    padding: 0 0.75rem !important;
-    transform: none !important;
-    transition: none !important;
-  }
-
-  /* Disable all animations for mobile */
-  .mobile-nav *,
-  .mobile-nav-fixed *,
-  .mobile-nav-container * {
-    transform: none !important;
-    transition: none !important;
-  }
-
-  /* Add specific mobile positioning for theme toggle */
-  .theme-toggle-container {
-    right: 1rem; /* 16px margin on mobile */
+  /* Adjust container padding for mobile */
+  .navbar-container {
+    padding: 0 1rem;
   }
 }
 
@@ -71,6 +55,7 @@
   max-width: 100%;
   padding-left: 1rem;  /* 16px */
   padding-right: 1rem; /* 16px */
+  margin-top: 1rem !important; /* 16px top margin for all screens */
 }
 
 @media (min-width: 768px) {

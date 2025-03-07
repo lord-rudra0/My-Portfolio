@@ -21,10 +21,10 @@ const Hero = () => {
   };
 
   return (
-    <div className="h-screen w-full overflow-hidden relative">
-      <div className="max-w-screen-xl mx-auto flex flex-col justify-center h-full px-4 md:px-12">
+    <div className="h-screen w-full overflow-hidden relative pt-0 mt-0">
+      <div className="max-w-screen-xl mx-auto flex flex-col justify-start h-full px-4 md:px-12 pt-0 mt-0">
         <motion.div 
-          className="flex flex-col items-start text-left max-w-3xl mb-6"
+          className="flex flex-col items-start text-left max-w-3xl mt-0 pt-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
@@ -37,9 +37,9 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
           >
-            <h2 className="text-5xl md:text-7xl font-bold leading-tight mb-1 ">
+            <h2 className="text-5xl md:text-7xl font-bold leading-tight mt-0 pt-0">
               <motion.span 
-                className="namaste-text hero-accent"
+                className="namaste-text hero-accent mt-0 pt-0"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
@@ -54,25 +54,13 @@ const Hero = () => {
                 Rudra Pratap Singh,
                 Here
               </TypingAnimation>
-              {/* <span className="hero-heading" >Rudra
-              <span className="mx-2" />
-               <spam className="hero-accent"> Pratap </spam>
-               <span className="mx-2" />
-               Singh
-                <span className="mx-2" />
-               <spam className="hero-accent"> , 
-               here  </spam>
-               <span className="mx-2" />
-                <span className="mx-2" />
-               <span className="mx-2" /></span> */}
-               <div className="flex items-center">
-                     <span className="hero-heading">I am a</span>
-                   <div className="mx- w-[220px] text-center">
-                     <WordRotate words={["Web", "App"]} className="text-8xl inline-block webName" />
-                   </div>
-                    <span className="hero-heading">Developer</span>
+              <div className="flex items-center">
+                <span className="hero-heading">I am a</span>
+                <div className="mx- w-[220px] text-center">
+                  <WordRotate words={["Web", "App"]} className="text-8xl inline-block webName" />
                 </div>
-                
+                <span className="hero-heading">Developer</span>
+              </div>
             </h2>
           </motion.div>
          
