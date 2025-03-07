@@ -13,13 +13,41 @@ const Navbar = () => {
   const { scrollY } = useScroll();
   const location = useLocation();
   
-  const headerHeight = useTransform(scrollY, [0, 100], ['6rem', '3rem']);
-  const boxWidth = useTransform(scrollY, [0, 100], ['100%', '70%']);
-  const boxPadding = useTransform(scrollY, [0, 100], ['0 3rem', '0.75rem']);
-  const boxBg = useTransform(scrollY, [0, 100], ['rgba(255,255,255,0)', 'rgba(255,255,255,0.05)']);
-  const boxBorder = useTransform(scrollY, [0, 100], ['0px', '1px']);
-  const itemSpacing = useTransform(scrollY, [0, 100], [40, 20]);
-  const blur = useTransform(scrollY, [0, 100], [0, 8]);
+  // Check for screen size
+  const isLargeScreen = window.matchMedia('(min-width: 768px) and (min-height: 600px)').matches;
+  
+  // For smaller screens, use fixed values. For larger screens, keep scroll animations
+  const headerHeight = isLargeScreen 
+    ? useTransform(scrollY, [0, 100], ['6rem', '3rem'])
+    : '3rem';
+    
+  const boxWidth = isLargeScreen 
+    ? useTransform(scrollY, [0, 100], ['100%', '70%'])
+    : '100%';
+    
+  const boxPadding = isLargeScreen 
+    ? useTransform(scrollY, [0, 100], ['0 3rem', '0.75rem'])
+    : '0.75rem';
+    
+  const boxBg = isLargeScreen 
+    ? useTransform(scrollY, [0, 100], ['rgba(255,255,255,0)', 'rgba(255,255,255,0.05)'])
+    : 'rgba(255,255,255,0.05)';
+    
+  const boxBorder = isLargeScreen 
+    ? useTransform(scrollY, [0, 100], ['0px', '1px'])
+    : '1px';
+    
+  const itemSpacing = isLargeScreen 
+    ? useTransform(scrollY, [0, 100], [40, 20])
+    : 20;
+    
+  const logoMargin = isLargeScreen 
+    ? useTransform(scrollY, [0, 100], ['0 4rem', '0 0.75rem'])
+    : '0 0.75rem';
+    
+  const blur = isLargeScreen 
+    ? useTransform(scrollY, [0, 100], [0, 8])
+    : 8;
 
   const links = [
     { id: 1, link: 'home', path: '/' },
@@ -39,7 +67,7 @@ const Navbar = () => {
     <>
       <motion.div 
         style={{ height: headerHeight }}
-        className="flex flex-col justify-center items-center w-full fixed z-50 theme-transition mt-6"
+        className="flex flex-col justify-center items-center w-full fixed z-50 theme-transition mt-6 px-4 md:px-8"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
@@ -51,29 +79,27 @@ const Navbar = () => {
             backgroundColor: boxBg,
             borderWidth: boxBorder,
             backdropFilter: `blur(${blur}px)`,
+            maxWidth: '1400px',
+            margin: '0 auto',
           }}
-          className="rounded-full flex items-center justify-between border-white/10 mx-2 md:mx-0"
+          className="rounded-full flex items-center border-white/10 relative w-full"
         >
           <motion.div 
-            className="flex items-center flex-1"
-            style={{ margin: '0 0.5rem md:0 4rem' }}
+            className="flex items-center"
           >
-            <span className="h-8 text-lg md:text-xl font-semibold transition-transform duration-300">
-              RPS
-            </span>
+            <span className="h-8 ml-4">RPS</span>
           </motion.div>
 
-          {/* Desktop Navigation */}
           <motion.div 
-            className="md:flex desktop-nav items-center justify-center flex-[2]"
+            className="desktop-nav items-center justify-center mx-auto"
             style={{ gap: itemSpacing }}
           >
             {links.map(({ id, link, path }) => (
               <motion.div 
                 key={id} 
                 className="relative"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={isLargeScreen ? { scale: 1.1 } : {}}
+                whileTap={isLargeScreen ? { scale: 0.95 } : {}}
               >
                 <RouterLink 
                   to={path}
@@ -86,7 +112,7 @@ const Navbar = () => {
                 {isActive(path) && (
                   <motion.div
                     className="absolute top-1/2 -right-3 w-1.5 h-1.5 bg-[var(--color-accent)] rounded-full"
-                    initial={{ scale: 0 }}
+                    initial={isLargeScreen ? { scale: 0 } : { scale: 1 }}
                     animate={{ scale: 1 }}
                     transition={{
                       type: "spring",
@@ -101,8 +127,7 @@ const Navbar = () => {
           </motion.div>
 
           <motion.div 
-            className="flex items-center justify-end"
-            style={{ margin: '0 0.25rem md:0 4rem' }}
+            className="flex items-center absolute right-4"
           >
             <div className="scale-75 md:scale-100">
               <ThemeToggle />
