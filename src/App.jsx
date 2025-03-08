@@ -10,8 +10,6 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
-import ScrollToTopOnMount from './components/ScrollToTopOnMount';
 import ThemeTransition from './components/ThemeTransition';
 
 function AnimatedRoutes() {
@@ -19,7 +17,6 @@ function AnimatedRoutes() {
 
   return (
     <AnimatePresence mode="wait">
-      <ScrollToTopOnMount />
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -50,7 +47,6 @@ function AppContent() {
           <AnimatedRoutes />
         </main>
         <Footer />
-        <ScrollToTop />
       </div>
     </Router>
   );

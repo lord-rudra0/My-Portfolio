@@ -1,13 +1,14 @@
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import PropTypes from 'prop-types';
-import { FaHome, FaUser, FaCode, FaEnvelope, FaTimes, FaBars } from 'react-icons/fa';
+import { FaHome, FaUser, FaCode, FaEnvelope, FaTimes, FaBars, FaArrowUp } from 'react-icons/fa';
 import '../styles/navbar.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const MobileNav = ({ links }) => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(true); // Set initially to true
+  const [showScrollButton, setShowScrollButton] = useState(false); // State for scroll button visibility
 
   const isActive = (path) => {
     if (path === '/') {
@@ -30,6 +31,27 @@ const MobileNav = ({ links }) => {
         return null;
     }
   };
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Effect to handle scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <AnimatePresence>
@@ -103,6 +125,16 @@ const MobileNav = ({ links }) => {
       >
         {isOpen ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />} {/* Conditional icon */}
       </button>
+
+      {/* Scroll to Top Button */}
+      {showScrollButton && isOpen && ( // Show only when the menu is open
+        <button 
+          className="fixed bottom-16 right-4 z-60 bg-[var(--color-accent)] text-white rounded-full p-2 shadow-lg"
+          onClick={scrollToTop} // Scroll to top function
+        >
+          <FaArrowUp className="text-xl" />
+        </button>
+      )}
     </AnimatePresence>
   );
 };
