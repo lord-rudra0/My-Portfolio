@@ -1,17 +1,34 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import PropTypes from 'prop-types'
 
 export function IconCloud({ images, width = 600, height = 600, sphereRadius = 200, autoRotate = true }) {
   const canvasRef = useRef(null)
   const [iconPositions, setIconPositions] = useState([])
-  const [rotation, setRotation] = useState({ x: 0, y: 0 })
   const [isDragging, setIsDragging] = useState(false)
   const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 })
-  const rotationRef = useRef(rotation)
+  const rotationRef = useRef({ x: 0, y: 0 })
   const iconCanvasesRef = useRef([])
   const imagesLoadedRef = useRef([])
   const autoRotateRef = useRef(0)
+
+  // PropTypes validation
+  IconCloud.propTypes = {
+    images: PropTypes.arrayOf(PropTypes.string).isRequired,
+    width: PropTypes.number,
+    height: PropTypes.number,
+    sphereRadius: PropTypes.number,
+    autoRotate: PropTypes.bool,
+  }
+
+  // Default props
+  IconCloud.defaultProps = {
+    width: 600,
+    height: 600,
+    sphereRadius: 200,
+    autoRotate: true,
+  }
 
   // Initialize icon canvases
   useEffect(() => {

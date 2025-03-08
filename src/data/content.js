@@ -143,15 +143,15 @@ export const content = {
     },
   ],
   contact: {
-    email: "contact@example.com",
-    phone: "+1 234 567 890",
-    location: "San Francisco, CA",
+    email: "rudra.pratap.singh.dev1@gmail.com",
+    phone: "+91 7392924934",
+    location: "Santhom Men's Hostal, Erumeli Rd, Koovappally, Kerala 686518",
     social: {
-      github: "https://github.com",
-      linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
-      instagram: "https://instagram.com",
-      whatsapp: "https://wa.me/1234567890"
+      github: "https://github.com/lord-rudra0",
+      linkedin: "https://www.linkedin.com/in/rudra-pratap-singh-3b354b272/",
+      twitter: "https://x.com/_lord_rudra_",
+      instagram: "https://www.instagram.com/_lord_rudra_/",
+      whatsapp: "https://wa.me/+917392924934"
     }
   }
 };

@@ -6,7 +6,7 @@ import { useTheme } from '../context/ThemeContext';
 import BlurText from '../components/ui/ScrollFloat';
 import { VelocityScroll } from "../components/magicui/scroll-based-velocity"
 import ContactCTA from '../components/ContactCTA';
-import { IconCloud } from '../components/magicui/icon-cloud';
+// import { IconCloud } from '../components/magicui/icon-cloud';
 // import Test from '../components/Education';
 // import { TextReveal } from '../components/ui/text-reveal';
 
@@ -99,6 +99,7 @@ const About = () => {
       className={`min-h-screen bg-${theme} text-white pt-20 overflow-hidden`}
     >
       <style>
+        {tunnelStyle}
         {`
           .perspective-1000 {
             perspective: 1000px;

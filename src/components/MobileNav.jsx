@@ -1,11 +1,13 @@
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import PropTypes from 'prop-types';
-import { FaHome, FaUser, FaCode, FaEnvelope } from 'react-icons/fa';
+import { FaHome, FaUser, FaCode, FaEnvelope, FaTimes, FaBars } from 'react-icons/fa';
 import '../styles/navbar.css';
+import { useState } from 'react';
 
 const MobileNav = ({ links }) => {
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(true); // Set initially to true
 
   const isActive = (path) => {
     if (path === '/') {
@@ -32,7 +34,7 @@ const MobileNav = ({ links }) => {
   return (
     <AnimatePresence>
       <motion.div 
-        className="mobile-nav fixed bottom-0 left-0 right-0 bg-black/10 backdrop-blur-lg border-t border-white/10 z-50"
+        className={`mobile-nav fixed bottom-0 left-0 right-0 bg-black/10 backdrop-blur-lg border-t border-white/10 z-50 rounded-t-lg ${isOpen ? 'block' : 'hidden'}`}
         initial={{ y: 100 }} // Start from below the screen
         animate={{ y: 0 }} // Animate to original position
         exit={{ y: 100 }} // Exit by sliding down
@@ -93,6 +95,14 @@ const MobileNav = ({ links }) => {
           ))}
         </motion.div>
       </motion.div>
+
+      {/* Toggle Button with Conditional Icon */}
+      <button 
+        className="fixed bottom-16 left-4 z-60 bg-[var(--color-accent)] text-white rounded-full p-2 shadow-lg"
+        onClick={() => setIsOpen(!isOpen)} // Toggle the navbar
+      >
+        {isOpen ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />} {/* Conditional icon */}
+      </button>
     </AnimatePresence>
   );
 };

@@ -4,17 +4,17 @@ import { FaGithub, FaLinkedin, FaTwitter, FaBriefcase, FaInstagram, FaWhatsapp, 
 import { content } from '../data/content';
 import { useTheme } from '../context/ThemeContext';
 import { useState, useEffect } from 'react';
-import ContactCTA from '../components/ContactCTA';
+// import ContactCTA from '../components/ContactCTA';
 
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.6 }
-  }
-};
+// const sectionVariants = {
+//   hidden: { opacity: 0, y: 20 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0,
+//     transition: { duration: 0.6 }
+//   }
+//  };
 
 const Contact = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -211,100 +211,6 @@ const Contact = () => {
           </motion.div> */}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            {/* Contact Information */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              className={`space-y-8 p-8 rounded-2xl ${inputBgColor} border-2 ${borderColor}`}
-              variants={containerVariants}
-            >
-              {/* Open for Work Card */}
-              <motion.div
-                variants={itemVariants}
-                className="space-y-8"
-              >
-                <div className="flex items-start space-x-6">
-                  <motion.div
-                    variants={iconVariants}
-                    whileHover="hover"
-                    className={`text-3xl ${accentColor} p-3 rounded-xl bg-opacity-10 ${accentColor.replace('text-', 'bg-')}`}
-                  >
-                    <FaBriefcase />
-                  </motion.div>
-                  <div className="flex-1">
-                    <h3 className={`text-xl font-semibold mb-3 ${textColor}`}>Open for Work</h3>
-                    <p className={`${secondaryTextColor} leading-relaxed text-lg`}>
-                      I&apos;m currently available for freelance projects and full-time opportunities. 
-                      Let&apos;s discuss how we can work together to bring your ideas to life.
-                    </p>
-              </div>
-            </div>
-              </motion.div>
-
-              {/* Social Links */}
-              <motion.div 
-                variants={itemVariants}
-                className="pt-8 border-t border-gray-700"
-              >
-                <h2 className={`text-2xl font-semibold ${accentColor} mb-8 flex items-center gap-2`}>
-                  <FaShareAlt className="text-2xl" />
-                  Connect With Me
-                </h2>
-                <div className="grid grid-cols-3 gap-4">
-                  {['github', 'linkedin', 'twitter'].map((social) => (
-                    <motion.a
-                      key={social}
-                      href={contact.social[social]}
-                  target="_blank"
-                  rel="noreferrer"
-                      className={`group relative overflow-hidden rounded-xl ${inputBgColor} border-2 ${borderColor}
-                        hover:border-[var(--color-accent)] transition-all duration-300`}
-                      whileHover={{ y: -5 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--color-accent)] opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-                      <div className="relative p-6 flex flex-col items-center">
-                        <span className={`text-4xl mb-3 ${secondaryTextColor} group-hover:${accentColor} transition-colors duration-300`}>
-                          {social === 'github' && <FaGithub />}
-                          {social === 'linkedin' && <FaLinkedin />}
-                          {social === 'twitter' && <FaTwitter />}
-                        </span>
-                        <span className={`text-sm font-medium capitalize ${secondaryTextColor} group-hover:${accentColor} transition-colors duration-300`}>
-                          {social}
-                        </span>
-                      </div>
-                    </motion.a>
-                  ))}
-                </div>
-                <div className="grid grid-cols-2 gap-4 mt-4">
-                  {['instagram', 'whatsapp'].map((social) => (
-                    <motion.a
-                      key={social}
-                      href={contact.social[social]}
-                  target="_blank"
-                  rel="noreferrer"
-                      className={`group relative overflow-hidden rounded-xl ${inputBgColor} border-2 ${borderColor}
-                        hover:border-[var(--color-accent)] transition-all duration-300`}
-                      whileHover={{ y: -5 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--color-accent)] opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-                      <div className="relative p-6 flex flex-col items-center">
-                        <span className={`text-4xl mb-3 ${secondaryTextColor} group-hover:${accentColor} transition-colors duration-300`}>
-                          {social === 'instagram' && <FaInstagram />}
-                          {social === 'whatsapp' && <FaWhatsapp />}
-                        </span>
-                        <span className={`text-sm font-medium capitalize ${secondaryTextColor} group-hover:${accentColor} transition-colors duration-300`}>
-                          {social}
-                        </span>
-              </div>
-                    </motion.a>
-                  ))}
-            </div>
-          </motion.div>
-            </motion.div>
-
             {/* Contact Form */}
             <motion.form
               onSubmit={handleSubmit(onSubmit)}
@@ -447,7 +353,78 @@ const Contact = () => {
                 )}
               </AnimatePresence>
             </motion.form>
+
+            {/* Contact Information */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className={`space-y-8 p-8 rounded-2xl ${inputBgColor} border-2 ${borderColor}`}
+              variants={containerVariants}
+            >
+              {/* Open for Work Card */}
+              <motion.div
+                variants={itemVariants}
+                className="space-y-8"
+              >
+                <div className="flex items-start space-x-6">
+                  <motion.div
+                    variants={iconVariants}
+                    whileHover="hover"
+                    className={`text-3xl ${accentColor} p-3 rounded-xl bg-opacity-10 ${accentColor.replace('text-', 'bg-')}`}
+                  >
+                    <FaBriefcase />
+                  </motion.div>
+                  <div className="flex-1">
+                    <h3 className={`text-xl font-semibold mb-3 ${textColor}`}>Open for Work</h3>
+                    <p className={`${secondaryTextColor} leading-relaxed text-lg`}>
+                      I&apos;m currently available for freelance projects and full-time opportunities. 
+                      Let&apos;s discuss how we can work together to bring your ideas to life.
+                    </p>
               </div>
+            </div>
+              </motion.div>
+
+              {/* Social Links */}
+              <motion.div 
+                variants={itemVariants}
+                className="pt-8 border-t border-gray-700"
+              >
+                <h2 className={`text-2xl font-semibold ${accentColor} mb-8 flex items-center gap-2`}>
+                  <FaShareAlt className="text-2xl" />
+                  Connect With Me
+                </h2>
+                <div className="grid grid-cols-3 gap-4">
+                  {['github', 'linkedin', 'twitter', 'instagram', 'whatsapp'].map((social) => (
+                    <motion.a
+                      key={social}
+                      href={contact.social[social]}
+                  target="_blank"
+                  rel="noreferrer"
+                      className={`group relative overflow-hidden rounded-xl ${inputBgColor} border-2 ${borderColor}
+                        hover:border-[var(--color-accent)] transition-all duration-300`}
+                      whileHover={{ y: -5 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--color-accent)] opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                      <div className="relative p-6 flex flex-col items-center">
+                        <span className={`text-4xl mb-3 ${secondaryTextColor} group-hover:${accentColor} transition-colors duration-300`}>
+                          {social === 'github' && <FaGithub />}
+                          {social === 'linkedin' && <FaLinkedin />}
+                          {social === 'twitter' && <FaTwitter />}
+                          {social === 'instagram' && <FaInstagram />}
+                          {social === 'whatsapp' && <FaWhatsapp />}
+                        </span>
+                        <span className={`text-sm font-medium capitalize ${secondaryTextColor} group-hover:${accentColor} transition-colors duration-300`}>
+                          {social}
+                        </span>
+                      </div>
+                    </motion.a>
+                  ))}
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
 
           {/* Contact Information Section */}
           <motion.div
@@ -488,8 +465,8 @@ const Contact = () => {
               <motion.div
                 whileHover={{ y: -5, scale: 1.02 }}
                 className={`p-6 rounded-2xl ${inputBgColor} 
-                  border-2 ${borderColor} hover:border-green-400 dark:hover:border-green-400 
-                  transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-green-500/20 dark:hover:shadow-green-500/10`}
+                  border-2 ${borderColor} hover:border-green-400 
+                  transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-green-500/20`}
               >
                 <div className="flex flex-col items-center text-center">
                   <div className="text-2xl text-green-600 dark:text-green-400 p-3 rounded-xl bg-green-100 dark:bg-green-900/30 mb-3 shadow-inner">
@@ -498,6 +475,7 @@ const Contact = () => {
                   <h3 className={`text-lg font-semibold mb-2 ${textColor}`}>Email</h3>
                   <a 
                     href={`mailto:${content.contact.email}`}
+                    style={{ wordBreak: 'break-all' }}
                     className={`${secondaryTextColor} hover:text-green-600 dark:hover:text-green-400 leading-relaxed text-base transition-colors duration-300`}
                   >
                     {content.contact.email}
@@ -553,14 +531,14 @@ const Contact = () => {
       </div>
     </motion.div>
 
-      <motion.section
+      {/* <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={sectionVariants}
       >
         <ContactCTA />
-      </motion.section>
+      </motion.section> */}
     </>
   );
   

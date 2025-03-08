@@ -75,8 +75,8 @@ export default function Skill() {
   const images = slugs.map((slug) => `https://cdn.simpleicons.org/${slug}/${slug}`);
 
   return (
-    <div className="relative w-full flex justify-center items-center py-8">
-      <div className="w-full max-w-[600px] mx-auto px-4">
+    <div className="relative w-full flex justify-center items-center">
+      <div className="w-full max-w-[600px] mx-auto">
         <IconCloud 
           images={images} 
           width={dimensions.width} 
