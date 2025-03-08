@@ -142,13 +142,13 @@ const About = () => {
 
         <div className="mt-20">
           <h1 className="text-4xl font-bold mb-12 text-center text-white">Skills</h1>
-          <div className="relative flex w-full flex-col items-center justify-center overflow-visible mb-16 px-[100px]">
+          <div className="relative flex w-full flex-col items-center justify-center mb-16 px-[100px]">
             {/* First Skills Scroll */}
             <div className="w-full flex flex-col gap-[2px]">
-              <div className="relative w-full perspective-1000">
-                {/* Left Portal - Showing even more of the circle */}
-                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden">
-                  <div className="absolute left-[10%] top-0 w-[200px] h-[200px]">
+              <div className="relative w-full perspective-1000 my-8">
+                {/* Left Portal */}
+                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10">
+                  <div className="absolute left-[10%] top-0 w-[200px] h-[200px] overflow-visible">
                     {[...Array(8)].map((_, i) => (
                       <div
                         key={i}
@@ -164,9 +164,9 @@ const About = () => {
                   </div>
                 </div>
 
-                {/* Right Portal - Showing even more of the circle */}
-                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden">
-                  <div className="absolute right-[10%] top-0 w-[200px] h-[200px]">
+                {/* Right Portal */}
+                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10">
+                  <div className="absolute right-[10%] top-0 w-[200px] h-[200px] overflow-visible">
                     {[...Array(8)].map((_, i) => (
                       <div
                         key={i}
@@ -182,7 +182,7 @@ const About = () => {
                   </div>
                 </div>
 
-                {/* VelocityScroll remains unchanged */}
+                {/* VelocityScroll */}
                 <div className="relative z-20 transform-gpu">
                   <VelocityScroll 
                     numRows={1} 
@@ -204,12 +204,12 @@ const About = () => {
               <Skill />
             </div>
 
-            {/* Second Skills Scroll - Apply the same changes */}
+            {/* Second Skills Scroll */}
             <div className="w-full flex flex-col gap-[2px] mt-16">
-              <div className="relative w-full perspective-1000">
-                {/* Left Portal - Showing even more of the circle */}
-                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden">
-                  <div className="absolute left-[10%] top-0 w-[200px] h-[200px]">
+              <div className="relative w-full perspective-1000 my-8">
+                {/* Left Portal */}
+                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10">
+                  <div className="absolute left-[10%] top-0 w-[200px] h-[200px] overflow-visible">
                     {[...Array(8)].map((_, i) => (
                       <div
                         key={i}
@@ -225,9 +225,9 @@ const About = () => {
                   </div>
                 </div>
 
-                {/* Right Portal - Showing even more of the circle */}
-                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden">
-                  <div className="absolute right-[10%] top-0 w-[200px] h-[200px]">
+                {/* Right Portal */}
+                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10">
+                  <div className="absolute right-[10%] top-0 w-[200px] h-[200px] overflow-visible">
                     {[...Array(8)].map((_, i) => (
                       <div
                         key={i}
@@ -243,7 +243,7 @@ const About = () => {
                   </div>
                 </div>
 
-                {/* VelocityScroll remains unchanged */}
+                {/* VelocityScroll */}
                 <div className="relative z-20 transform-gpu">
                   <VelocityScroll 
                     numRows={1} 
