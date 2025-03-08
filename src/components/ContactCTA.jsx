@@ -2,10 +2,17 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { InteractiveHoverButton } from './magicui/interactive-hover-button';
 import { useTheme } from '../context/ThemeContext';
+import { useNavigate } from 'react-router-dom';
 
 const ContactCTA = () => {
   const { theme } = useTheme();
-  
+  const navigate = useNavigate();
+
+  const handleGetInTouchClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    navigate('/contact');
+  };
+
   return (
     <section className="py-10">
       <div className="max-w-6xl mx-auto px-4">
@@ -22,10 +29,8 @@ const ContactCTA = () => {
             Have a project in mind? Let&apos;s discuss how we can bring your ideas to life.
           </p>
           <div className="flex justify-center">
-            <InteractiveHoverButton className={`know-more-btn inline-flex items-center transition-all duration-300  px-6 py-3 rounded-full backdrop-blur-sm`}>
-              <Link to="/contact" className={`font-medium`}>
-                Get in Touch
-              </Link>
+            <InteractiveHoverButton className={`know-more-btn inline-flex items-center transition-all duration-300  px-6 py-3 rounded-full backdrop-blur-sm`} onClick={handleGetInTouchClick}>
+              Get in Touch
             </InteractiveHoverButton>
           </div>
         </motion.div>

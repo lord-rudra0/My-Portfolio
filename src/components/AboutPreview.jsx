@@ -1,11 +1,19 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { content } from '../data/content';
 import ScrollReveal from './ui/ScrollReveal';
 import { InteractiveHoverButton } from './magicui/interactive-hover-button';
 // import ScrollFloat from "./ui/ScrollFloat"
 import BlurText from "./ui/ScrollFloat"
+
 const AboutPreview = () => {
+  const navigate = useNavigate();
+
+  const handleLearnMoreClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    navigate('/about');
+  };
+
   return (
     <section className="py-20 bg-primary">
       <div className="max-w-screen-lg mx-auto px-4">
@@ -24,11 +32,8 @@ const AboutPreview = () => {
 /> 
 
             
-            <InteractiveHoverButton className="know-more-btn inline-flex items-center transition-all duration-300 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm">
-             <Link
-              to="/about">
+            <InteractiveHoverButton className="know-more-btn inline-flex items-center transition-all duration-300 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm" onClick={handleLearnMoreClick}>
               Learn More
-            </Link>
             </InteractiveHoverButton>
           </motion.div>
         </ScrollReveal>
