@@ -117,6 +117,37 @@ const About = () => {
             transform: translateZ(0);
             will-change: transform;
           }
+
+          @keyframes glow {
+            0% { border-color: rgba(34, 197, 94, 0.3); }
+            50% { border-color: rgba(34, 197, 94, 0.6); }
+            100% { border-color: rgba(34, 197, 94, 0.3); }
+          }
+
+          @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+
+          @keyframes rotateReverse {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+          }
+
+          @keyframes innerGlow {
+            0% { opacity: 0.3; transform: scale(0.95); }
+            100% { opacity: 0.6; transform: scale(1.05); }
+          }
+
+          @keyframes particle {
+            0% { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+          }
+
+          @keyframes particleReverse {
+            0% { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+            100% { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+          }
         `}
       </style>
 
@@ -147,49 +178,95 @@ const About = () => {
             <div className="w-full flex flex-col gap-[2px]">
               <div className="relative w-full perspective-1000 my-8">
                 {/* Left Portal */}
-                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10">
-                  <div className="absolute left-[10%] top-0 w-[200px] h-[200px] overflow-visible">
+                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden">
+                  <div className="absolute left-[5%] top-0 w-[200px] h-[200px]">
                     {[...Array(8)].map((_, i) => (
                       <div
                         key={i}
                         className="absolute inset-0 rounded-full border-2 border-green-500/30"
                         style={{
                           transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
-                          animation: `pulse ${2 + i * 0.2}s infinite alternate`,
+                          animation: `
+                            pulse ${2 + i * 0.2}s infinite alternate,
+                            glow ${3 + i * 0.5}s infinite alternate,
+                            rotate ${10 + i}s infinite linear
+                          `,
                           boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
                         }}
                       />
                     ))}
-                    <div className="absolute inset-[20%] rounded-full blur-md" />
+                    {/* Inner glow effect */}
+                    <div 
+                      className="absolute inset-[20%] rounded-full blur-md bg-green-500/10"
+                      style={{
+                        animation: 'innerGlow 2s infinite alternate'
+                      }}
+                    />
+                    {/* Spinning particles */}
+                    {[...Array(12)].map((_, i) => (
+                      <div
+                        key={`particle-${i}`}
+                        className="absolute w-1 h-1 bg-green-500/40 rounded-full"
+                        style={{
+                          left: '50%',
+                          top: '50%',
+                          transform: `rotate(${i * 30}deg) translateX(${50 + (i % 3) * 10}px)`,
+                          animation: `particle ${3 + (i % 3)}s infinite linear`
+                        }}
+                      />
+                    ))}
                   </div>
                 </div>
 
                 {/* Right Portal */}
-                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10">
-                  <div className="absolute right-[10%] top-0 w-[200px] h-[200px] overflow-visible">
+                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden">
+                  <div className="absolute right-[5%] top-0 w-[200px] h-[200px]">
                     {[...Array(8)].map((_, i) => (
                       <div
                         key={i}
                         className="absolute inset-0 rounded-full border-2 border-green-500/30"
                         style={{
                           transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
-                          animation: `pulse ${2 + i * 0.2}s infinite alternate`,
+                          animation: `
+                            pulse ${2 + i * 0.2}s infinite alternate,
+                            glow ${3 + i * 0.5}s infinite alternate,
+                            rotateReverse ${10 + i}s infinite linear
+                          `,
                           boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
                         }}
                       />
                     ))}
-                    <div className="absolute inset-[20%] rounded-full blur-md" />
+                    {/* Inner glow effect */}
+                    <div 
+                      className="absolute inset-[20%] rounded-full blur-md bg-green-500/10"
+                      style={{
+                        animation: 'innerGlow 2s infinite alternate'
+                      }}
+                    />
+                    {/* Spinning particles */}
+                    {[...Array(12)].map((_, i) => (
+                      <div
+                        key={`particle-${i}`}
+                        className="absolute w-1 h-1 bg-green-500/40 rounded-full"
+                        style={{
+                          left: '50%',
+                          top: '50%',
+                          transform: `rotate(${i * 30}deg) translateX(${50 + (i % 3) * 10}px)`,
+                          animation: `particleReverse ${3 + (i % 3)}s infinite linear`
+                        }}
+                      />
+                    ))}
                   </div>
                 </div>
 
-                {/* VelocityScroll */}
+                {/* VelocityScroll with adjusted mask */}
                 <div className="relative z-20 transform-gpu">
                   <VelocityScroll 
                     numRows={1} 
                     defaultVelocity={0.5}
-                    className="[mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]"
+                    className="[mask-image:linear-gradient(to_right,transparent_0%,white_15%,white_85%,transparent_100%)]"
                   >
-                    <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl`}>
+                    <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl px-[150px]`}>
                       Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
                       Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
                       NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
@@ -208,38 +285,84 @@ const About = () => {
             <div className="w-full flex flex-col gap-[2px] mt-16">
               <div className="relative w-full perspective-1000 my-8">
                 {/* Left Portal */}
-                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10">
-                  <div className="absolute left-[10%] top-0 w-[200px] h-[200px] overflow-visible">
+                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden">
+                  <div className="absolute left-[5%] top-0 w-[200px] h-[200px]">
                     {[...Array(8)].map((_, i) => (
                       <div
                         key={i}
                         className="absolute inset-0 rounded-full border-2 border-green-500/30"
                         style={{
                           transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
-                          animation: `pulse ${2 + i * 0.2}s infinite alternate`,
+                          animation: `
+                            pulse ${2 + i * 0.2}s infinite alternate,
+                            glow ${3 + i * 0.5}s infinite alternate,
+                            rotate ${10 + i}s infinite linear
+                          `,
                           boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
                         }}
                       />
                     ))}
-                    <div className="absolute inset-[20%] rounded-full blur-md" />
+                    {/* Inner glow effect */}
+                    <div 
+                      className="absolute inset-[20%] rounded-full blur-md bg-green-500/10"
+                      style={{
+                        animation: 'innerGlow 2s infinite alternate'
+                      }}
+                    />
+                    {/* Spinning particles */}
+                    {[...Array(12)].map((_, i) => (
+                      <div
+                        key={`particle-${i}`}
+                        className="absolute w-1 h-1 bg-green-500/40 rounded-full"
+                        style={{
+                          left: '50%',
+                          top: '50%',
+                          transform: `rotate(${i * 30}deg) translateX(${50 + (i % 3) * 10}px)`,
+                          animation: `particle ${3 + (i % 3)}s infinite linear`
+                        }}
+                      />
+                    ))}
                   </div>
                 </div>
 
                 {/* Right Portal */}
-                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10">
-                  <div className="absolute right-[10%] top-0 w-[200px] h-[200px] overflow-visible">
+                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden">
+                  <div className="absolute right-[5%] top-0 w-[200px] h-[200px]">
                     {[...Array(8)].map((_, i) => (
                       <div
                         key={i}
                         className="absolute inset-0 rounded-full border-2 border-green-500/30"
                         style={{
                           transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
-                          animation: `pulse ${2 + i * 0.2}s infinite alternate`,
+                          animation: `
+                            pulse ${2 + i * 0.2}s infinite alternate,
+                            glow ${3 + i * 0.5}s infinite alternate,
+                            rotateReverse ${10 + i}s infinite linear
+                          `,
                           boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
                         }}
                       />
                     ))}
-                    <div className="absolute inset-[20%] rounded-full blur-md" />
+                    {/* Inner glow effect */}
+                    <div 
+                      className="absolute inset-[20%] rounded-full blur-md bg-green-500/10"
+                      style={{
+                        animation: 'innerGlow 2s infinite alternate'
+                      }}
+                    />
+                    {/* Spinning particles */}
+                    {[...Array(12)].map((_, i) => (
+                      <div
+                        key={`particle-${i}`}
+                        className="absolute w-1 h-1 bg-green-500/40 rounded-full"
+                        style={{
+                          left: '50%',
+                          top: '50%',
+                          transform: `rotate(${i * 30}deg) translateX(${50 + (i % 3) * 10}px)`,
+                          animation: `particleReverse ${3 + (i % 3)}s infinite linear`
+                        }}
+                      />
+                    ))}
                   </div>
                 </div>
 
