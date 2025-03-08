@@ -6,6 +6,7 @@ import { useTheme } from '../context/ThemeContext';
 import BlurText from '../components/ui/ScrollFloat';
 import { VelocityScroll } from "../components/magicui/scroll-based-velocity"
 import ContactCTA from '../components/ContactCTA';
+import { IconCloud } from '../components/magicui/icon-cloud';
 // import Test from '../components/Education';
 // import { TextReveal } from '../components/ui/text-reveal';
 
@@ -95,7 +96,7 @@ const About = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className={`min-h-screen bg-${theme} text-white pt-20`}
+      className={`min-h-screen bg-${theme} text-white pt-20 overflow-hidden`}
     >
       <style>
         {`
@@ -175,11 +176,11 @@ const About = () => {
           <h1 className="text-4xl font-bold mb-12 text-center text-white">Skills</h1>
           <div className="relative flex w-full flex-col items-center justify-center mb-16 px-[100px]">
             {/* First Skills Scroll */}
-            <div className="w-full flex flex-col gap-[2px]">
-              <div className="relative w-full perspective-1000 my-8">
+            <div className="w-full flex flex-col gap-[2px] mt-0 mb-0">
+              <div className="relative w-full perspective-1000 my-0">
                 {/* Left Portal */}
-                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden sm:hidden lg:block">
-                  <div className="absolute left-[5%] top-0 w-[200px] h-[200px]">
+                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[100px] h-[100px] z-0 overflow-hidden sm:w-[75px] sm:h-[75px] lg:w-[200px] lg:h-[200px]">
+                  <div className="absolute left-[5%] top-0 w-full h-full">
                     {[...Array(8)].map((_, i) => (
                       <div
                         key={i}
@@ -219,8 +220,8 @@ const About = () => {
                 </div>
 
                 {/* Right Portal */}
-                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden sm:hidden lg:block">
-                  <div className="absolute right-[5%] top-0 w-[200px] h-[200px]">
+                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[100px] h-[100px] z-0 overflow-hidden sm:w-[75px] sm:h-[75px] lg:w-[200px] lg:h-[200px]">
+                  <div className="absolute right-[5%] top-0 w-full h-full">
                     {[...Array(8)].map((_, i) => (
                       <div
                         key={i}
@@ -259,14 +260,15 @@ const About = () => {
                   </div>
                 </div>
 
-                {/* VelocityScroll with adjusted mask */}
-                <div className="relative z-20 transform-gpu">
+                {/* VelocityScroll with adjusted z-index */}
+                <div className="relative z-10 transform-gpu">
                   <VelocityScroll 
                     numRows={1} 
                     defaultVelocity={0.5}
-                    className="[mask-image:linear-gradient(to_right,transparent_0%,white_15%,white_85%,transparent_100%)]"
+                    
+                    className="[mask-image:linear-gradient(to_right,transparent_0%,white_20%,white_80%,transparent_100%)]"
                   >
-                    <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl px-4 lg:px-[150px]`}>
+                    <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl px-0 sm:px-0 lg:px-0`}>
                       Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
                       Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
                       NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
@@ -277,16 +279,16 @@ const About = () => {
               </div>
             </div>
 
-            <div className="w-full mt-16">
-              {/* <Skill /> */}
+            <div className="">
+              <Skill />
             </div>
 
             {/* Second Skills Scroll */}
-            <div className="w-full flex flex-col gap-[2px] mt-16">
-              <div className="relative w-full perspective-1000 my-8">
+            <div className="w-full flex flex-col gap-0">
+              <div className="relative w-full perspective-1000 my-0">
                 {/* Left Portal */}
-                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden sm:hidden lg:block">
-                  <div className="absolute left-[5%] top-0 w-[200px] h-[200px]">
+                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[100px] h-[100px] z-0 overflow-hidden sm:w-[75px] sm:h-[75px] lg:w-[200px] lg:h-[200px]">
+                  <div className="absolute left-[5%] top-0 w-full h-full">
                     {[...Array(8)].map((_, i) => (
                       <div
                         key={i}
@@ -326,8 +328,8 @@ const About = () => {
                 </div>
 
                 {/* Right Portal */}
-                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden sm:hidden lg:block">
-                  <div className="absolute right-[5%] top-0 w-[200px] h-[200px]">
+                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[100px] h-[100px] z-0 overflow-hidden sm:w-[75px] sm:h-[75px] lg:w-[200px] lg:h-[200px]">
+                  <div className="absolute right-[5%] top-0 w-full h-full">
                     {[...Array(8)].map((_, i) => (
                       <div
                         key={i}
@@ -366,14 +368,14 @@ const About = () => {
                   </div>
                 </div>
 
-                {/* VelocityScroll */}
-                <div className="relative z-20 transform-gpu">
+                {/* VelocityScroll with adjusted z-index */}
+                <div className="relative z-10 transform-gpu">
                   <VelocityScroll 
                     numRows={1} 
                     defaultVelocity={-0.5}
-                    className="[mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]"
+                    className="[mask-image:linear-gradient(to_right,transparent_0%,white_20%,white_80%,transparent_100%)]"
                   >
-                    <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl`}>
+                    <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl px-0 sm:px-0 lg:px-0`}>
                       Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
                       Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
                       NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
@@ -385,6 +387,17 @@ const About = () => {
             </div>
           </div>
         </div>
+
+        {/* Add the IconCloud component */}
+        {/* <div className="flex justify-center items-center mt-0 mb-0">
+          <IconCloud 
+            images={content.skills.icons} 
+            width={300}
+            height={300}
+            sphereRadius={150}
+            className="w-full max-w-[300px] h-auto"
+          />
+        </div> */}
       </div>
 
       <motion.section
