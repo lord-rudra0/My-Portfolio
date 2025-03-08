@@ -178,7 +178,7 @@ const About = () => {
             <div className="w-full flex flex-col gap-[2px]">
               <div className="relative w-full perspective-1000 my-8">
                 {/* Left Portal */}
-                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden">
+                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden sm:hidden lg:block">
                   <div className="absolute left-[5%] top-0 w-[200px] h-[200px]">
                     {[...Array(8)].map((_, i) => (
                       <div
@@ -219,7 +219,7 @@ const About = () => {
                 </div>
 
                 {/* Right Portal */}
-                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden">
+                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden sm:hidden lg:block">
                   <div className="absolute right-[5%] top-0 w-[200px] h-[200px]">
                     {[...Array(8)].map((_, i) => (
                       <div
@@ -266,7 +266,7 @@ const About = () => {
                     defaultVelocity={0.5}
                     className="[mask-image:linear-gradient(to_right,transparent_0%,white_15%,white_85%,transparent_100%)]"
                   >
-                    <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl px-[150px]`}>
+                    <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl px-4 lg:px-[150px]`}>
                       Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
                       Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
                       NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
@@ -278,14 +278,14 @@ const About = () => {
             </div>
 
             <div className="w-full mt-16">
-              <Skill />
+              {/* <Skill /> */}
             </div>
 
             {/* Second Skills Scroll */}
             <div className="w-full flex flex-col gap-[2px] mt-16">
               <div className="relative w-full perspective-1000 my-8">
                 {/* Left Portal */}
-                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden">
+                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden sm:hidden lg:block">
                   <div className="absolute left-[5%] top-0 w-[200px] h-[200px]">
                     {[...Array(8)].map((_, i) => (
                       <div
@@ -326,7 +326,7 @@ const About = () => {
                 </div>
 
                 {/* Right Portal */}
-                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden">
+                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[200px] h-[200px] z-10 overflow-hidden sm:hidden lg:block">
                   <div className="absolute right-[5%] top-0 w-[200px] h-[200px]">
                     {[...Array(8)].map((_, i) => (
                       <div
