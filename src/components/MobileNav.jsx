@@ -53,6 +53,9 @@ const MobileNav = ({ links }) => {
     };
   }, []);
 
+  // Check for screen size
+  const isLargeScreen = window.matchMedia('(min-width: 768px)').matches;
+
   return (
     <AnimatePresence>
       <motion.div 
@@ -119,12 +122,14 @@ const MobileNav = ({ links }) => {
       </motion.div>
 
       {/* Toggle Button with Conditional Icon */}
-      <button 
-        className="fixed bottom-16 left-4 z-60 bg-[var(--color-accent)] text-white rounded-full p-2 shadow-lg"
-        onClick={() => setIsOpen(!isOpen)} // Toggle the navbar
-      >
-        {isOpen ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />} {/* Conditional icon */}
-      </button>
+      {!isLargeScreen && ( // Hide on larger screens
+        <button 
+          className="fixed bottom-16 left-4 z-60 bg-[var(--color-accent)] text-white rounded-full p-2 shadow-lg"
+          onClick={() => setIsOpen(!isOpen)} // Toggle the navbar
+        >
+          {isOpen ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />} {/* Conditional icon */}
+        </button>
+      )}
 
       {/* Scroll to Top Button */}
       {showScrollButton && isOpen && ( // Show only when the menu is open
