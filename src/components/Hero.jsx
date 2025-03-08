@@ -48,7 +48,7 @@ const Hero = () => {
                 delay={300}
                 duration={150}
               >
-                {isLargeScreen ? "🙏Namaste! Rudra Pratap Singh, Here" : "Namaste Rudra P.S. Here"}
+                {isLargeScreen ? "🙏Namaste! Rudra Pratap Singh, Here" : "Namaste! Rudra P.S. Here"}
               </TypingAnimation>
               <div className="items-center">
                 <span className="hero-heading">Innovative purpose driven</span>
