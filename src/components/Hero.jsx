@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 // import { MdEmail } from 'react-icons/md';
 import { content } from '../data/content';
-// import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { WordRotate } from './ui/WordRotate';
 import   TypingAnimation  from './magicui/typing-animation';
@@ -12,6 +12,9 @@ const Hero = () => {
   const y = useTransform(scrollY, [0, 300], [0, 100]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
+  // Add a variable to determine screen size
+  const isLargeScreen = window.matchMedia('(min-width: 768px)').matches;
+
   const lineAnimation = {
     hidden: { width: 0 },
     visible: { 
@@ -20,50 +23,42 @@ const Hero = () => {
     }
   };
 
+  const handleKnowMeBetterClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <div className="h-screen w-full overflow-hidden relative pt-0 mt-0">
-      <div className="max-w-screen-xl mx-auto flex flex-col justify-start h-full px-4 md:px-12 pt-0 mt-0">
+    <div className={`${isLargeScreen ? 'h-screen' : 'mt-2 pt-2 mb-10 '} w-full overflow-hidden relative`}>
+      <div className="max-w-screen-xl mx-auto flex flex-col justify-start h-full px-4 md:px-12">
         <motion.div 
-          className="flex flex-col items-start text-left max-w-3xl mt-0 pt-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          className="flex flex-col items-start text-left max-w-3xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           style={{ y, opacity }}
         >
-         
-
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
           >
             <h2 className="text-5xl md:text-7xl font-bold leading-tight mt-0 pt-0">
-              <motion.span 
-                className="namaste-text hero-accent mt-0 pt-0"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-              >
-                🙏Namaste!{" "}
-              </motion.span>
               <TypingAnimation 
-                className="hero-heading"
+                className="namaste-text hero-accent mt-2 pt-2"
                 delay={300}
                 duration={150}
               >
-                Rudra Pratap Singh,
-                Here
+                {isLargeScreen ? "🙏Namaste! Rudra Pratap Singh, Here" : "Namaste Rudra P.S. Here"}
               </TypingAnimation>
-              <div className="flex items-center">
-                <span className="hero-heading">I am a</span>
-                <div className="mx- w-[220px] text-center">
-                  <WordRotate words={["Web", "App"]} className="text-8xl inline-block webName" />
+              <div className="items-center">
+                <span className="hero-heading">Innovative purpose driven</span>
+                <div className="">
+                  <WordRotate words={["Web developer ", "App developer"]} className="hero-heading hero-accent" />
                 </div>
-                <span className="hero-heading">Developer</span>
+                <span className='hero-heading'> crafting scalable solutions.</span>
               </div>
             </h2>
           </motion.div>
-         
         </motion.div>
 
         <div className="flex flex-col items-end gap-8">
@@ -78,12 +73,11 @@ const Hero = () => {
               className="hero-description text-lg md:text-xl max-w-2xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
             >
-              <p>
-              A passionate web developer who thrives on problem-solving and building scalable, impactful solutions. 
-              With a strong foundation in mathematics, I create sustainable systems that drive innovation.
-               
+              <p className='hero-description'>
+                A passionate web developer who thrives on problem-solving and building scalable, impactful solutions. 
+                With a strong foundation in mathematics, I create sustainable systems that drive innovation.
               </p>
             </motion.div>
           </div>
@@ -116,12 +110,17 @@ const Hero = () => {
               transition={{ delay: 1 }}
               className="mx-auto md:mx-0"
             >
-              <InteractiveHoverButton 
-                className="know-more-btn inline-flex items-center transition-all duration-300 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm"
-                onClick={() => (window.location.href = "/about")}
+              <RouterLink 
+                to="/about"
+                onClick={handleKnowMeBetterClick}
+                className="know-me-button"
               >
-                Know me better
-              </InteractiveHoverButton>
+                <InteractiveHoverButton 
+                  className="know-more-btn inline-flex items-center transition-all duration-300 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm"
+                >
+                  Know me better
+                </InteractiveHoverButton>
+              </RouterLink>
             </motion.div>
           </div>
         </div>

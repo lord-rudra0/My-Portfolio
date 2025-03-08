@@ -15,7 +15,7 @@ const AboutPreview = () => {
   };
 
   return (
-    <section className="py-20 bg-primary">
+    <section className="pb-20 bg-primary">
       <div className="max-w-screen-lg mx-auto px-4">
         <ScrollReveal duration={1.0} delay={0.2}>
           <motion.div className="text-center">
@@ -24,7 +24,7 @@ const AboutPreview = () => {
 
               <BlurText
                 text={content.about.fullBio}
-                delay={150}
+                delay={50}
                 animateBy="words"
                 direction="top"
                 // onAnimationComplete={handleAnimationComplete}
