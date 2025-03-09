@@ -28,7 +28,7 @@ const Hero = () => {
   };
 
   return (
-    <div className={`${isLargeScreen ? 'h-screen' : 'mt-2 pt-2 mb-10 '} w-full overflow-hidden relative`}>
+    <div className={`${isLargeScreen ? 'h-screen' : 'mt-2 pt-2 mb-10 '} w-full overflow-hidden relative mt-4`}>
       <div className="max-w-screen-xl mx-auto flex flex-col justify-start h-full px-4 md:px-12">
         <motion.div 
           className="flex flex-col items-start text-left max-w-3xl"
@@ -42,7 +42,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            <h2 className="text-5xl md:text-7xl font-bold leading-tight mt-0 pt-0">
+            <h2 className="text-5xl md:text-7xl font-bold leading-tight mt-0 pt-0" style={{ fontFamily: 'Clash Display, sans-serif' }}>
               <TypingAnimation 
                 className="namaste-text hero-accent mt-2 pt-2"
                 delay={300}
