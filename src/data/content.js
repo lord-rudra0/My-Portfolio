@@ -47,6 +47,23 @@ export const content = {
       longDescription: "A cutting-edge platform leveraging OpenAI's GPT models to help users generate blog posts, marketing copy, creative stories, and technical documentation. Features include content customization, tone adjustment, and export options.",
       technologies: ["React", "Next.js", "OpenAI API", "Node.js", "MongoDB"],
       image: "https://images.pexels.com/photos/7567460/pexels-photo-7567460.jpeg",
+      images: [
+        {
+          url: "https://images.pexels.com/photos/7567460/pexels-photo-7567460.jpeg",
+          alt: "AI Content Generator Dashboard",
+          caption: "Main dashboard showing content generation options"
+        },
+        {
+          url: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg",
+          alt: "Content Editor Interface",
+          caption: "Advanced content editing interface"
+        },
+        {
+          url: "https://images.pexels.com/photos/5473337/pexels-photo-5473337.jpeg",
+          alt: "Analytics Dashboard",
+          caption: "Content performance analytics"
+        }
+      ],
       demoUrl: "https://ai-content-generator.example.com",
       codeUrl: "https://github.com/username/ai-content-generator",
       status: "current",
@@ -58,6 +75,23 @@ export const content = {
       longDescription: "A comprehensive dashboard for tracking cryptocurrency investments, featuring real-time price updates, portfolio performance analytics, transaction history, and market trends visualization. Includes alerts for price movements and portfolio rebalancing suggestions.",
       technologies: ["Vue.js", "Firebase", "CoinGecko API", "Chart.js", "Tailwind CSS"],
       image: "https://images.pexels.com/photos/6771900/pexels-photo-6771900.jpeg",
+      images: [
+        {
+          url: "https://images.pexels.com/photos/6771900/pexels-photo-6771900.jpeg",
+          alt: "Portfolio Overview",
+          caption: "Main portfolio dashboard"
+        },
+        {
+          url: "https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg",
+          alt: "Price Charts",
+          caption: "Detailed price analysis charts"
+        },
+        {
+          url: "https://images.pexels.com/photos/8370772/pexels-photo-8370772.jpeg",
+          alt: "Transaction History",
+          caption: "Transaction history and performance metrics"
+        }
+      ],
       demoUrl: "https://crypto-tracker.example.com",
       codeUrl: "https://github.com/username/crypto-tracker",
       status: "current",
@@ -82,6 +116,23 @@ export const content = {
       longDescription: "A comprehensive e-commerce solution with product catalog, shopping cart, user authentication, payment processing, and order management. Built with modern web technologies for optimal performance and user experience.",
       technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe", "Redux"],
       image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg",
+      images: [
+        {
+          url: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg",
+          alt: "Product Catalog",
+          caption: "Main product catalog view"
+        },
+        {
+          url: "https://images.pexels.com/photos/264507/pexels-photo-264507.jpeg",
+          alt: "Shopping Cart",
+          caption: "Shopping cart and checkout process"
+        },
+        {
+          url: "https://images.pexels.com/photos/1005644/pexels-photo-1005644.jpeg",
+          alt: "Admin Dashboard",
+          caption: "Admin dashboard for order management"
+        }
+      ],
       demoUrl: "https://demo-ecommerce.example.com",
       codeUrl: "https://github.com/username/ecommerce-platform",
       status: "completed",

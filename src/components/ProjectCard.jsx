@@ -112,30 +112,54 @@ export default function ProjectCard({ projects }) {
                   </div>
 
                   <div className="flex gap-2">
-                    <motion.a
-                      layout
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      href={active.ctaLink || active.demoUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white hover:bg-green-600 transition-colors duration-300"
-                    >
-                      {active.ctaText || "Demo"}
-                    </motion.a>
-                    <motion.a
-                      layout
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      href={active.githubRepo || active.codeUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="px-4 py-3 text-sm rounded-full font-bold bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-300"
-                    >
-                      GitHub
-                    </motion.a>
+                    {(active.ctaLink || active.demoUrl) ? (
+                      <motion.a
+                        layout
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        href={active.ctaLink || active.demoUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white hover:bg-green-600 transition-colors duration-300"
+                      >
+                        {active.ctaText || "Demo"}
+                      </motion.a>
+                    ) : (
+                      <motion.span
+                        layout
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="px-4 py-3 text-sm rounded-full font-bold bg-neutral-500 text-white cursor-not-allowed"
+                      >
+                        No Demo
+                      </motion.span>
+                    )}
+                    {(active.githubRepo || active.codeUrl) ? (
+                      <motion.a
+                        layout
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        href={active.githubRepo || active.codeUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-4 py-3 text-sm rounded-full font-bold bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-300"
+                      >
+                        GitHub
+                      </motion.a>
+                    ) : (
+                      <motion.span
+                        layout
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="px-4 py-3 text-sm rounded-full font-bold bg-neutral-500 text-white cursor-not-allowed"
+                      >
+                        No Git
+                      </motion.span>
+                    )}
                     <motion.a
                       layout
                       initial={{ opacity: 0 }}

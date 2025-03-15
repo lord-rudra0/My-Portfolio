@@ -11,6 +11,7 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
 import ThemeTransition from './components/ThemeTransition';
+import ProjectDetails from './components/ProjectDetails';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -22,6 +23,7 @@ function AnimatedRoutes() {
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/:projectName" element={<ProjectDetails />} />
       </Routes>
     </AnimatePresence>
   );
