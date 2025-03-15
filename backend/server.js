@@ -10,6 +10,10 @@ const { isEmail, trim, escape } = pkg;
 
 dotenv.config();
 
+if (typeof process === 'undefined') {
+  throw new Error('This code must be run in a Node.js environment.');
+}
+
 const app = express();
 const port = process.env.PORT || 5000;
 
