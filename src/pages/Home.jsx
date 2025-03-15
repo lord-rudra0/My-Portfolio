@@ -8,6 +8,7 @@ import { content } from '../data/content';
 // import { currentProjects, finishedProjects } from "../data/content"
 import ProjectCard from "../components/ProjectCard"
 import { useTheme } from '../context/ThemeContext';
+import SkillsRow from '../components/SkillsRow';
 
 const Home = () => {
   const sectionVariants = {
@@ -73,10 +74,29 @@ const Home = () => {
         whileInView="visible"
         viewport={{ once: true }}
         variants={sectionVariants}
+        
+      >
+      
+          <h1 className="text-4xl font-bold mb-2 text-center text-white">Skills</h1>
+          
+          {/* Add the SkillsRow component for smaller screens */}
+          <div className="block md:hidden mb-20">
+            <SkillsRow />
+          </div>
+      </motion.section>
+
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
       >
       <h2 className="text-4xl font-bold text-white mb-0 text-center">On Going Projects</h2>
         <ProjectCard projects={currentProjects} />
       </motion.section>
+
+      
+      
 
       <motion.section
         initial="hidden"
