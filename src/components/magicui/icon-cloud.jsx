@@ -186,19 +186,21 @@ export function IconCloud({ images, width = 600, height = 600, sphereRadius = 20
   }, [width, height, iconPositions, isDragging, autoRotate, sphereRadius])
 
   return (
-    <div className="flex justify-center items-center w-full h-full">
-      <canvas
-        ref={canvasRef}
-        width={width}
-        height={height}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
-        className="rounded-lg cursor-grab active:cursor-grabbing max-w-full max-h-full"
-        aria-label="Interactive 3D Icon Cloud"
-        role="img"
-      />
+    <div className="relative w-full flex justify-center items-center">
+      <div className="w-full max-w-none">
+        <canvas
+          ref={canvasRef}
+          width={width}
+          height={height}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          className="rounded-lg cursor-grab active:cursor-grabbing max-w-full max-h-full"
+          aria-label="Interactive 3D Icon Cloud"
+          role="img"
+        />
+      </div>
     </div>
   )
 }

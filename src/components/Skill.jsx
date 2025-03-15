@@ -49,15 +49,15 @@ export default function Skill() {
     function updateDimensions() {
       if (window.innerWidth <= 768) {
         setDimensions({
-          width: window.innerWidth - 40, // 40px for padding
+          width: window.innerWidth - 20, // 40px for padding
           height: 400,
-          radius: 150
+          radius: 200 // Increased radius for smaller screens
         });
       } else {
         setDimensions({
           width: 600,
           height: 600,
-          radius: 200
+          radius: 200 // Default radius for larger screens
         });
       }
     }
@@ -76,7 +76,7 @@ export default function Skill() {
 
   return (
     <div className="relative w-full flex justify-center items-center">
-      <div className="w-full max-w-[600px] mx-auto">
+      <div className="w-full mx-auto"> {/* Removed max-w-[600px] */}
         <IconCloud 
           images={images} 
           width={dimensions.width} 

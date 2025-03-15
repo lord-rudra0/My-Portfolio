@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { content } from '../data/content';
+import PropTypes from 'prop-types';
 
 const SkillBar = ({ skill, index }) => {
   const [ref, inView] = useInView({
@@ -26,10 +27,19 @@ const SkillBar = ({ skill, index }) => {
   );
 };
 
+// Add PropTypes validation
+SkillBar.propTypes = {
+  skill: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    level: PropTypes.number.isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+};
+
 const Skills = () => {
   return (
     <section className="py-20 bg-primary">
-      <div className="max-w-screen-lg mx-auto px-4">
+      <div className="max-w-screen-lg mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

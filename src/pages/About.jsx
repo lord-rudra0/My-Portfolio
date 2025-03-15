@@ -6,6 +6,7 @@ import { useTheme } from '../context/ThemeContext';
 import BlurText from '../components/ui/ScrollFloat';
 import { VelocityScroll } from "../components/magicui/scroll-based-velocity"
 import ContactCTA from '../components/ContactCTA';
+import SkillsRow from '../components/SkillsRow';
 // import { IconCloud } from '../components/magicui/icon-cloud';
 // import { IconCloud } from '../components/magicui/icon-cloud';
 // import Test from '../components/Education';
@@ -176,7 +177,13 @@ const About = () => {
           {/* <Test /> */}
 
         <div className="mt-20">
-          <h1 className="text-4xl font-bold mb-12 text-center text-white">Skills</h1>
+          <h1 className="text-4xl font-bold mb-2 text-center text-white">Skills</h1>
+          
+          {/* Add the SkillsRow component for smaller screens */}
+          <div className="block md:hidden mb-4">
+            <SkillsRow />
+          </div>
+
           <div className="relative flex w-full flex-col items-center justify-center mb-16 px-[100px]">
             {/* First Skills Scroll */}
             <div className="w-full flex flex-col gap-[2px] mt-0 mb-0">
