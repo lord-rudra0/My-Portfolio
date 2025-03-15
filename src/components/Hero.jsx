@@ -115,7 +115,7 @@ const Hero = () => {
 
   return (
     <motion.div 
-      className={`${isLargeScreen ? 'h-screen' : 'mt-2 pt-2 mb-10'} w-full overflow-hidden relative mt-4`}
+      className={`${isLargeScreen ? 'h-screen mt-10' : 'mt-2 pt-2 mb-10'} w-full overflow-hidden relative mt-4`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
