@@ -7,6 +7,7 @@ import BlurText from '../components/ui/ScrollFloat';
 import { VelocityScroll } from "../components/magicui/scroll-based-velocity"
 import ContactCTA from '../components/ContactCTA';
 // import { IconCloud } from '../components/magicui/icon-cloud';
+// import { IconCloud } from '../components/magicui/icon-cloud';
 // import Test from '../components/Education';
 // import { TextReveal } from '../components/ui/text-reveal';
 
@@ -90,6 +91,7 @@ const tunnelStyle = `
 
 const About = () => {
   const { theme } = useTheme();
+  const isLargeScreen = window.matchMedia('(min-width: 768px)').matches; // Check for screen size
 
   return (
     <motion.div
@@ -180,103 +182,108 @@ const About = () => {
             <div className="w-full flex flex-col gap-[2px] mt-0 mb-0">
               <div className="relative w-full perspective-1000 my-0">
                 {/* Left Portal */}
-                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[100px] h-[100px] z-0 overflow-hidden sm:w-[75px] sm:h-[75px] lg:w-[200px] lg:h-[200px]">
-                  <div className="absolute left-[5%] top-0 w-full h-full">
-                    {[...Array(8)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="absolute inset-0 rounded-full border-2 border-green-500/30"
+                {isLargeScreen && ( // Only render on large screens
+                  <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[100px] h-[100px] z-0 overflow-hidden sm:w-[75px] sm:h-[75px] lg:w-[200px] lg:h-[200px]">
+                    <div className="absolute left-[5%] top-0 w-full h-full">
+                      {[...Array(8)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="absolute inset-0 rounded-full border-2 border-green-500/30"
+                          style={{
+                            transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
+                            animation: `
+                              pulse ${2 + i * 0.2}s infinite alternate,
+                              glow ${3 + i * 0.5}s infinite alternate,
+                              rotate ${10 + i}s infinite linear
+                            `,
+                            boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
+                          }}
+                        />
+                      ))}
+                      {/* Inner glow effect */}
+                      <div 
+                        className="absolute inset-[20%] rounded-full blur-md bg-green-500/10"
                         style={{
-                          transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
-                          animation: `
-                            pulse ${2 + i * 0.2}s infinite alternate,
-                            glow ${3 + i * 0.5}s infinite alternate,
-                            rotate ${10 + i}s infinite linear
-                          `,
-                          boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
+                          animation: 'innerGlow 2s infinite alternate'
                         }}
                       />
-                    ))}
-                    {/* Inner glow effect */}
-                    <div 
-                      className="absolute inset-[20%] rounded-full blur-md bg-green-500/10"
-                      style={{
-                        animation: 'innerGlow 2s infinite alternate'
-                      }}
-                    />
-                    {/* Spinning particles */}
-                    {[...Array(12)].map((_, i) => (
-                      <div
-                        key={`particle-${i}`}
-                        className="absolute w-1 h-1 bg-green-500/40 rounded-full"
-                        style={{
-                          left: '50%',
-                          top: '50%',
-                          transform: `rotate(${i * 30}deg) translateX(${50 + (i % 3) * 10}px)`,
-                          animation: `particle ${3 + (i % 3)}s infinite linear`
-                        }}
-                      />
-                    ))}
+                      {/* Spinning particles */}
+                      {[...Array(12)].map((_, i) => (
+                        <div
+                          key={`particle-${i}`}
+                          className="absolute w-1 h-1 bg-green-500/40 rounded-full"
+                          style={{
+                            left: '50%',
+                            top: '50%',
+                            transform: `rotate(${i * 30}deg) translateX(${50 + (i % 3) * 10}px)`,
+                            animation: `particle ${3 + (i % 3)}s infinite linear`
+                          }}
+                        />
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
 
                 {/* Right Portal */}
-                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[100px] h-[100px] z-0 overflow-hidden sm:w-[75px] sm:h-[75px] lg:w-[200px] lg:h-[200px]">
-                  <div className="absolute right-[5%] top-0 w-full h-full">
-                    {[...Array(8)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="absolute inset-0 rounded-full border-2 border-green-500/30"
+                {isLargeScreen && ( // Only render on large screens
+                  <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[100px] h-[100px] z-0 overflow-hidden sm:w-[75px] sm:h-[75px] lg:w-[200px] lg:h-[200px]">
+                    <div className="absolute right-[5%] top-0 w-full h-full">
+                      {[...Array(8)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="absolute inset-0 rounded-full border-2 border-green-500/30"
+                          style={{
+                            transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
+                            animation: `
+                              pulse ${2 + i * 0.2}s infinite alternate,
+                              glow ${3 + i * 0.5}s infinite alternate,
+                              rotateReverse ${10 + i}s infinite linear
+                            `,
+                            boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
+                          }}
+                        />
+                      ))}
+                      {/* Inner glow effect */}
+                      <div 
+                        className="absolute inset-[20%] rounded-full blur-md bg-green-500/10"
                         style={{
-                          transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
-                          animation: `
-                            pulse ${2 + i * 0.2}s infinite alternate,
-                            glow ${3 + i * 0.5}s infinite alternate,
-                            rotateReverse ${10 + i}s infinite linear
-                          `,
-                          boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
+                          animation: 'innerGlow 2s infinite alternate'
                         }}
                       />
-                    ))}
-                    {/* Inner glow effect */}
-                    <div 
-                      className="absolute inset-[20%] rounded-full blur-md bg-green-500/10"
-                      style={{
-                        animation: 'innerGlow 2s infinite alternate'
-                      }}
-                    />
-                    {/* Spinning particles */}
-                    {[...Array(12)].map((_, i) => (
-                      <div
-                        key={`particle-${i}`}
-                        className="absolute w-1 h-1 bg-green-500/40 rounded-full"
-                        style={{
-                          left: '50%',
-                          top: '50%',
-                          transform: `rotate(${i * 30}deg) translateX(${50 + (i % 3) * 10}px)`,
-                          animation: `particleReverse ${3 + (i % 3)}s infinite linear`
-                        }}
-                      />
-                    ))}
+                      {/* Spinning particles */}
+                      {[...Array(12)].map((_, i) => (
+                        <div
+                          key={`particle-${i}`}
+                          className="absolute w-1 h-1 bg-green-500/40 rounded-full"
+                          style={{
+                            left: '50%',
+                            top: '50%',
+                            transform: `rotate(${i * 30}deg) translateX(${50 + (i % 3) * 10}px)`,
+                            animation: `particleReverse ${3 + (i % 3)}s infinite linear`
+                          }}
+                        />
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
 
                 {/* VelocityScroll with adjusted z-index */}
-                <div className="relative z-10 transform-gpu">
-                  <VelocityScroll 
-                    numRows={1} 
-                    defaultVelocity={0.5}
-                    
-                    className="[mask-image:linear-gradient(to_right,transparent_0%,white_20%,white_80%,transparent_100%)]"
-                  >
-                    <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl px-0 sm:px-0 lg:px-0`}>
-                      Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
-                      Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
-                      NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
-                      TensorFlow ✧ Git ✧ GitHub ✧ Unity ✧ Postman ✧ Docker
-                    </span>
-                  </VelocityScroll>
-                </div>
+                {isLargeScreen && ( // Only render on large screens
+                  <div className="relative z-10 transform-gpu">
+                    <VelocityScroll 
+                      numRows={1} 
+                      defaultVelocity={-0.5}
+                      className="[mask-image:linear-gradient(to_right,transparent_0%,white_20%,white_80%,transparent_100%)]"
+                    >
+                      <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl px-0 sm:px-0 lg:px-0`}>
+                        Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
+                        Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
+                        NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
+                        TensorFlow ✧ Git ✧ GitHub ✧ Unity ✧ Postman ✧ Docker
+                      </span>
+                    </VelocityScroll>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -288,117 +295,123 @@ const About = () => {
             <div className="w-full flex flex-col gap-0">
               <div className="relative w-full perspective-1000 my-0">
                 {/* Left Portal */}
-                <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[100px] h-[100px] z-0 overflow-hidden sm:w-[75px] sm:h-[75px] lg:w-[200px] lg:h-[200px]">
-                  <div className="absolute left-[5%] top-0 w-full h-full">
-                    {[...Array(8)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="absolute inset-0 rounded-full border-2 border-green-500/30"
+                {isLargeScreen && ( // Only render on large screens
+                  <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[100px] h-[100px] z-0 overflow-hidden sm:w-[75px] sm:h-[75px] lg:w-[200px] lg:h-[200px]">
+                    <div className="absolute left-[5%] top-0 w-full h-full">
+                      {[...Array(8)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="absolute inset-0 rounded-full border-2 border-green-500/30"
+                          style={{
+                            transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
+                            animation: `
+                              pulse ${2 + i * 0.2}s infinite alternate,
+                              glow ${3 + i * 0.5}s infinite alternate,
+                              rotate ${10 + i}s infinite linear
+                            `,
+                            boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
+                          }}
+                        />
+                      ))}
+                      {/* Inner glow effect */}
+                      <div 
+                        className="absolute inset-[20%] rounded-full blur-md bg-green-500/10"
                         style={{
-                          transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
-                          animation: `
-                            pulse ${2 + i * 0.2}s infinite alternate,
-                            glow ${3 + i * 0.5}s infinite alternate,
-                            rotate ${10 + i}s infinite linear
-                          `,
-                          boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
+                          animation: 'innerGlow 2s infinite alternate'
                         }}
                       />
-                    ))}
-                    {/* Inner glow effect */}
-                    <div 
-                      className="absolute inset-[20%] rounded-full blur-md bg-green-500/10"
-                      style={{
-                        animation: 'innerGlow 2s infinite alternate'
-                      }}
-                    />
-                    {/* Spinning particles */}
-                    {[...Array(12)].map((_, i) => (
-                      <div
-                        key={`particle-${i}`}
-                        className="absolute w-1 h-1 bg-green-500/40 rounded-full"
-                        style={{
-                          left: '50%',
-                          top: '50%',
-                          transform: `rotate(${i * 30}deg) translateX(${50 + (i % 3) * 10}px)`,
-                          animation: `particle ${3 + (i % 3)}s infinite linear`
-                        }}
-                      />
-                    ))}
+                      {/* Spinning particles */}
+                      {[...Array(12)].map((_, i) => (
+                        <div
+                          key={`particle-${i}`}
+                          className="absolute w-1 h-1 bg-green-500/40 rounded-full"
+                          style={{
+                            left: '50%',
+                            top: '50%',
+                            transform: `rotate(${i * 30}deg) translateX(${50 + (i % 3) * 10}px)`,
+                            animation: `particle ${3 + (i % 3)}s infinite linear`
+                          }}
+                        />
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
 
                 {/* Right Portal */}
-                <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[100px] h-[100px] z-0 overflow-hidden sm:w-[75px] sm:h-[75px] lg:w-[200px] lg:h-[200px]">
-                  <div className="absolute right-[5%] top-0 w-full h-full">
-                    {[...Array(8)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="absolute inset-0 rounded-full border-2 border-green-500/30"
+                {isLargeScreen && ( // Only render on large screens
+                  <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[100px] h-[100px] z-0 overflow-hidden sm:w-[75px] sm:h-[75px] lg:w-[200px] lg:h-[200px]">
+                    <div className="absolute right-[5%] top-0 w-full h-full">
+                      {[...Array(8)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="absolute inset-0 rounded-full border-2 border-green-500/30"
+                          style={{
+                            transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
+                            animation: `
+                              pulse ${2 + i * 0.2}s infinite alternate,
+                              glow ${3 + i * 0.5}s infinite alternate,
+                              rotateReverse ${10 + i}s infinite linear
+                            `,
+                            boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
+                          }}
+                        />
+                      ))}
+                      {/* Inner glow effect */}
+                      <div 
+                        className="absolute inset-[20%] rounded-full blur-md bg-green-500/10"
                         style={{
-                          transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
-                          animation: `
-                            pulse ${2 + i * 0.2}s infinite alternate,
-                            glow ${3 + i * 0.5}s infinite alternate,
-                            rotateReverse ${10 + i}s infinite linear
-                          `,
-                          boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
+                          animation: 'innerGlow 2s infinite alternate'
                         }}
                       />
-                    ))}
-                    {/* Inner glow effect */}
-                    <div 
-                      className="absolute inset-[20%] rounded-full blur-md bg-green-500/10"
-                      style={{
-                        animation: 'innerGlow 2s infinite alternate'
-                      }}
-                    />
-                    {/* Spinning particles */}
-                    {[...Array(12)].map((_, i) => (
-                      <div
-                        key={`particle-${i}`}
-                        className="absolute w-1 h-1 bg-green-500/40 rounded-full"
-                        style={{
-                          left: '50%',
-                          top: '50%',
-                          transform: `rotate(${i * 30}deg) translateX(${50 + (i % 3) * 10}px)`,
-                          animation: `particleReverse ${3 + (i % 3)}s infinite linear`
-                        }}
-                      />
-                    ))}
+                      {/* Spinning particles */}
+                      {[...Array(12)].map((_, i) => (
+                        <div
+                          key={`particle-${i}`}
+                          className="absolute w-1 h-1 bg-green-500/40 rounded-full"
+                          style={{
+                            left: '50%',
+                            top: '50%',
+                            transform: `rotate(${i * 30}deg) translateX(${50 + (i % 3) * 10}px)`,
+                            animation: `particleReverse ${3 + (i % 3)}s infinite linear`
+                          }}
+                        />
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
 
-                {/* VelocityScroll with adjusted z-index */}
-                <div className="relative z-10 transform-gpu">
-                  <VelocityScroll 
-                    numRows={1} 
-                    defaultVelocity={-0.5}
-                    className="[mask-image:linear-gradient(to_right,transparent_0%,white_20%,white_80%,transparent_100%)]"
-                  >
-                    <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl px-0 sm:px-0 lg:px-0`}>
-                      Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
-                      Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
-                      NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
-                      TensorFlow ✧ Git ✧ GitHub ✧ Unity ✧ Postman ✧ Docker
-                    </span>
-                  </VelocityScroll>
-                </div>
+                {/* VelocityScroll for the second skills scroll */}
+                {isLargeScreen && ( // Only render on large screens
+                  <div className="relative z-10 transform-gpu">
+                    <VelocityScroll 
+                      numRows={1} 
+                      defaultVelocity={-0.5}
+                      className="[mask-image:linear-gradient(to_right,transparent_0%,white_20%,white_80%,transparent_100%)]"
+                    >
+                      <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl px-0 sm:px-0 lg:px-0`}>
+                        Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
+                        Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
+                        NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
+                        TensorFlow ✧ Git ✧ GitHub ✧ Unity ✧ Postman ✧ Docker
+                      </span>
+                    </VelocityScroll>
+                  </div>
+                )}
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Add the IconCloud component */}
-        {/* <div className="flex justify-center items-center mt-0 mb-0">
-          <IconCloud 
-            images={content.skills.icons} 
-            width={300}
-            height={300}
-            sphereRadius={150}
-            className="w-full max-w-[300px] h-auto"
-          />
-        </div> */}
+          {/* Add the IconCloud component */}
+          {/* <div className="flex justify-center items-center mt-0 mb-0">
+            <IconCloud 
+              images={content.skills.icons} 
+              width={300}
+              height={300}
+              sphereRadius={150}
+              className="w-full max-w-[300px] h-auto"
+            />
+          </div> */}
+        </div>
       </div>
 
       <motion.section
