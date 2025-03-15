@@ -46,7 +46,11 @@ function AppContent() {
         <ThemeTransition isTransitioning={isTransitioning} />
         <Navbar />
         <main className="flex-grow">
-          <AnimatedRoutes />
+          <div className="w-full">
+            <div className="max-w-screen-xl mx-auto px-4 md:px-12">
+              <AnimatedRoutes />
+            </div>
+          </div>
         </main>
         <Footer />
       </div>
