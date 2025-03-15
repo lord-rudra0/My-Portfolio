@@ -165,11 +165,12 @@ const About = () => {
         >
           <h1 className="text-4xl font-bold mb-8 text-center mt-16 text-white">About Me</h1>
           <BlurText
-                text={content.about.fullBio}
-                delay={150}
-                animateBy="words"
-                direction="top"
+            text={content.about.fullBio}
+            delay={150}
+            animateBy="words"
+            direction="top"
             className={`text-2xl mb-8 text-center ${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'}`}
+            duration={1.0}
           />
         </motion.div>
 

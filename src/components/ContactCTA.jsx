@@ -9,7 +9,7 @@ const ContactCTA = () => {
   const navigate = useNavigate();
 
   const handleGetInTouchClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTop();
     navigate('/contact');
   };
 

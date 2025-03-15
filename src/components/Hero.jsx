@@ -78,17 +78,17 @@ const Hero = () => {
     }
   };
 
-  const floatingAnimation = {
-    initial: { y: 0 },
-    animate: {
-      y: [-5, 5, -5],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  };
+  // const floatingAnimation = {
+  //   initial: { y: 0 },
+  //   animate: {
+  //     y: [-5, 5, -5],
+  //     transition: {
+  //       duration: 4,
+  //       repeat: Infinity,
+  //       ease: "easeInOut"
+  //     }
+  //   }
+  // };
 
   const socialLinkVariants = {
     initial: { opacity: 0, x: -20 },
@@ -160,7 +160,7 @@ const Hero = () => {
             <motion.h2 
               className="text-5xl md:text-7xl font-bold leading-tight mt-0 pt-0" 
               style={{ fontFamily: 'Clash Display, sans-serif' }}
-              variants={floatingAnimation}
+              // variants={floatingAnimation}
               initial="initial"
               animate="animate"
             >

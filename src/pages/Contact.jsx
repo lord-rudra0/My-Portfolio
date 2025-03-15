@@ -159,8 +159,8 @@ const Contact = () => {
   const borderColor = theme === 'dark' ? 'border-gray-700' : 'border-gray-300';
   const placeholderColor = theme === 'dark' ? 'placeholder-gray-500' : 'placeholder-gray-400';
   const inputBgColor = theme === 'dark' ? 'bg-gray-800/50' : 'bg-white/50';
-  const buttonBgColor = theme === 'dark' ? 'bg-blue-600' : 'bg-blue-500';
-  const buttonHoverColor = theme === 'dark' ? 'hover:bg-blue-700' : 'hover:bg-blue-600';
+  const buttonBgColor = theme === 'dark' ? 'bg-[var(--color-accent)]' : 'bg-[var(--color-accent)]';
+  const buttonHoverColor = theme === 'dark' ? 'hover:bg-[rgba(var(--color-accent-rgb), 0.8)]' : 'hover:bg-[rgba(var(--color-accent-rgb), 0.8)]';
   const shadowColor = theme === 'dark' ? 'shadow-blue-500/20' : 'shadow-blue-500/10';
 
   return (
