@@ -80,7 +80,7 @@ const Home = () => {
           <h1 className="text-4xl font-bold mb-2 text-center text-white">Skills</h1>
           
           {/* Add the SkillsRow component for smaller screens */}
-          <div className="block md:hidden mb-20">
+          <div className="mb-20">
             <SkillsRow />
           </div>
       </motion.section>
