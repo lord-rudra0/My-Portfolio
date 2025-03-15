@@ -25,7 +25,7 @@ const SkillsRow = () => {
       </div>
       <style jsx>{`
         .animate-scroll {
-          animation: scroll 20s linear infinite;
+          animation: scroll 40s linear infinite;
         }
 
         @keyframes scroll {
