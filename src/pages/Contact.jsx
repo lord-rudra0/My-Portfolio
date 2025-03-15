@@ -32,7 +32,7 @@ const Contact = () => {
   useEffect(() => {
     const checkServerStatus = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/health');
+        const response = await fetch('https://portfolio-backend-q951.onrender.com//api/health');
         if (response.ok) {
           setServerStatus('online');
         } else {
