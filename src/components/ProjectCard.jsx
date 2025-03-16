@@ -165,7 +165,7 @@ export default function ProjectCard({ projects }) {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      href={`/${active.projectName || active.title.toLowerCase().replace(/ /g, "-")}`}
+                      href={`https://rudra-p-s-portfolio.vercel.app/${active.projectName || active.title.toLowerCase().replace(/ /g, "-")}`}
                       className="px-4 py-3 text-sm rounded-full font-bold bg-purple-500 text-white hover:bg-purple-600 transition-colors duration-300"
                     >
                       Project
