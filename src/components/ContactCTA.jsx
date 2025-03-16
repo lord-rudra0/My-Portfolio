@@ -29,9 +29,11 @@ const ContactCTA = () => {
             Have a project in mind? Let&apos;s discuss how we can bring your ideas to life.
           </p>
           <div className="flex justify-center">
-            <InteractiveHoverButton className={`know-more-btn inline-flex items-center transition-all duration-300  px-6 py-3 rounded-full backdrop-blur-sm`} onClick={handleGetInTouchClick}>
-              Get in Touch
-            </InteractiveHoverButton>
+            <Link to="/contact">
+              <InteractiveHoverButton className={`know-more-btn inline-flex items-center transition-all duration-300  px-6 py-3 rounded-full backdrop-blur-sm`} onClick={handleGetInTouchClick}>
+                Get in Touch
+              </InteractiveHoverButton>
+            </Link>
           </div>
         </motion.div>
       </div>
