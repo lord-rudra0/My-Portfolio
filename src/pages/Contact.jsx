@@ -20,11 +20,11 @@ const Contact = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const { contact } = content;
   const { theme } = useTheme();
-  const [submitStatus, setSubmitStatus] = useState({ 
-    loading: false, 
-    success: false, 
+  const [submitStatus, setSubmitStatus] = useState({
+    loading: false,
+    success: false,
     error: null,
-    details: null 
+    details: null
   });
   const [serverStatus, setServerStatus] = useState('checking');
 
@@ -32,7 +32,7 @@ const Contact = () => {
   useEffect(() => {
     const checkServerStatus = async () => {
       try {
-        const response = await fetch('https://portfolio-backend-q951.onrender.com//api/health');
+        const response = await fetch('https://portfolio-backend-q951.onrender.com/api/health');
         if (response.ok) {
           setServerStatus('online');
         } else {
@@ -61,7 +61,7 @@ const Contact = () => {
     }
 
     setSubmitStatus({ loading: true, success: false, error: null, details: null });
-    
+
     try {
       const response = await fetch('http://localhost:5000/api/contact', {
         method: 'POST',
@@ -77,25 +77,25 @@ const Contact = () => {
         throw new Error(result.error || 'Failed to send message');
       }
 
-      setSubmitStatus({ 
-        loading: false, 
-        success: true, 
+      setSubmitStatus({
+        loading: false,
+        success: true,
         error: null,
-        details: result 
+        details: result
       });
       reset();
-      
+
       // Reset success message after 5 seconds
       setTimeout(() => {
         setSubmitStatus({ loading: false, success: false, error: null, details: null });
       }, 5000);
     } catch (error) {
       console.error('Error:', error);
-      setSubmitStatus({ 
-        loading: false, 
-        success: false, 
+      setSubmitStatus({
+        loading: false,
+        success: false,
         error: error.message || 'Failed to connect to server. Please try again later.',
-        details: null 
+        details: null
       });
     }
   };
@@ -165,24 +165,24 @@ const Contact = () => {
 
   return (
     <>
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
         className={`min-h-screen bg-primary ${textColor} py-20`}
-    >
-      <div className="max-w-screen-lg mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+      >
+        <div className="max-w-screen-lg mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             className="text-center mb-20"
           >
             <h1 className={`text-4xl font-bold mb-6 mt-16 ${textColor}`}>Get in Touch</h1>
             <p className={`text-lg max-w-2xl mx-auto ${secondaryTextColor}`}>
               I&apos;m always open to new opportunities and collaborations
-          </p>
-        </motion.div>
+            </p>
+          </motion.div>
 
           {/* Server Status Indicator */}
           {/* <motion.div
@@ -224,7 +224,7 @@ const Contact = () => {
                 Send me a Message
               </h2>
 
-          <motion.div
+              <motion.div
                 custom={1}
                 variants={inputVariants}
                 initial="hidden"
@@ -239,7 +239,7 @@ const Contact = () => {
                     ${borderColor}`}
                 />
                 <AnimatePresence>
-                {errors.name && (
+                  {errors.name && (
                     <motion.p
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -267,7 +267,7 @@ const Contact = () => {
                     ${borderColor}`}
                 />
                 <AnimatePresence>
-                {errors.email && (
+                  {errors.email && (
                     <motion.p
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -295,7 +295,7 @@ const Contact = () => {
                     ${borderColor}`}
                 />
                 <AnimatePresence>
-                {errors.message && (
+                  {errors.message && (
                     <motion.p
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -378,15 +378,15 @@ const Contact = () => {
                   <div className="flex-1">
                     <h3 className={`text-xl font-semibold mb-3 ${textColor}`}>Open for Work</h3>
                     <p className={`${secondaryTextColor} leading-relaxed text-lg`}>
-                      I&apos;m currently available for freelance projects and full-time opportunities. 
+                      I&apos;m currently available for freelance projects and full-time opportunities.
                       Let&apos;s discuss how we can work together to bring your ideas to life.
                     </p>
-              </div>
-            </div>
+                  </div>
+                </div>
               </motion.div>
 
               {/* Social Links */}
-              <motion.div 
+              <motion.div
                 variants={itemVariants}
                 className="pt-8 border-t border-gray-700"
               >
@@ -399,8 +399,8 @@ const Contact = () => {
                     <motion.a
                       key={social}
                       href={contact.social[social]}
-                  target="_blank"
-                  rel="noreferrer"
+                      target="_blank"
+                      rel="noreferrer"
                       className={`group relative overflow-hidden rounded-xl ${inputBgColor} border-2 ${borderColor}
                         hover:border-[var(--color-accent)] transition-all duration-300`}
                       whileHover={{ y: -5 }}
@@ -445,7 +445,7 @@ const Contact = () => {
                   border-2 ${borderColor} hover:border-green-400 dark:hover:border-green-400 
                   transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-green-500/20 dark:hover:shadow-green-500/10`}
               >
-                <a 
+                <a
                   href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(content.contact.location)}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -473,7 +473,7 @@ const Contact = () => {
                     <FaEnvelope />
                   </div>
                   <h3 className={`text-lg font-semibold mb-2 ${textColor}`}>Email</h3>
-                  <a 
+                  <a
                     href={`mailto:${content.contact.email}`}
                     style={{ wordBreak: 'break-all' }}
                     className={`${secondaryTextColor} hover:text-green-600 dark:hover:text-green-400 leading-relaxed text-base transition-colors duration-300`}
@@ -495,7 +495,7 @@ const Contact = () => {
                     <FaPhone />
                   </div>
                   <h3 className={`text-lg font-semibold mb-2 ${textColor}`}>Phone</h3>
-                  <a 
+                  <a
                     href={`tel:${content.contact.phone}`}
                     className={`${secondaryTextColor} hover:text-green-600 dark:hover:text-green-400 leading-relaxed text-base transition-colors duration-300`}
                   >
@@ -516,20 +516,20 @@ const Contact = () => {
                     <FaWhatsapp />
                   </div>
                   <h3 className={`text-lg font-semibold mb-2 ${textColor}`}>WhatsApp</h3>
-                  <a 
+                  <a
                     href={content.contact.social.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`${secondaryTextColor} hover:text-green-600 dark:hover:text-green-400 leading-relaxed text-base transition-colors duration-300`}
-              >
-                Send Message
+                  >
+                    Send Message
                   </a>
                 </div>
               </motion.div>
             </div>
           </motion.div>
-      </div>
-    </motion.div>
+        </div>
+      </motion.div>
 
       {/* <motion.section
         initial="hidden"
@@ -541,7 +541,7 @@ const Contact = () => {
       </motion.section> */}
     </>
   );
-  
+
 };
 
 export default Contact;

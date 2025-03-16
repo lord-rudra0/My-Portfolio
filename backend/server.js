@@ -19,12 +19,14 @@ const port = process.env.PORT || 5000;
 
 // Security middleware
 app.use(helmet());
+
 app.use(cors({
-  origin: 'https://rudra-p-s-portfolio.vercel.app/contact',
+  origin: 'https://rudra-p-s-portfolio.vercel.app', // Allow the full site, not just '/contact'
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type']
 }));
-app.use(express.json());
+
+app.use(express.json())
 
 // Rate limiting
 const limiter = rateLimit({
