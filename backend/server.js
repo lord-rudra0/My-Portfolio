@@ -20,7 +20,7 @@ const port = process.env.PORT || 5000;
 // Security middleware
 app.use(helmet());
 app.use(cors({
-  origin: 'http://localhost:5173', // Your frontend URL
+  origin: 'https://rudra-p-s-portfolio.vercel.app/contact',
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type']
 }));
@@ -29,7 +29,7 @@ app.use(express.json());
 // Rate limiting
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 500, // Limit each IP to 5 requests per windowMs
+  max: 50, // Limit each IP to 5 requests per windowMs
   message: 'Too many requests from this IP, please try again later.',
   standardHeaders: true,
   legacyHeaders: false,
@@ -51,7 +51,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // Verify transporter configuration
-transporter.verify(function(error, success) {
+transporter.verify(function (error, success) {
   if (error) {
     console.log("Transporter verification error:", error);
     console.log("Please check your Gmail settings:");
@@ -69,7 +69,7 @@ const validateContactInput = (req, res, next) => {
 
   // Check if all fields are present
   if (!name || !email || !message) {
-    return res.status(400).json({ 
+    return res.status(400).json({
       error: 'All fields are required',
       details: {
         name: !name ? 'Name is required' : null,
@@ -81,7 +81,7 @@ const validateContactInput = (req, res, next) => {
 
   // Validate email format
   if (!isEmail(email)) {
-    return res.status(400).json({ 
+    return res.status(400).json({
       error: 'Invalid email format',
       details: { email: 'Please enter a valid email address' }
     });
@@ -99,7 +99,7 @@ const validateContactInput = (req, res, next) => {
 
 // Root route for health check
 app.get('/', (req, res) => {
-  res.json({ 
+  res.json({
     status: 'ok',
     message: 'Portfolio backend server is running',
     timestamp: new Date().toISOString()
@@ -157,21 +157,21 @@ ${message}
     await transporter.sendMail(mailOptions);
 
     // Send success response
-    res.status(200).json({ 
+    res.status(200).json({
       message: 'Email sent successfully',
       timestamp: new Date().toISOString()
     });
   } catch (error) {
     console.error('Error sending email:', error);
-    
+
     // Enhanced error handling
-    const errorMessage = error.code === 'ECONNREFUSED' 
+    const errorMessage = error.code === 'ECONNREFUSED'
       ? 'Failed to connect to email server'
       : error.code === 'EAUTH'
         ? 'Email authentication failed'
         : 'Failed to send email';
 
-    res.status(500).json({ 
+    res.status(500).json({
       error: errorMessage,
       details: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
