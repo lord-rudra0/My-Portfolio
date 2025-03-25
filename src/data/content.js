@@ -42,6 +42,35 @@ export const content = {
   currentProjects: [
     {
       id: 1,
+      title: "AI-Enhanced Career Guidance System",
+      description: "Department of CSE, AJCE - Career guidance platform",
+      longDescription: "A research-focused career guidance system developed under the Department of Computer Science and Engineering at Amal Jyothi College of Engineering. The platform utilizes artificial intelligence to provide personalized career recommendations based on student aptitude, academic performance, and industry trends. Features include age-appropriate assessments, detailed career path analysis, and personalized guidance reports.",
+      technologies: [
+        "Machine Learning",
+        "Python",
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express",
+        "Data Analytics",
+        "Natural Language Processing"
+      ],
+      features: [
+        "Academic performance analysis",
+        "Aptitude assessment",
+        "AI-powered recommendations",
+        "Career path visualization",
+        "Industry trend analysis",
+        "Personalized reporting"
+      ],
+      image: "https://envs.sh/p2g.png",
+      status: "in-progress",
+      type: "institutional",
+      institution: "Amal Jyothi College of Engineering",
+      department: "Computer Science and Engineering"
+    },
+    {
+      id: 2,
       title: "Smart Fish Pond Automation",
       description: "IoT-based comprehensive fish pond management system",
       longDescription: "An innovative startup project developing a complete automation solution for fish pond management. The system integrates IoT sensors and automated controls to monitor and maintain optimal conditions for fish farming. Features include real-time water quality monitoring, automated feeding systems, temperature control, and smart alerts for maintenance.",
@@ -59,7 +88,7 @@ export const content = {
       type: "startup"
     },
     {
-      id: 2,
+      id: 3,
       title: "Industrial Equipment Portal",
       description: "B2B e-commerce platform for industrial components",
       longDescription: "A specialized web platform for a  industrial equipment supplier in Rajasthan. The project focuses on creating a modern digital presence for showcasing industrial components like chrome plated shafts and linear guides. Features include detailed product catalogs, technical specifications, inventory management, and B2B inquiry systems.",
@@ -68,8 +97,6 @@ export const content = {
         "Node.js",
         "MongoDB",
         "Express",
-
-
         "Inquiry Management",
         "Admin Dashboard",
         "Tailwind CSS",
@@ -87,72 +114,50 @@ export const content = {
       type: "freelance"
     },
     {
-      id: 3,
-      title: "AI-Powered Content Generator",
-      description: "An application that uses AI to generate various types of content",
-      longDescription: "A cutting-edge platform leveraging OpenAI's GPT models to help users generate blog posts, marketing copy, creative stories, and technical documentation. Features include content customization, tone adjustment, and export options.",
-      technologies: ["React", "Next.js", "OpenAI API", "Node.js", "MongoDB"],
-      image: "https://images.pexels.com/photos/7567460/pexels-photo-7567460.jpeg",
-      images: [
-        {
-          url: "https://images.pexels.com/photos/7567460/pexels-photo-7567460.jpeg",
-          alt: "AI Content Generator Dashboard",
-          caption: "Main dashboard showing content generation options"
-        },
-        {
-          url: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg",
-          alt: "Content Editor Interface",
-          caption: "Advanced content editing interface"
-        },
-        {
-          url: "https://images.pexels.com/photos/5473337/pexels-photo-5473337.jpeg",
-          alt: "Analytics Dashboard",
-          caption: "Content performance analytics"
-        }
-      ],
-      demoUrl: "https://ai-content-generator.example.com",
-      codeUrl: "https://github.com/username/ai-content-generator",
-      status: "current",
-    },
-    {
       id: 4,
-      title: "Crypto Portfolio Tracker",
-      description: "Real-time cryptocurrency portfolio management application",
-      longDescription: "A comprehensive dashboard for tracking cryptocurrency investments, featuring real-time price updates, portfolio performance analytics, transaction history, and market trends visualization. Includes alerts for price movements and portfolio rebalancing suggestions.",
-      technologies: ["Vue.js", "Firebase", "CoinGecko API", "Chart.js", "Tailwind CSS"],
-      image: "https://images.pexels.com/photos/6771900/pexels-photo-6771900.jpeg",
-      images: [
-        {
-          url: "https://images.pexels.com/photos/6771900/pexels-photo-6771900.jpeg",
-          alt: "Portfolio Overview",
-          caption: "Main portfolio dashboard"
-        },
-        {
-          url: "https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg",
-          alt: "Price Charts",
-          caption: "Detailed price analysis charts"
-        },
-        {
-          url: "https://images.pexels.com/photos/8370772/pexels-photo-8370772.jpeg",
-          alt: "Transaction History",
-          caption: "Transaction history and performance metrics"
-        }
+      title: "Advanced Image Processing Suite",
+      description: "Comprehensive web-based image processing application",
+      longDescription: "A sophisticated image processing platform that implements various image manipulation and analysis techniques. The application provides a wide range of features from basic image transformations to advanced processing algorithms, including edge detection, noise reduction, morphological operations, and artistic filters. The platform serves as both an educational tool and a practical image processing solution.",
+      technologies: [
+        "React",
+        "OpenCV.js",
+        "Canvas API",
+        "WebGL",
+        "Node.js",
+        "Express",
+        "TensorFlow.js",
+        "WebAssembly"
       ],
-      demoUrl: "https://crypto-tracker.example.com",
-      codeUrl: "https://github.com/username/crypto-tracker",
-      status: "current",
+      features: [
+        "Basic Image Processing (Grayscale, Sepia, Brightness, Contrast)",
+        "Thresholding & Binarization",
+        "Edge Detection & Feature Extraction",
+        "Noise Reduction & Smoothing",
+        "Morphological Operations",
+        "Color Space Transformations",
+        "Geometric Transformations",
+        "Artistic Filters & Effects"
+      ],
+      technicalDetails: {
+        algorithms: [
+          "Canny Edge Detection",
+          "Sobel Filter",
+          "Gaussian Blur",
+          "Bilateral Filter",
+          "Hough Transform",
+          "K-Means Clustering"
+        ],
+        operations: [
+          "RGB to HSV Conversion",
+          "Adaptive Thresholding",
+          "Perspective Transform",
+          "Morphological Operations"
+        ]
+      },
+      image: "https://envs.sh/pFG.png",
+      status: "in-progress",
+      type: "research"
     },
-    // {
-    //   id: 3,
-    //   title: "Augmented Reality Shopping App",
-    //   description: "Mobile application for virtual product try-ons",
-    //   longDescription: "An innovative AR shopping experience that allows users to virtually try on products like furniture, glasses, and clothing. The app uses smartphone cameras to place virtual products in the user's environment, providing a realistic preview before purchase.",
-    //   technologies: ["React Native", "ARKit", "ARCore", "Three.js", "GraphQL", "AWS Amplify"],
-    //   image: "https://images.pexels.com/photos/3761168/pexels-photo-3761168.jpeg",
-    //   demoUrl: "https://ar-shopping.example.com",
-    //   codeUrl: "https://github.com/username/ar-shopping-app",
-    //   status: "current",
-    // },
   ],
   finishedProjects: [
     {
