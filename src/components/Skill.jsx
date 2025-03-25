@@ -9,13 +9,11 @@ const slugs = [
   "javascript",
   "html5",
   "python",
-  "assemblyscript",
-  "typescript",
   "vercel",
   "render",
   "netlify",
   "heroku",
-  "firebase",
+  // "firebase",
   "bootstrap",
   "ejs",
   "expressjs",
@@ -32,14 +30,14 @@ const slugs = [
   "sqlite",
   "figma",
   "canva",
-  "numpy",
-  "pandas",
-  "tensorflow",
+  // "numpy",
+  // "pandas",
+  // "tensorflow",
   "git",
   "github",
   "unity",
   "postman",
-  "docker"
+  // "docker"
 ];
 
 export default function Skill() {

@@ -1,12 +1,12 @@
 // import React from 'react';
 
 const skills = [
-  "C", "C#", "Java", "Python", "JavaScript", "TypeScript", "AssemblyScript",
+  "C", "C#", "Java", "Python", "JavaScript", 
   "HTML5", "CSS3", "React", "Node.js", "Express.js", "EJS", "Bootstrap",
   "Tailwind CSS", "FastAPI", "Flask", "Jinja", "NPM", "Vite", "MongoDB",
   "MySQL", "SQLite", "Vercel", "Render", "Netlify", "Heroku", "Firebase",
-  "Figma", "Canva", "NumPy", "Pandas", "TensorFlow", "Git", "GitHub",
-  "Unity", "Postman", "Docker"
+  "Figma", "Canva", "Git", "GitHub",
+  "Unity", "Postman", 
 ];
 
 const SkillsRow = () => {
