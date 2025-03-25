@@ -42,6 +42,52 @@ export const content = {
   currentProjects: [
     {
       id: 1,
+      title: "Smart Fish Pond Automation",
+      description: "IoT-based comprehensive fish pond management system",
+      longDescription: "An innovative startup project developing a complete automation solution for fish pond management. The system integrates IoT sensors and automated controls to monitor and maintain optimal conditions for fish farming. Features include real-time water quality monitoring, automated feeding systems, temperature control, and smart alerts for maintenance.",
+      technologies: [
+        "IoT",
+        "Embedded Systems",
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Sensor Integration",
+        "Automation Control"
+      ],
+      image: "https://envs.sh/pum.png",
+      status: "in-progress",
+      type: "startup"
+    },
+    {
+      id: 2,
+      title: "Industrial Equipment Portal",
+      description: "B2B e-commerce platform for industrial components",
+      longDescription: "A specialized web platform for a  industrial equipment supplier in Rajasthan. The project focuses on creating a modern digital presence for showcasing industrial components like chrome plated shafts and linear guides. Features include detailed product catalogs, technical specifications, inventory management, and B2B inquiry systems.",
+      technologies: [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express",
+
+
+        "Inquiry Management",
+        "Admin Dashboard",
+        "Tailwind CSS",
+      ],
+      features: [
+        "Product catalog management",
+        "Technical specification display",
+        "Business inquiry system",
+        "Admin control panel",
+        "Product categorization",
+        "High-resolution product imagery"
+      ],
+      image: "https://envs.sh/puO.png",
+      status: "in-progress",
+      type: "freelance"
+    },
+    {
+      id: 3,
       title: "AI-Powered Content Generator",
       description: "An application that uses AI to generate various types of content",
       longDescription: "A cutting-edge platform leveraging OpenAI's GPT models to help users generate blog posts, marketing copy, creative stories, and technical documentation. Features include content customization, tone adjustment, and export options.",
@@ -69,7 +115,7 @@ export const content = {
       status: "current",
     },
     {
-      id: 2,
+      id: 4,
       title: "Crypto Portfolio Tracker",
       description: "Real-time cryptocurrency portfolio management application",
       longDescription: "A comprehensive dashboard for tracking cryptocurrency investments, featuring real-time price updates, portfolio performance analytics, transaction history, and market trends visualization. Includes alerts for price movements and portfolio rebalancing suggestions.",
@@ -111,6 +157,233 @@ export const content = {
   finishedProjects: [
     {
       id: 1,
+      title: "AI Career Searcher",
+      description: "AI-powered career guidance and assessment platform",
+      longDescription: "An intelligent career guidance platform that helps students and professionals discover suitable career paths through personalized assessments. Features include age and class-based grouping, comprehensive questionnaires, detailed career analysis, and user profile management. The platform provides tailored career recommendations based on individual responses and generates detailed reports with career paths and educational requirements.",
+      technologies: ["React", "Node.js", "AI", "MongoDB", "Express", "Tailwind CSS"],
+      image: "https://envs.sh/p2g.png",
+      images: [
+        {
+          url: "https://envs.sh/p2g.png",
+          alt: "Home Dashboard",
+          caption: "Main landing page of AI Career Searcher"
+        },
+        {
+          url: "https://envs.sh/p2m.png",
+          alt: "Group Selection",
+          caption: "Age and class-based assessment grouping"
+        },
+        {
+          url: "https://envs.sh/p2M.png",
+          alt: "Assessment Interface",
+          caption: "Interactive career assessment questionnaire"
+        },
+        {
+          url: "https://envs.sh/p2X.png",
+          alt: "Results Dashboard",
+          caption: "Detailed career analysis and recommendations"
+        }
+      ],
+      demoUrl: "",
+      codeUrl: "https://github.com/lord-rudra0/career-searcher",
+      status: "completed",
+    },
+    {
+      id: 2,
+      title: "SummarIQ",
+      description: "AI-powered PDF summarizer and Q&A generator",
+      longDescription: "An intelligent document analysis platform that leverages AI to generate concise summaries of PDF documents and create interactive Q&A sessions. The application features a clean, modern interface for document upload, provides detailed summaries of uploaded content, and enables users to ask questions about the document content with AI-powered responses. The platform is designed to help students, researchers, and professionals quickly understand and interact with complex documents.",
+      technologies: [
+        "React",
+        "Node.js",
+        "OpenAI API",
+        "PDF Processing",
+        "Tailwind CSS",
+        "Express"
+      ],
+      image: "https://envs.sh/pul.png",
+      images: [
+        {
+          url: "https://envs.sh/pul.png",
+          alt: "SummarIQ Homepage",
+          caption: "Clean and intuitive main interface"
+        },
+        {
+          url: "https://envs.sh/puk.png",
+          alt: "Document Summary",
+          caption: "AI-generated document summary view"
+        },
+        {
+          url: "https://envs.sh/pu8.png",
+          alt: "Q&A Interface",
+          caption: "Interactive question and answer system"
+        }
+      ],
+      demoUrl: "",
+      codeUrl: "https://github.com/lord-rudra0/SummarIQ",
+      status: "completed"
+    },
+    {
+      id: 3,
+      title: "Emerald Eye",
+      description: "Carbon emission and forest status analysis platform for India",
+      longDescription: "A comprehensive environmental monitoring platform that analyzes and visualizes carbon emissions and forest coverage across all states and districts in India. The platform features interactive data visualization, threshold-based analysis, and a specialized chatbot for personalized data insights. Users can explore detailed environmental metrics, compare regional statistics, and receive AI-powered insights about environmental trends and impacts. The system helps policymakers, researchers, and environmentalists make data-driven decisions for sustainability.",
+      technologies: [
+        "React",
+        "Python",
+        "Data Visualization",
+        "Chart.js",
+        "Node.js",
+        "MongoDB",
+        "AI Chatbot",
+        "Tailwind CSS"
+      ],
+      image: "https://envs.sh/puJ.png",
+      images: [
+        {
+          url: "https://envs.sh/puJ.png",
+          alt: "Emerald Eye Homepage",
+          caption: "Main dashboard with environmental metrics"
+        },
+        {
+          url: "https://envs.sh/puo.png",
+          alt: "Analysis Graphs",
+          caption: "Interactive data visualization and analysis"
+        },
+        {
+          url: "https://envs.sh/pur.png",
+          alt: "Detailed Analysis",
+          caption: "Comprehensive environmental impact assessment"
+        },
+        {
+          url: "https://envs.sh/pu9.png",
+          alt: "AI Chatbot",
+          caption: "Personalized data-driven chatbot interface"
+        }
+      ],
+      demoUrl: "https://forestwatch.vercel.app/",
+      codeUrl: "https://github.com/lord-rudra0/Tech-Thrive",
+      status: "completed"
+    },
+    {
+      id: 4,
+      title: "Dynamic Task Manager",
+      description: "SQL and Python-based advanced to-do list application",
+      longDescription: "A feature-rich task management system built with Python and SQL, offering comprehensive task tracking capabilities. The application includes key features such as task creation with deadlines, status updates, modification tracking, and mark-as-done functionality. Users can manage their tasks efficiently with an intuitive interface that displays task creation dates, modification history, and completion status. The system provides a clean, organized view of pending and completed tasks with built-in date management.",
+      technologies: [
+        "Python",
+        "SQL",
+        "SQLite",
+        "CRUD Operations",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      image: "https://envs.sh/puN.png",
+      images: [
+        {
+          url: "https://envs.sh/puN.png",
+          alt: "Task Manager Homepage",
+          caption: "Main task management interface"
+        },
+        {
+          url: "https://envs.sh/puH.png",
+          alt: "Task Update Interface",
+          caption: "Task modification and status update view"
+        }
+      ],
+      features: [
+        "Task creation with deadlines",
+        "Modification tracking",
+        "Status updates",
+        "Date-based organization",
+        "Mark as complete functionality",
+        "Task history logging"
+      ],
+      demoUrl: "https://to-do-list-yehm.onrender.com/",
+      codeUrl: "https://github.com/lord-rudra0/To_Do_List_comp",
+      status: "completed"
+    },
+    {
+      id: 5,
+      title: "Las Vegas Algorithm Visualizer",
+      description: "Interactive visualization of Las Vegas randomized algorithms",
+      longDescription: "An educational platform that demonstrates the Las Vegas algorithm through interactive visualizations. The application helps users understand how Las Vegas algorithms work by showing their randomized decision-making process and guaranteed correct results. Features include step-by-step visualization, algorithm explanation, and real-time demonstration of how the algorithm reaches its solution. The platform serves as both an educational tool and a practical demonstration of randomized algorithms in computer science.",
+      technologies: [
+        "React",
+        "JavaScript",
+        "Algorithm Visualization",
+        "D3.js",
+        "Tailwind CSS",
+        "Animation Libraries"
+      ],
+      image: "https://envs.sh/puR.png",
+      images: [
+        {
+          url: "https://envs.sh/puR.png",
+          alt: "Algorithm Visualizer Homepage",
+          caption: "Main interface of the Las Vegas Algorithm Visualizer"
+        },
+        {
+          url: "https://envs.sh/pu4.png",
+          alt: "Algorithm Information",
+          caption: "Detailed explanation of Las Vegas algorithm concepts"
+        },
+        {
+          url: "https://envs.sh/puU.png",
+          alt: "Visualization Results",
+          caption: "Interactive demonstration of algorithm execution"
+        }
+      ],
+      features: [
+        "Interactive algorithm visualization",
+        "Step-by-step execution",
+        "Educational explanations",
+        "Real-time result demonstration",
+        "Performance analysis",
+        "Algorithm complexity breakdown"
+      ],
+      demoUrl: "https://vegas-randomizer-rudra-ps.vercel.app/",
+      codeUrl: "",
+      status: "completed"
+    },
+    {
+      id: 6,
+      title: "Keepar",
+      description: "Modern note-taking and organization application",
+      longDescription: "A sleek and intuitive note-taking application that helps users organize their thoughts, ideas, and important information. Keepar features a clean, minimalist interface that allows users to create, edit, and organize notes effortlessly. The application includes rich text formatting, note categorization, and quick search functionality. With its modern design and user-friendly interface, Keepar makes it easy to capture and maintain important information in a well-organized digital format.",
+      technologies: [
+        "React",
+        "CSS",
+        "Local Storage"
+      ],
+      image: "https://envs.sh/puc.png",
+      images: [
+        {
+          url: "https://envs.sh/puc.png",
+          alt: "Keepar Homepage",
+          caption: "Clean and intuitive main interface"
+        },
+        {
+          url: "https://envs.sh/puZ.png",
+          alt: "Note Creation",
+          caption: "Note creation and editing interface"
+        }
+      ],
+      features: [
+        "Quick note creation",
+        "Rich text formatting",
+        "Note organization",
+        "Search functionality",
+        "Auto-save feature",
+        "Responsive design"
+      ],
+      demoUrl: "https://keeper-app-beryl.vercel.app/",
+      codeUrl: "https://github.com/lord-rudra0/Keeper-App",
+      status: "completed"
+    },
+    {
+      id: 7,
       title: "E-Commerce Platform",
       description: "A full-featured online shopping platform",
       longDescription: "A comprehensive e-commerce solution with product catalog, shopping cart, user authentication, payment processing, and order management. Built with modern web technologies for optimal performance and user experience.",
@@ -135,61 +408,6 @@ export const content = {
       ],
       demoUrl: "https://demo-ecommerce.example.com",
       codeUrl: "https://github.com/username/ecommerce-platform",
-      status: "completed",
-    },
-    {
-      id: 2,
-      title: "Task Management App",
-      description: "A productivity tool for organizing tasks and projects",
-      longDescription: "A feature-rich task management application that helps users organize their work, set priorities, track progress, and collaborate with team members. Includes drag-and-drop functionality, notifications, and detailed analytics.",
-      technologies: ["React", "TypeScript", "Firebase", "Material UI", "React DnD"],
-      image: "https://images.pexels.com/photos/3243/pen-calendar-to-do-checklist.jpg",
-      demoUrl: "https://task-manager.example.com",
-      codeUrl: "https://github.com/username/task-manager",
-      status: "completed",
-    },
-    {
-      id: 3,
-      title: "Weather Dashboard",
-      description: "Real-time weather forecasting application",
-      longDescription: "An interactive weather dashboard that provides current conditions and forecasts for locations worldwide. Features include interactive maps, hourly and daily forecasts, severe weather alerts, and historical weather data.",
-      technologies: ["JavaScript", "OpenWeather API", "Chart.js", "Leaflet", "HTML5", "CSS3"],
-      image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg",
-      demoUrl: "https://weather-app.example.com",
-      codeUrl: "https://github.com/username/weather-dashboard",
-      status: "completed",
-    },
-    {
-      id: 4,
-      title: "Social Media Dashboard",
-      description: "Analytics platform for social media management",
-      longDescription: "A comprehensive dashboard for social media managers to track performance across multiple platforms. Provides insights on engagement, reach, follower growth, and content performance with customizable reports and visualizations.",
-      technologies: ["Vue.js", "Node.js", "Express", "PostgreSQL", "D3.js", "Social APIs"],
-      image: "https://images.pexels.com/photos/7654586/pexels-photo-7654586.jpeg",
-      demoUrl: "https://social-dashboard.example.com",
-      codeUrl: "https://github.com/username/social-dashboard",
-      status: "completed",
-    },
-    {
-      id: 5,
-      title: "Recipe Finder App",
-      description: "Culinary application for discovering and sharing recipes",
-      longDescription: "A community-driven recipe platform where users can discover, save, and share recipes. Features include ingredient-based search, dietary filters, meal planning, nutritional information, and user ratings and reviews.",
-      technologies: ["React Native", "Firebase", "Expo", "Redux", "Food API"],
-      image: "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg",
-      demoUrl: "https://recipe-finder.example.com",
-      codeUrl: "https://github.com/username/recipe-finder",
-      status: "completed",
-    },
-    {
-      id: 6,
-      title: "Portfolio Website Builder",
-      description: "Tool for creating professional portfolios without coding",
-      longDescription: "A drag-and-drop website builder specifically designed for creating professional portfolios. Users can choose from customizable templates, add projects, skills, and experience, and publish their portfolio with a custom domain.",
-      technologies: ["React", "AWS", "GraphQL", "Tailwind CSS", "Framer Motion"],
-      image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg",
-      demoUrl: "https://portfolio-builder.example.com",
-      codeUrl: "https://github.com/username/portfolio-builder",
       status: "completed",
     },
   ],
