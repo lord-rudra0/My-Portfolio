@@ -387,34 +387,6 @@ export const content = {
       codeUrl: "https://github.com/lord-rudra0/Keeper-App",
       status: "completed"
     },
-    {
-      id: 7,
-      title: "E-Commerce Platform",
-      description: "A full-featured online shopping platform",
-      longDescription: "A comprehensive e-commerce solution with product catalog, shopping cart, user authentication, payment processing, and order management. Built with modern web technologies for optimal performance and user experience.",
-      technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe", "Redux"],
-      image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg",
-      images: [
-        {
-          url: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg",
-          alt: "Product Catalog",
-          caption: "Main product catalog view"
-        },
-        {
-          url: "https://images.pexels.com/photos/264507/pexels-photo-264507.jpeg",
-          alt: "Shopping Cart",
-          caption: "Shopping cart and checkout process"
-        },
-        {
-          url: "https://images.pexels.com/photos/1005644/pexels-photo-1005644.jpeg",
-          alt: "Admin Dashboard",
-          caption: "Admin dashboard for order management"
-        }
-      ],
-      demoUrl: "https://demo-ecommerce.example.com",
-      codeUrl: "https://github.com/username/ecommerce-platform",
-      status: "completed",
-    },
   ],
   contact: {
     email: "rudra.pratap.singh.dev1@gmail.com",
