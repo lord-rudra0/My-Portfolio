@@ -32,7 +32,7 @@ const Contact = () => {
   useEffect(() => {
     const checkServerStatus = async () => {
       try {
-        const response = await fetch('https://portfolio-backend-q951.onrender.com/api/health');
+        const response = await fetch('https://my-portfolio-backend-sigma.vercel.app/api/health');
         if (response.ok) {
           setServerStatus('online');
         } else {
@@ -63,7 +63,7 @@ const Contact = () => {
     setSubmitStatus({ loading: true, success: false, error: null, details: null });
 
     try {
-      const response = await fetch('https://portfolio-backend-q951.onrender.com/api/contact', {
+      const response = await fetch('https://my-portfolio-backend-sigma.vercel.app/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
