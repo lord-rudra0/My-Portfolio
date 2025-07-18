@@ -1,3 +1,5 @@
+import { image } from "framer-motion/client";
+
 export const content = {
   about: {
     shortBio: `I am a passionate web developer driven by problem-solving and a deep love for mathematics.I thrive on building end-to-end solutions that are scalable, sustainable, and impactful, blending technical innovation with social responsibility.`,
@@ -63,7 +65,7 @@ export const content = {
         "Industry trend analysis",
         "Personalized reporting"
       ],
-      image: "https://envs.sh/p2g.png",
+      image: "https://i.postimg.cc/BnC8Y6s7/Screenshot-2025-03-25-235145.png",
       status: "in-progress",
       type: "institutional",
       institution: "Amal Jyothi College of Engineering",
@@ -83,7 +85,8 @@ export const content = {
         "Sensor Integration",
         "Automation Control"
       ],
-      image: "https://envs.sh/pum.png",
+      // image: "https://envs.sh/pum.png",
+      image: "https://i.postimg.cc/d0zybfkL/Screenshot-2025-03-26-004323.png",
       status: "in-progress",
       type: "startup"
     },
@@ -109,7 +112,7 @@ export const content = {
         "Product categorization",
         "High-resolution product imagery"
       ],
-      image: "https://envs.sh/puO.png",
+      image: "https://i.postimg.cc/zB8xm3RL/Screenshot-2025-03-26-012939.png",
       status: "in-progress",
       type: "freelance"
     },
@@ -166,25 +169,25 @@ export const content = {
       description: "AI-powered career guidance and assessment platform",
       longDescription: "An intelligent career guidance platform that helps students and professionals discover suitable career paths through personalized assessments. Features include age and class-based grouping, comprehensive questionnaires, detailed career analysis, and user profile management. The platform provides tailored career recommendations based on individual responses and generates detailed reports with career paths and educational requirements.",
       technologies: ["React", "Node.js", "AI", "MongoDB", "Express", "Tailwind CSS"],
-      image: "https://envs.sh/p2g.png",
+      image: "https://i.postimg.cc/BnC8Y6s7/Screenshot-2025-03-25-235145.png",
       images: [
         {
-          url: "https://envs.sh/p2g.png",
+          url: "https://i.postimg.cc/qvTWZ04H/Screenshot-2025-03-25-235153.png",
           alt: "Home Dashboard",
           caption: "Main landing page of AI Career Searcher"
         },
         {
-          url: "https://envs.sh/p2m.png",
+          url: "https://i.postimg.cc/WbbkmqqB/Screenshot-2025-03-25-235221.png",
           alt: "Group Selection",
           caption: "Age and class-based assessment grouping"
         },
         {
-          url: "https://envs.sh/p2M.png",
+          url: "https://i.postimg.cc/MGyHJzj0/Screenshot-2025-03-25-235230.png",
           alt: "Assessment Interface",
           caption: "Interactive career assessment questionnaire"
         },
         {
-          url: "https://envs.sh/p2X.png",
+          url: "https://i.postimg.cc/vHcmHrVZ/Screenshot-2025-03-25-235615.png",
           alt: "Results Dashboard",
           caption: "Detailed career analysis and recommendations"
         }
