@@ -1,4 +1,4 @@
-import { image } from "framer-motion/client";
+// import { image } from "framer-motion/client";
 
 export const content = {
   about: {
@@ -118,49 +118,34 @@ export const content = {
     },
     {
       id: 4,
-      title: "Advanced Image Processing Suite",
-      description: "Comprehensive web-based image processing application",
-      longDescription: "A sophisticated image processing platform that implements various image manipulation and analysis techniques. The application provides a wide range of features from basic image transformations to advanced processing algorithms, including edge detection, noise reduction, morphological operations, and artistic filters. The platform serves as both an educational tool and a practical image processing solution.",
+      title: "Online Compiler",
+      description: "Multi-language online code compiler and executor",
+      longDescription: "Online Compiler is a web-based platform that allows users to write, compile, and execute code in multiple programming languages directly from their browser. It features a modern code editor, real-time output display, and supports a wide range of popular languages. The platform is designed for students, developers, and anyone who wants to quickly test code snippets without installing any software.",
       technologies: [
         "React",
-        "OpenCV.js",
-        "Canvas API",
-        "WebGL",
-        "Node.js",
-        "Express",
-        "TensorFlow.js",
-        "WebAssembly"
+        "Flask",
+        "Python",
+        "Monaco Editor",
+        "Vite",
+        "Node.js"
       ],
-      features: [
-        "Basic Image Processing (Grayscale, Sepia, Brightness, Contrast)",
-        "Thresholding & Binarization",
-        "Edge Detection & Feature Extraction",
-        "Noise Reduction & Smoothing",
-        "Morphological Operations",
-        "Color Space Transformations",
-        "Geometric Transformations",
-        "Artistic Filters & Effects"
+      image: "https://i.postimg.cc/GhwhhZkr/Screenshot-2025-07-18-183713.png", // Home page with editor and output
+      images: [
+        {
+          url: "https://i.postimg.cc/GhwhhZkr/Screenshot-2025-07-18-183713.png",
+          alt: "Online Compiler Homepage",
+          caption: "Main interface with code editor and output window"
+        },
+        {
+          url: "https://i.postimg.cc/PrWfL24D/Screenshot-2025-07-18-183819.png",
+          alt: "Supported Languages",
+          caption: "List of all supported programming languages"
+        }
       ],
-      technicalDetails: {
-        algorithms: [
-          "Canny Edge Detection",
-          "Sobel Filter",
-          "Gaussian Blur",
-          "Bilateral Filter",
-          "Hough Transform",
-          "K-Means Clustering"
-        ],
-        operations: [
-          "RGB to HSV Conversion",
-          "Adaptive Thresholding",
-          "Perspective Transform",
-          "Morphological Operations"
-        ]
-      },
-      image: "https://envs.sh/pFG.png",
-      status: "in-progress",
-      type: "research"
-    },
+      demoUrl: "",
+      codeUrl: "https://github.com/your-username/Online-Compiler",
+      status: "completed"
+    }
   ],
   finishedProjects: [
     {
@@ -197,7 +182,53 @@ export const content = {
       status: "completed",
     },
     {
-      id: 2,
+      id: 1,
+      title: "VisionCraft❤",
+      description: "All-in-one image processing and editing platform",
+      longDescription: "VisionCraft❤ is a comprehensive web platform for image processing and editing. It offers a suite of tools including compression, resizing, cropping, format conversion, watermarking, background removal, upscaling, and a full-featured photo editor. The platform is designed for speed, ease of use, and high-quality results, making it ideal for creators, professionals, and everyday users.",
+      technologies: [
+        "React",
+        "Flask",
+        "Python",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Vercel",
+        "Render"
+      ],
+      image: "https://your-domain.com/images/visioncraft-homepage.png", // Main homepage
+      images: [
+        {
+          url: "https://your-domain.com/images/visioncraft-homepage.png",
+          alt: "VisionCraft Homepage",
+          caption: "Main dashboard with quick access to all tools"
+        },
+        {
+          url: "https://your-domain.com/images/visioncraft-features.png",
+          alt: "All Features",
+          caption: "Overview of all image processing features"
+        },
+        {
+          url: "https://your-domain.com/images/visioncraft-editor.png",
+          alt: "Image Editor",
+          caption: "Feature: Full-featured Photo Editor"
+        },
+        {
+          url: "https://your-domain.com/images/visioncraft-compress.png",
+          alt: "Compress Image",
+          caption: "Feature: Compress Image"
+        },
+        {
+          url: "https://your-domain.com/images/visioncraft-resize.png",
+          alt: "Resize Image",
+          caption: "Feature: Resize Image"
+        }
+      ],
+      demoUrl: "https://visioncraft.vercel.app/",
+      codeUrl: "https://github.com/your-username/VisionCraft",
+      status: "completed"
+    },
+    {
+      id: 4,
       title: "SummarIQ",
       description: "AI-powered PDF summarizer and Q&A generator",
       longDescription: "An intelligent document analysis platform that leverages AI to generate concise summaries of PDF documents and create interactive Q&A sessions. The application features a clean, modern interface for document upload, provides detailed summaries of uploaded content, and enables users to ask questions about the document content with AI-powered responses. The platform is designed to help students, researchers, and professionals quickly understand and interact with complex documents.",
@@ -274,7 +305,7 @@ export const content = {
       status: "completed"
     },
     {
-      id: 4,
+      id: 5,
       title: "Dynamic Task Manager",
       description: "SQL and Python-based advanced to-do list application",
       longDescription: "A feature-rich task management system built with Python and SQL, offering comprehensive task tracking capabilities. The application includes key features such as task creation with deadlines, status updates, modification tracking, and mark-as-done functionality. Users can manage their tasks efficiently with an intuitive interface that displays task creation dates, modification history, and completion status. The system provides a clean, organized view of pending and completed tasks with built-in date management.",
@@ -287,15 +318,15 @@ export const content = {
         "CSS",
         "JavaScript"
       ],
-      image: "https://envs.sh/puN.png",
+      image: "https://i.postimg.cc/cCHRBnVS/Screenshot-2025-03-26-011434.png",
       images: [
         {
-          url: "https://envs.sh/puN.png",
+          url: "https://i.postimg.cc/cCHRBnVS/Screenshot-2025-03-26-011434.png",
           alt: "Task Manager Homepage",
           caption: "Main task management interface"
         },
         {
-          url: "https://envs.sh/puH.png",
+          url: "https://i.postimg.cc/qq58b7TC/Screenshot-2025-03-26-011445.png",
           alt: "Task Update Interface",
           caption: "Task modification and status update view"
         }
@@ -313,7 +344,7 @@ export const content = {
       status: "completed"
     },
     {
-      id: 5,
+      id: 6,
       title: "Las Vegas Algorithm Visualizer",
       description: "Interactive visualization of Las Vegas randomized algorithms",
       longDescription: "An educational platform that demonstrates the Las Vegas algorithm through interactive visualizations. The application helps users understand how Las Vegas algorithms work by showing their randomized decision-making process and guaranteed correct results. Features include step-by-step visualization, algorithm explanation, and real-time demonstration of how the algorithm reaches its solution. The platform serves as both an educational tool and a practical demonstration of randomized algorithms in computer science.",
@@ -356,7 +387,7 @@ export const content = {
       status: "completed"
     },
     {
-      id: 6,
+      id: 7,
       title: "Keepar",
       description: "Modern note-taking and organization application",
       longDescription: "A sleek and intuitive note-taking application that helps users organize their thoughts, ideas, and important information. Keepar features a clean, minimalist interface that allows users to create, edit, and organize notes effortlessly. The application includes rich text formatting, note categorization, and quick search functionality. With its modern design and user-friendly interface, Keepar makes it easy to capture and maintain important information in a well-organized digital format.",
