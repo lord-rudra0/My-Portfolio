@@ -224,8 +224,8 @@ export const content = {
           caption: "Feature: Resize Image"
         }
       ],
-      demoUrl: "https://visioncraft.vercel.app/",
-      codeUrl: "https://github.com/your-username/VisionCraft",
+      demoUrl: "https://vision-craft-rudra-p-s.vercel.app/",
+      codeUrl: "https://github.com/lord-rudra0/VisionCraft",
       status: "completed"
     },
     {
