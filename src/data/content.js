@@ -209,20 +209,20 @@ export const content = {
         "Tailwind CSS",
         "Express"
       ],
-      image: "https://envs.sh/pul.png",
+      image: "https://i.postimg.cc/tg1fsgzP/Screenshot-2025-03-26-001436.png",
       images: [
         {
-          url: "https://envs.sh/pul.png",
+          url: "https://i.postimg.cc/tg1fsgzP/Screenshot-2025-03-26-001436.png",
           alt: "SummarIQ Homepage",
           caption: "Clean and intuitive main interface"
         },
         {
-          url: "https://envs.sh/puk.png",
+          url: "https://i.postimg.cc/0QDBCHFy/Screenshot-2025-03-26-001945.png",
           alt: "Document Summary",
           caption: "AI-generated document summary view"
         },
         {
-          url: "https://envs.sh/pu8.png",
+          url: "https://i.postimg.cc/0y4X1sqN/Screenshot-2025-03-26-002050.png",
           alt: "Q&A Interface",
           caption: "Interactive question and answer system"
         }
@@ -246,25 +246,25 @@ export const content = {
         "AI Chatbot",
         "Tailwind CSS"
       ],
-      image: "https://envs.sh/puJ.png",
+      image: "https://i.postimg.cc/RhqnBjmM/Screenshot-2025-03-25-235824.png",
       images: [
         {
-          url: "https://envs.sh/puJ.png",
+          url: "https://i.postimg.cc/RhqnBjmM/Screenshot-2025-03-25-235824.png",
           alt: "Emerald Eye Homepage",
           caption: "Main dashboard with environmental metrics"
         },
         {
-          url: "https://envs.sh/puo.png",
+          url: "https://i.postimg.cc/28sLscKD/Screenshot-2025-03-26-000110.png",
           alt: "Analysis Graphs",
           caption: "Interactive data visualization and analysis"
         },
         {
-          url: "https://envs.sh/pur.png",
+          url: "https://i.postimg.cc/SRwjpRVr/Screenshot-2025-03-26-000117.png",
           alt: "Detailed Analysis",
           caption: "Comprehensive environmental impact assessment"
         },
         {
-          url: "https://envs.sh/pu9.png",
+          url: "https://i.postimg.cc/FHX1WfYF/Screenshot-2025-03-26-000342.png",
           alt: "AI Chatbot",
           caption: "Personalized data-driven chatbot interface"
         }
@@ -325,20 +325,20 @@ export const content = {
         "Tailwind CSS",
         "Animation Libraries"
       ],
-      image: "https://envs.sh/puR.png",
+      image: "https://i.postimg.cc/4Ng2VL3v/Screenshot-2025-03-26-011243.png",
       images: [
         {
-          url: "https://envs.sh/puR.png",
+          url: "https://i.postimg.cc/4Ng2VL3v/Screenshot-2025-03-26-011243.png",
           alt: "Algorithm Visualizer Homepage",
           caption: "Main interface of the Las Vegas Algorithm Visualizer"
         },
         {
-          url: "https://envs.sh/pu4.png",
+          url: "https://i.postimg.cc/y6Xy4VV9/Screenshot-2025-03-26-011258.png",
           alt: "Algorithm Information",
           caption: "Detailed explanation of Las Vegas algorithm concepts"
         },
         {
-          url: "https://envs.sh/puU.png",
+          url: "https://i.postimg.cc/8z3hBcH8/Screenshot-2025-03-26-011335.png",
           alt: "Visualization Results",
           caption: "Interactive demonstration of algorithm execution"
         }
@@ -365,15 +365,15 @@ export const content = {
         "CSS",
         "Local Storage"
       ],
-      image: "https://envs.sh/puc.png",
+      image: "https://i.postimg.cc/8P6X68Dz/Screenshot-2025-03-25-235853.png",
       images: [
         {
-          url: "https://envs.sh/puc.png",
+          url: "https://i.postimg.cc/8P6X68Dz/Screenshot-2025-03-25-235853.png",
           alt: "Keepar Homepage",
           caption: "Clean and intuitive main interface"
         },
         {
-          url: "https://envs.sh/puZ.png",
+          url: "https://i.postimg.cc/Cx43RyHf/Screenshot-2025-03-26-000029.png",
           alt: "Note Creation",
           caption: "Note creation and editing interface"
         }
