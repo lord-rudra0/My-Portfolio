@@ -42,82 +42,63 @@ export const content = {
     { name: "AWS", level: 70 }
   ],
   currentProjects: [
+
     {
       id: 1,
-      title: "AI-Enhanced Career Guidance System",
-      description: "Department of CSE, AJCE - Career guidance platform",
-      longDescription: "A research-focused career guidance system developed under the Department of Computer Science and Engineering at Amal Jyothi College of Engineering. The platform utilizes artificial intelligence to provide personalized career recommendations based on student aptitude, academic performance, and industry trends. Features include age-appropriate assessments, detailed career path analysis, and personalized guidance reports.",
+      title: "AgroMesh - Smart Farming for Every Village",
+      description: "A next-generation platform bringing IoT, AI, and mesh networking to rural agriculture.",
+      longDescription: "AgroMesh revolutionizes agriculture for remote and rural areas by integrating advanced IoT sensors, offline AI, and mesh networking. The platform empowers farmers with real-time soil monitoring, intelligent recommendations, and seamless communication—even without internet access. Designed for accessibility and scalability, AgroMesh bridges the technology gap in farming, increasing yields and sustainability.",
       technologies: [
-        "Machine Learning",
-        "Python",
         "React",
-        "Node.js",
-        "MongoDB",
-        "Express",
-        "Data Analytics",
-        "Natural Language Processing"
+        "JavaScript",
+        "Tailwind CSS",
+        "Lucide React",
+        "Vite",
+        "Progressive Web App"
+      ],
+      image: "https://i.postimg.cc/ZYQH7HZg/Screenshot-2025-07-18-232056.png", // Home page screenshot
+      images: [
+        {
+          url: "https://i.postimg.cc/ZYQH7HZg/Screenshot-2025-07-18-232056.png",
+          alt: "AgroMesh Homepage",
+          caption: "Main landing page of AgroMesh"
+        },
+        {
+          url: "https://i.postimg.cc/7LBtxk8P/Screenshot-2025-07-18-232128.png",
+          alt: "Smart Soil Monitoring Feature",
+          caption: "Feature: Smart Soil Monitoring with real-time insights"
+        },
+        {
+          url: "https://i.postimg.cc/L6zyJfKb/Screenshot-2025-07-18-232231.png",
+          alt: "Offline AI Assistant Feature",
+          caption: "Feature: Offline AI Assistant for crop recommendations"
+        },
+        {
+          url: "https://i.postimg.cc/nck481tp/Screenshot-2025-07-18-232314.png",
+          alt: "Benefits Section",
+          caption: "Benefits: Increased yield, water savings, and community connectivity"
+        },
+        {
+          url: "https://i.postimg.cc/d1bB1QWF/Screenshot-2025-07-18-232250.png",
+          alt: "Technology Section",
+          caption: "Technology: Mesh networking, low-power design, and security"
+        }
       ],
       features: [
-        "Academic performance analysis",
-        "Aptitude assessment",
-        "AI-powered recommendations",
-        "Career path visualization",
-        "Industry trend analysis",
-        "Personalized reporting"
+        "Smart soil monitoring with IoT sensors",
+        "Offline AI assistant for recommendations",
+        "LoRa-based mesh network for rural connectivity",
+        "Voice assistant supporting local languages",
+        "Drone integration for aerial crop analysis",
+        "Farmer chat network for community support"
       ],
-      image: "https://i.postimg.cc/BnC8Y6s7/Screenshot-2025-03-25-235145.png",
+      demoUrl: "https://rudra-p-s-agromesh.vercel.app/",
+      codeUrl: "https://github.com/lord-rudra0/Agromesh",
       status: "in-progress",
-      type: "institutional",
-      institution: "Amal Jyothi College of Engineering",
-      department: "Computer Science and Engineering"
+      type: "startup",
     },
     {
       id: 2,
-      title: "Smart Fish Pond Automation",
-      description: "IoT-based comprehensive fish pond management system",
-      longDescription: "An innovative startup project developing a complete automation solution for fish pond management. The system integrates IoT sensors and automated controls to monitor and maintain optimal conditions for fish farming. Features include real-time water quality monitoring, automated feeding systems, temperature control, and smart alerts for maintenance.",
-      technologies: [
-        "IoT",
-        "Embedded Systems",
-        "React",
-        "Node.js",
-        "MongoDB",
-        "Sensor Integration",
-        "Automation Control"
-      ],
-      // image: "https://envs.sh/pum.png",
-      image: "https://i.postimg.cc/d0zybfkL/Screenshot-2025-03-26-004323.png",
-      status: "in-progress",
-      type: "startup"
-    },
-    {
-      id: 3,
-      title: "Industrial Equipment Portal",
-      description: "B2B e-commerce platform for industrial components",
-      longDescription: "A specialized web platform for a  industrial equipment supplier in Rajasthan. The project focuses on creating a modern digital presence for showcasing industrial components like chrome plated shafts and linear guides. Features include detailed product catalogs, technical specifications, inventory management, and B2B inquiry systems.",
-      technologies: [
-        "React",
-        "Node.js",
-        "MongoDB",
-        "Express",
-        "Inquiry Management",
-        "Admin Dashboard",
-        "Tailwind CSS",
-      ],
-      features: [
-        "Product catalog management",
-        "Technical specification display",
-        "Business inquiry system",
-        "Admin control panel",
-        "Product categorization",
-        "High-resolution product imagery"
-      ],
-      image: "https://i.postimg.cc/zB8xm3RL/Screenshot-2025-03-26-012939.png",
-      status: "in-progress",
-      type: "freelance"
-    },
-    {
-      id: 4,
       title: "Online Compiler",
       description: "Multi-language online code compiler and executor",
       longDescription: "Online Compiler is a web-based platform that allows users to write, compile, and execute code in multiple programming languages directly from their browser. It features a modern code editor, real-time output display, and supports a wide range of popular languages. The platform is designed for students, developers, and anyone who wants to quickly test code snippets without installing any software.",
@@ -146,7 +127,82 @@ export const content = {
       codeUrl: "https://github.com/lord-rudra0/Online-Compiler",
       status: "in-progress",
       type: "personal"
-    }
+    },
+    {
+      id: 3,
+      title: "AI-Enhanced Career Guidance System",
+      description: "Department of CSE, AJCE - Career guidance platform",
+      longDescription: "A research-focused career guidance system developed under the Department of Computer Science and Engineering at Amal Jyothi College of Engineering. The platform utilizes artificial intelligence to provide personalized career recommendations based on student aptitude, academic performance, and industry trends. Features include age-appropriate assessments, detailed career path analysis, and personalized guidance reports.",
+      technologies: [
+        "Machine Learning",
+        "Python",
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express",
+        "Data Analytics",
+        "Natural Language Processing"
+      ],
+      features: [
+        "Academic performance analysis",
+        "Aptitude assessment",
+        "AI-powered recommendations",
+        "Career path visualization",
+        "Industry trend analysis",
+        "Personalized reporting"
+      ],
+      image: "https://i.postimg.cc/BnC8Y6s7/Screenshot-2025-03-25-235145.png",
+      status: "in-progress",
+      type: "institutional",
+      institution: "Amal Jyothi College of Engineering",
+      department: "Computer Science and Engineering"
+    },
+    {
+      id: 4,
+      title: "Smart Fish Pond Automation",
+      description: "IoT-based comprehensive fish pond management system",
+      longDescription: "An innovative startup project developing a complete automation solution for fish pond management. The system integrates IoT sensors and automated controls to monitor and maintain optimal conditions for fish farming. Features include real-time water quality monitoring, automated feeding systems, temperature control, and smart alerts for maintenance.",
+      technologies: [
+        "IoT",
+        "Embedded Systems",
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Sensor Integration",
+        "Automation Control"
+      ],
+      // image: "https://envs.sh/pum.png",
+      image: "https://i.postimg.cc/d0zybfkL/Screenshot-2025-03-26-004323.png",
+      status: "in-progress",
+      type: "startup"
+    },
+    {
+      id: 5,
+      title: "Industrial Equipment Portal",
+      description: "B2B e-commerce platform for industrial components",
+      longDescription: "A specialized web platform for a  industrial equipment supplier in Rajasthan. The project focuses on creating a modern digital presence for showcasing industrial components like chrome plated shafts and linear guides. Features include detailed product catalogs, technical specifications, inventory management, and B2B inquiry systems.",
+      technologies: [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express",
+        "Inquiry Management",
+        "Admin Dashboard",
+        "Tailwind CSS",
+      ],
+      features: [
+        "Product catalog management",
+        "Technical specification display",
+        "Business inquiry system",
+        "Admin control panel",
+        "Product categorization",
+        "High-resolution product imagery"
+      ],
+      image: "https://i.postimg.cc/zB8xm3RL/Screenshot-2025-03-26-012939.png",
+      status: "in-progress",
+      type: "freelance"
+    },
+
   ],
   finishedProjects: [
     {
