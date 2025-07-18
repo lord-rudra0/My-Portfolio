@@ -143,8 +143,9 @@ export const content = {
         }
       ],
       demoUrl: "",
-      codeUrl: "https://github.com/your-username/Online-Compiler",
-      status: "completed"
+      codeUrl: "https://github.com/lord-rudra0/Online-Compiler",
+      status: "in-progress",
+      type: "personal"
     }
   ],
   finishedProjects: [
@@ -195,30 +196,30 @@ export const content = {
         "Vercel",
         "Render"
       ],
-      image: "https://your-domain.com/images/visioncraft-homepage.png", // Main homepage
+      image: "https://i.postimg.cc/0jf84Nrf/Screenshot-2025-07-18-151833.png", // Main homepage
       images: [
         {
-          url: "https://your-domain.com/images/visioncraft-homepage.png",
+          url: "https://i.postimg.cc/0jf84Nrf/Screenshot-2025-07-18-151833.png",
           alt: "VisionCraft Homepage",
           caption: "Main dashboard with quick access to all tools"
         },
         {
-          url: "https://your-domain.com/images/visioncraft-features.png",
+          url: "https://i.postimg.cc/jd20Tc1K/Screenshot-2025-07-18-151930.png",
           alt: "All Features",
           caption: "Overview of all image processing features"
         },
         {
-          url: "https://your-domain.com/images/visioncraft-editor.png",
+          url: "https://i.postimg.cc/D0dqY1qM/Screenshot-2025-07-18-155535.png",
           alt: "Image Editor",
           caption: "Feature: Full-featured Photo Editor"
         },
         {
-          url: "https://your-domain.com/images/visioncraft-compress.png",
+          url: "https://i.postimg.cc/FHhPmHzS/Screenshot-2025-07-18-152024.png",
           alt: "Compress Image",
           caption: "Feature: Compress Image"
         },
         {
-          url: "https://your-domain.com/images/visioncraft-resize.png",
+          url: "https://i.postimg.cc/bvtSBQP9/Screenshot-2025-07-18-155826.png",
           alt: "Resize Image",
           caption: "Feature: Resize Image"
         }
