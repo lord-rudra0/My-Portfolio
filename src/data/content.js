@@ -31,6 +31,12 @@ export const content = {
       school: "Udemy",
       year: "2024",
       description: "Intensive Web Development program covering full-stack web development."
+    },
+    {
+      degree: "Android App Development using Kotlin",
+      school: "Udemy",
+      year: "2025",
+      description: "Comprehensive course on Android app development using Kotlin, focusing on building modern, user-friendly mobile applications."
     }
   ],
   skills: [

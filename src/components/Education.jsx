@@ -8,7 +8,7 @@ import { useRef } from 'react';
 const Education = () => {
   const { theme } = useTheme();
   const containerRef = useRef(null);
-  
+
   // Scroll animations setup
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -19,20 +19,20 @@ const Education = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
   const scale = useTransform(scrollYProgress, [0, 0.2], [0.8, 1]);
   const y = useTransform(scrollYProgress, [0, 0.2], [100, 0]);
-  
+
   // Define colors based on theme
   const colors = {
-    background: theme === 'dark' 
+    background: theme === 'dark'
       ? 'rgba(34, 197, 94, 0.1)'
       : 'rgba(255, 255, 255, 0.9)',
-    text: theme === 'dark' 
-      ? '#fff' 
+    text: theme === 'dark'
+      ? '#fff'
       : '#1a1a1a',
-    subtitle: theme === 'dark' 
+    subtitle: theme === 'dark'
       ? '#4ade80'
       : '#16a34a',
-    description: theme === 'dark' 
-      ? 'rgba(255, 255, 255, 0.7)' 
+    description: theme === 'dark'
+      ? 'rgba(255, 255, 255, 0.7)'
       : 'rgba(0, 0, 0, 0.7)',
     border: theme === 'dark'
       ? 'rgba(34, 197, 94, 0.2)'
@@ -46,8 +46,8 @@ const Education = () => {
     background: theme === 'dark' ? 'rgba(31, 41, 55, 0.5)' : 'rgba(255, 255, 255, 0.5)',
     color: colors.text,
     border: `1px solid ${colors.border}`,
-    boxShadow: theme === 'dark' 
-      ? 'none' 
+    boxShadow: theme === 'dark'
+      ? 'none'
       : '0 3px 10px rgba(0, 0, 0, 0.1)',
     backdropFilter: 'blur(10px)'
   };
@@ -55,10 +55,10 @@ const Education = () => {
   // Animation variants for timeline elements
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { 
+      transition: {
         duration: 0.8,
         ease: "easeOut"
       }
@@ -67,10 +67,10 @@ const Education = () => {
 
   const iconVariants = {
     hidden: { scale: 0, rotate: -180 },
-    visible: { 
-      scale: 1, 
+    visible: {
+      scale: 1,
       rotate: 0,
-      transition: { 
+      transition: {
         duration: 0.8,
         ease: "easeOut"
       }
@@ -126,11 +126,10 @@ const Education = () => {
             <p className="mt-2" style={{ color: colors.description }}>
               Specialized in Mathematics and Physics with optional of Cryptography and Number Theory.
             </p>
-            
+
             <motion.div
-              className={`absolute inset-0 bg-gradient-to-r from-transparent ${
-                theme === 'dark' ? 'via-white/10' : 'via-black/5'
-              } to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000`}
+              className={`absolute inset-0 bg-gradient-to-r from-transparent ${theme === 'dark' ? 'via-white/10' : 'via-black/5'
+                } to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000`}
               style={{ skewX: -20 }}
             />
           </motion.div>
@@ -174,11 +173,10 @@ const Education = () => {
             <p className="mt-2" style={{ color: colors.description }}>
               Currently pursuing Computer Science with focus on software development, data structures, algorithms, and modern web technologies.
             </p>
-            
+
             <motion.div
-              className={`absolute inset-0 bg-gradient-to-r from-transparent ${
-                theme === 'dark' ? 'via-white/10' : 'via-black/5'
-              } to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000`}
+              className={`absolute inset-0 bg-gradient-to-r from-transparent ${theme === 'dark' ? 'via-white/10' : 'via-black/5'
+                } to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000`}
               style={{ skewX: -20 }}
             />
           </motion.div>
@@ -222,11 +220,55 @@ const Education = () => {
             <p className="mt-2" style={{ color: colors.description }}>
               Intensive Web Development program covering full-stack web development.
             </p>
-            
+
             <motion.div
-              className={`absolute inset-0 bg-gradient-to-r from-transparent ${
-                theme === 'dark' ? 'via-white/10' : 'via-black/5'
-              } to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000`}
+              className={`absolute inset-0 bg-gradient-to-r from-transparent ${theme === 'dark' ? 'via-white/10' : 'via-black/5'
+                } to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000`}
+              style={{ skewX: -20 }}
+            />
+          </motion.div>
+        </VerticalTimelineElement>
+        {/* Android App Development */}
+        <VerticalTimelineElement
+          className="vertical-timeline-element--education"
+          contentStyle={timelineElementStyle}
+          contentArrowStyle={{ borderRight: `7px solid ${colors.border}` }}
+          date="2025"
+          iconStyle={{ background: colors.icon, color: '#fff' }}
+          icon={
+            <motion.div
+              variants={iconVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              className="w-full h-full flex items-center justify-center"
+            >
+              <FaGraduationCap className="text-2xl" />
+            </motion.div>
+          }
+        >
+          <motion.div
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.02 }}
+            className="relative overflow-hidden group"
+          >
+            <h3 className="vertical-timeline-element-title text-xl font-bold" style={{ color: colors.text }}>
+              Android App Development using Kotlin
+            </h3>
+            <h4 className="vertical-timeline-element-subtitle mt-2" style={{ color: colors.subtitle }}>
+              Udemy
+            </h4>
+            <p className="mt-2" style={{ color: colors.description }}>
+              Comprehensive course on Android app development using Kotlin, focusing on building modern, user-friendly mobile applications.
+            </p>
+            <motion.div
+              className={`absolute inset-0 bg-gradient-to-r from-transparent ${theme === 'dark' ? 'via-white/10' : 'via-black/5'
+                } to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000`}
               style={{ skewX: -20 }}
             />
           </motion.div>
