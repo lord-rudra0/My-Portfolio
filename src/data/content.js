@@ -258,10 +258,10 @@ export const content = {
         "Vercel",
         "Render"
       ],
-      image: "https://i.postimg.cc/0jf84Nrf/Screenshot-2025-07-18-151833.png", // Main homepage
+      image: "https://i.postimg.cc/qq26qShC/Screenshot-2025-07-18-151833.png", // Main homepage
       images: [
         {
-          url: "https://i.postimg.cc/0jf84Nrf/Screenshot-2025-07-18-151833.png",
+          url: "https://i.postimg.cc/qq26qShC/Screenshot-2025-07-18-151833.png",
           alt: "VisionCraft Homepage",
           caption: "Main dashboard with quick access to all tools"
         },
