@@ -103,6 +103,76 @@ export const content = {
       status: "in-progress",
       type: "startup",
     },
+
+    {
+  "id": 3,
+  "title": "ACAWS - Adaptive Cognitive & Wellness System",
+  "description": "AI-powered learning, wellness, and cognitive analytics platform.",
+  "longDescription": "ACAWS is a full-stack platform combining a React/Vite frontend, an Express backend, and Python ML services to deliver AI-generated tutor roadmaps, per-chapter quizzes, camera-based cognitive/attention analysis (with offline simulated fallback), wellness tracking, achievements, community discussions, and analytics dashboards. Built for local or remote MongoDB with dev seeders and robust client-side fallbacks.",
+  "technologies": [
+    "React",
+    "Vite",
+    "Tailwind CSS",
+    "Lucide React",
+    "Framer Motion",
+    "Recharts",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "Mongoose",
+    "Python",
+    "FastAPI / Uvicorn",
+    "scikit-learn",
+    "WebSocket",
+    "Axios",
+    "Jest / Vitest"
+  ],
+  "image": "https://via.placeholder.com/1200x630?text=ACAWS+Dashboard",
+  "images": [
+    {
+      "url": "https://via.placeholder.com/1200x630?text=ACAWS+Dashboard",
+      "alt": "Dashboard",
+      "caption": "User dashboard: wellness, attention, learning progress"
+    },
+    {
+      "url": "https://via.placeholder.com/1200x630?text=Tutor+Roadmap",
+      "alt": "Tutor Roadmap",
+      "caption": "AI-generated Tutor Roadmap (8 chapters) with titles-only list"
+    },
+    {
+      "url": "https://via.placeholder.com/1200x630?text=Chapter+Detail+%26+Quiz",
+      "alt": "Chapter Detail & Quiz",
+      "caption": "Chapter page with back/next and per-chapter quiz UI"
+    },
+    {
+      "url": "https://via.placeholder.com/1200x630?text=Enhanced+Cognitive+Analysis",
+      "alt": "Enhanced Cognitive Analysis",
+      "caption": "Camera-based cognitive metrics (simulated offline fallback)"
+    },
+    {
+      "url": "https://via.placeholder.com/1200x630?text=Community+Page",
+      "alt": "Community",
+      "caption": "Community discussion, posts, replies, optimistic UI"
+    }
+  ],
+  "features": [
+    "AI-generated, persisted TutorRoadmap (8 chapters) and dev seeder",
+    "Titles-only roadmap list + ChapterDetail pages with Back/Next",
+    "Per-chapter quizzes and POST /api/tutor/quizzes/:quizId/submit",
+    "Enhanced cognitive analysis (camera) with offline simulated metrics",
+    "Wellness entries, daily summaries, and attention metrics",
+    "Dashboard aggregating learning, wellness, attention, streaks, achievements",
+    "Achievements with icons, tooltips, animations and confetti",
+    "Community: discussions, replies, likes, optimistic updates and fallbacks",
+    "Express backend routes + Python ML service (uvicorn) for advanced analysis",
+    "Axios API wrapper with retry/backoff, localStorage persistence for templates and last roadmap",
+    "Dev utilities: .env.example, README quick-start, remote `MONGODB_URI` support"
+  ],
+  "demoUrl": "http://localhost:3000",
+  "codeUrl": "https://github.com/DevOps-Malayalam/DevByZero-Platform-9-",
+  "status": "in-progress",
+  "type": "learning-platform"
+},
     {
       id: 2,
       title: "Online Compiler",
@@ -163,6 +233,76 @@ export const content = {
       institution: "Amal Jyothi College of Engineering",
       department: "Computer Science and Engineering"
     },
+
+    {
+  "id": 2,
+  "title": "ACAWS - Adaptive Cognitive & Wellness System",
+  "description": "Learning + wellness platform with AI tutor roadmaps, cognitive analysis, and community.",
+  "longDescription": "ACAWS combines an Express + Python backend, React/Vite frontend, and ML models to deliver AI-generated tutor roadmaps, per-chapter quizzes, cognitive+attention analysis from camera input, wellness tracking, community discussion, and analytics dashboards. Designed for local development with dev seeders and offline-friendly fallbacks.",
+  "technologies": [
+    "React",
+    "Vite",
+    "Tailwind CSS",
+    "Lucide React",
+    "Framer Motion",
+    "Recharts",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "Mongoose",
+    "Python",
+    "FastAPI / Uvicorn",
+    "scikit-learn / pickle",
+    "Socket/WebSocket",
+    "Axios",
+    "Jest / Vitest"
+  ],
+  "image": "https://via.placeholder.com/1200x630?text=ACAWS+Dashboard",
+  "images": [
+    {
+      "url": "https://via.placeholder.com/1200x630?text=ACAWS+Dashboard",
+      "alt": "Dashboard",
+      "caption": "User dashboard: wellness, attention, learning progress"
+    },
+    {
+      "url": "https://via.placeholder.com/1200x630?text=Tutor+Roadmap",
+      "alt": "Tutor Roadmap",
+      "caption": "AI-generated Tutor Roadmap (8 chapters) with titles-only list"
+    },
+    {
+      "url": "https://via.placeholder.com/1200x630?text=Chapter+Detail+%26+Quiz",
+      "alt": "Chapter Detail & Quiz",
+      "caption": "Chapter page with back/next and per-chapter quiz UI"
+    },
+    {
+      "url": "https://via.placeholder.com/1200x630?text=Enhanced+Cognitive+Analysis",
+      "alt": "Enhanced Cognitive Analysis",
+      "caption": "Camera-based cognitive metrics (simulated offline fallback)"
+    },
+    {
+      "url": "https://via.placeholder.com/1200x630?text=Community+Page",
+      "alt": "Community",
+      "caption": "Community discussion, posts, replies, optimistic UI"
+    }
+  ],
+  "features": [
+    "AI-generated, persisted TutorRoadmap (8 chapters) and dev seeder",
+    "Titles-only roadmap list + ChapterDetail pages with Back/Next",
+    "Per-chapter quizzes and POST /api/tutor/quizzes/:quizId/submit",
+    "Enhanced cognitive analysis (camera) with offline simulated values",
+    "Wellness entries, daily summaries, and attention metrics",
+    "Dashboard aggregating learning, wellness, attention, streaks, achievements",
+    "Achievements with icons, tooltips, animations and confetti",
+    "Community: discussions, replies, likes, optimistic updates and fallbacks",
+    "Express backend routes + Python ML service (uvicorn) for advanced analysis",
+    "Axios API wrapper with retry/backoff, localStorage persistence for templates and last roadmap",
+    "Dev-oriented utilities: .env.example, README quick-start, Docker Mongo option"
+  ],
+  "demoUrl": "http://localhost:3000",
+  "codeUrl": "https://github.com/DevOps-Malayalam/DevByZero-Platform-9-",
+  "status": "in-progress",
+  "type": "learning-platform"
+},
     {
       id: 4,
       title: "Smart Fish Pond Automation",
@@ -182,32 +322,67 @@ export const content = {
       status: "in-progress",
       type: "startup"
     },
+    // {
+    //   id: 5,
+    //   title: "Industrial Equipment Portal",
+    //   description: "B2B e-commerce platform for industrial components",
+    //   longDescription: "A specialized web platform for a  industrial equipment supplier in Rajasthan. The project focuses on creating a modern digital presence for showcasing industrial components like chrome plated shafts and linear guides. Features include detailed product catalogs, technical specifications, inventory management, and B2B inquiry systems.",
+    //   technologies: [
+    //     "React",
+    //     "Node.js",
+    //     "MongoDB",
+    //     "Express",
+    //     "Inquiry Management",
+    //     "Admin Dashboard",
+    //     "Tailwind CSS",
+    //   ],
+    //   features: [
+    //     "Product catalog management",
+    //     "Technical specification display",
+    //     "Business inquiry system",
+    //     "Admin control panel",
+    //     "Product categorization",
+    //     "High-resolution product imagery"
+    //   ],
+    //   image: "https://i.postimg.cc/zB8xm3RL/Screenshot-2025-03-26-012939.png",
+    //   status: "in-progress",
+    //   type: "freelance"
+    // },
+
     {
-      id: 5,
-      title: "Industrial Equipment Portal",
-      description: "B2B e-commerce platform for industrial components",
-      longDescription: "A specialized web platform for a  industrial equipment supplier in Rajasthan. The project focuses on creating a modern digital presence for showcasing industrial components like chrome plated shafts and linear guides. Features include detailed product catalogs, technical specifications, inventory management, and B2B inquiry systems.",
-      technologies: [
-        "React",
-        "Node.js",
-        "MongoDB",
-        "Express",
-        "Inquiry Management",
-        "Admin Dashboard",
-        "Tailwind CSS",
-      ],
-      features: [
-        "Product catalog management",
-        "Technical specification display",
-        "Business inquiry system",
-        "Admin control panel",
-        "Product categorization",
-        "High-resolution product imagery"
-      ],
-      image: "https://i.postimg.cc/zB8xm3RL/Screenshot-2025-03-26-012939.png",
-      status: "in-progress",
-      type: "freelance"
-    },
+  "id": 1,
+  "title": "WebBuilder — Multi-tenant Website Builder",
+  "description": "A multi-tenant platform for creating, editing, and publishing websites and stores, with per-tenant isolation and centralized platform management.",
+  "longDescription": "WebBuilder is a multi-tenant website builder (subdomain-per-tenant) that provides isolated tenant sites, a React+Vite editor, reusable templates, tenant-level e-commerce, and platform admin controls. It supports role-based access, tenant settings, and server-side order validation to prevent oversells.",
+  "technologies": [
+    "React",
+    "Vite",
+    "Tailwind CSS",
+    "Lucide React",
+    "JavaScript",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "Mongoose",
+    "React Router",
+    "axios",
+    "react-hot-toast"
+  ],
+  "templatesFeatureLine": "supports e-commerce (product catalog, variants, cart/checkout), portfolio galleries, blog posts & SEO, service booking/contact, and modular multi-purpose content blocks",
+  "features": [
+    "Multi-tenant architecture (subdomain-per-tenant) with tenant isolation",
+    "In-browser editor and template selection (Online Store, Portfolio, Blog, Service Business, Multi-Purpose)",
+    "Tenant-level e-commerce with product variants (SKU/price/stock) and variant images",
+    "Client cart + server-side transactional order validation and order management",
+    "Role-based auth (owner/admin), owner-aware footer/contact visibility, and tenant settings",
+    "Platform admin hooks, migration scripts, and tenant management tools"
+  ],
+  "demoUrl": "",
+  "codeUrl": "https://github.com/lord-rudra0/WEB-BUILDER",
+  "status": "in-progress",
+  "type": "multi-tenant-platform"
+}
+
 
   ],
   finishedProjects: [
@@ -450,40 +625,59 @@ export const content = {
       status: "completed"
     },
     {
-      id: 7,
-      title: "Keepar",
-      description: "Modern note-taking and organization application",
-      longDescription: "A sleek and intuitive note-taking application that helps users organize their thoughts, ideas, and important information. Keepar features a clean, minimalist interface that allows users to create, edit, and organize notes effortlessly. The application includes rich text formatting, note categorization, and quick search functionality. With its modern design and user-friendly interface, Keepar makes it easy to capture and maintain important information in a well-organized digital format.",
-      technologies: [
-        "React",
-        "CSS",
-        "Local Storage"
-      ],
-      image: "https://i.postimg.cc/8P6X68Dz/Screenshot-2025-03-25-235853.png",
-      images: [
-        {
-          url: "https://i.postimg.cc/8P6X68Dz/Screenshot-2025-03-25-235853.png",
-          alt: "Keepar Homepage",
-          caption: "Clean and intuitive main interface"
-        },
-        {
-          url: "https://i.postimg.cc/Cx43RyHf/Screenshot-2025-03-26-000029.png",
-          alt: "Note Creation",
-          caption: "Note creation and editing interface"
-        }
-      ],
-      features: [
-        "Quick note creation",
-        "Rich text formatting",
-        "Note organization",
-        "Search functionality",
-        "Auto-save feature",
-        "Responsive design"
-      ],
-      demoUrl: "https://keeper-app-beryl.vercel.app/",
-      codeUrl: "https://github.com/lord-rudra0/Keeper-App",
-      status: "completed"
+  id: 7,
+  title: "CardGEN — Logo & Business Card Generator",
+  description: "Generates logos and export-ready business cards with background artwork, programmatic text overlay, and QR codes.",
+  longDescription: "Full-stack app with a backend API, a frontend UI, and a local ML service to produce high-resolution backgrounds and compose crisp text overlays for printable cards.",
+  technologies: [
+    "Node.js",
+    "Express",
+    "React",
+    "Vite",
+    "Python",
+    "FastAPI",
+    "Uvicorn",
+    "Sharp",
+    "SVG"
+  ],
+  image: "https://via.placeholder.com/1024x640.png?text=CardGEN+Preview",
+  images: [
+    {
+      url: "https://via.placeholder.com/1024x640.png?text=Background+Generation",
+      alt: "Background generation",
+      caption: "Generated background artwork"
     },
+    {
+      url: "https://via.placeholder.com/1024x640.png?text=Programmatic+Overlay",
+      alt: "Programmatic overlay",
+      caption: "Final card with SVG-rendered text"
+    },
+    {
+      url: "https://via.placeholder.com/1024x640.png?text=QR+Feature",
+      alt: "QR code feature",
+      caption: "QR code integrated into card (vCard or URL)"
+    },
+    {
+      url: "https://via.placeholder.com/1024x640.png?text=Refine+Loop",
+      alt: "Refine loop",
+      caption: "Refine loop to reach target legibility"
+    }
+  ],
+  features: [
+    "High-resolution background generation",
+    "Programmatic SVG text overlay for crisp typography",
+    "QR code (vCard / URL) generation and embedding",
+    "OCR-driven refine loop for legibility",
+    "Background-only generation option",
+    "Image caching and job queue",
+    "Fallback provider logic",
+    "Export-ready output (PNG/SVG/PDF)"
+  ],
+  demoUrl: "http://localhost:5173",
+  codeUrl: "https://github.com/lord-rudra0/Logo-And-Card-Generator",
+  status: "in-progress",
+  type: "tool"
+}
   ],
   contact: {
     email: "rudra.pratap.singh.dev1@gmail.com",
