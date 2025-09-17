@@ -542,6 +542,68 @@ export const content = {
       codeUrl: "https://github.com/lord-rudra0/Tech-Thrive",
       status: "completed"
     },
+
+    {
+  "id": 1,
+  "title": "DSA_TRACER",
+  "description": "A platform for tracking DSA progress, competitions, and analytics.",
+  "longDescription": "DSA_TRACER is a full-stack web application designed to help users track their progress in Data Structures and Algorithms (DSA), participate in competitions, view analytics, and engage with a community. The frontend is built with React, Vite, and Tailwind CSS, while the backend uses Node.js, Express, and MongoDB. Features include user authentication, leaderboards, daily challenges, achievements, activity heatmaps, and more.",
+  "technologies": [
+    "React",
+    "Vite",
+    "Tailwind CSS",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "Mongoose",
+    "Axios",
+    "Recharts"
+  ],
+  "image": "https://via.placeholder.com/1200x630?text=DSA_TRACER+Dashboard",
+  "images": [
+    {
+      "url": "https://via.placeholder.com/1200x630?text=DSA_TRACER+Dashboard",
+      "alt": "Dashboard",
+      "caption": "User dashboard: progress, streaks, and analytics"
+    },
+    {
+      "url": "https://via.placeholder.com/1200x630?text=Competitions",
+      "alt": "Competitions",
+      "caption": "List and details of ongoing and past competitions"
+    },
+    {
+      "url": "https://via.placeholder.com/1200x630?text=Problems+List",
+      "alt": "Problems List",
+      "caption": "Browse and solve DSA problems with filters"
+    },
+    {
+      "url": "https://via.placeholder.com/1200x630?text=Leaderboard",
+      "alt": "Leaderboard",
+      "caption": "Leaderboard showing top performers"
+    },
+    {
+      "url": "https://via.placeholder.com/1200x630?text=Achievements",
+      "alt": "Achievements",
+      "caption": "Achievements and badges earned by users"
+    }
+  ],
+  "features": [
+    "User authentication and protected routes",
+    "Daily challenges and activity heatmap",
+    "Competition creation, participation, and analytics",
+    "Leaderboard and stats tracking",
+    "Problem list with filters and details",
+    "Achievements and badges with animations",
+    "Community feed and discussions",
+    "Express backend API with MongoDB models",
+    "Axios API wrapper for frontend-backend communication",
+    "Frontend built with React, Vite, and Tailwind CSS"
+  ],
+  "demoUrl": "http://localhost:5173",
+  "codeUrl": "https://github.com/lord-rudra0/DSA_TRACER",
+  "status": "in-progress",
+  "type": "learning-platform"
+},
     {
       id: 5,
       title: "Dynamic Task Manager",
