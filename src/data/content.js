@@ -234,24 +234,40 @@ export const content = {
       department: "Computer Science and Engineering"
     },
     {
-      id: 4,
-      title: "Smart Fish Pond Automation",
-      description: "IoT-based comprehensive fish pond management system",
-      longDescription: "An innovative startup project developing a complete automation solution for fish pond management. The system integrates IoT sensors and automated controls to monitor and maintain optimal conditions for fish farming. Features include real-time water quality monitoring, automated feeding systems, temperature control, and smart alerts for maintenance.",
-      technologies: [
-        "IoT",
-        "Embedded Systems",
-        "React",
-        "Node.js",
-        "MongoDB",
-        "Sensor Integration",
-        "Automation Control"
-      ],
-      // image: "https://envs.sh/pum.png",
-      image: "https://i.postimg.cc/d0zybfkL/Screenshot-2025-03-26-004323.png",
-      status: "in-progress",
-      type: "startup"
-    },
+  "id": 1,
+  "title": "Fish Pond Automation",
+  "description": "Real-time monitoring and automation platform for fish ponds that collects sensor data, visualizes trends, triggers alerts, and manages thresholds and history.",
+  "longDescription": "Fish Pond Automation is an IoT-driven platform for monitoring water quality and pond conditions. It features a React + Vite frontend with live sensor cards and charts, threshold-based alerting, historical data visualization, user authentication, and a Node.js backend for storing, validating, and serving sensor and alert data. The system includes configurable auto-refresh, alert history, CSV/test-data utilities, and tenant/profile-level settings for operators to manage ponds and notifications.",
+  "technologies": [
+    "React",
+    "Vite",
+    "Tailwind CSS",
+    "Lucide React",
+    "JavaScript",
+    "Node.js",
+    "Express",
+    "Supabase",
+    "TanStack Query (react-query)",
+    "Chart.js",
+    "axios",
+    "react-hot-toast"
+  ],
+  "templatesFeatureLine": "real-time sensor dashboards, configurable threshold alerts & notifications, historical charts with export, alert history & pagination, auto-refresh/scheduling and device test-data utilities",
+  "features": [
+    "Real-time sensor dashboard with per-sensor cards and live values",
+    "Historical charts and trend visualization for each sensor",
+    "Threshold configuration with automated alert generation and history",
+    "Alert history listing, filtering, and CSV/test-data utilities",
+    "Auto-refresh settings and client-side refresh hooks",
+    "User authentication and profile pages (Supabase-backed)",
+    "Server-side validation and storage of sensor readings and alerts",
+    "Responsive UI components and reusable design system (Tailwind + component library)"
+  ],
+  "demoUrl": "",
+  "codeUrl": "https://github.com/lord-rudra0/Fish_Pond_Automation",
+  "status": "in-progress",
+  "type": "iot-monitoring"
+},
     // {
     //   id: 5,
     //   title: "Industrial Equipment Portal",
