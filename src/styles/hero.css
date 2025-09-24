@@ -13,4 +13,25 @@
   height: 100%;
 }
 
+/* Wider hero container and reduced side gutters for large screens */
+.hero-container {
+  max-width: 1200px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+}
+
+@media (min-width: 1280px) {
+  .hero-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Make hero heading occupy more horizontal space and wrap naturally */
+.hero-heading {
+  max-width: 100%;
+  white-space: normal;
+}
+
 /* Keep global reset in index.css instead of here */

@@ -41,8 +41,7 @@ const Hero = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [mouseX, mouseY]);
 
-  const rotateX = useSpring(useTransform(mouseY, [-300, 300], [5, -5]), springConfig);
-  const rotateY = useSpring(useTransform(mouseX, [-300, 300], [-5, 5]), springConfig);
+  // removed tilt interaction: no rotateX/rotateY transforms to disable hover tilt
 
   const lineAnimation = {
     hidden: { width: 0 },
@@ -135,20 +134,18 @@ const Hero = () => {
 
       <div 
         ref={containerRef}
-        className="max-w-screen-xl mx-auto flex flex-col justify-center h-full px-4 md:px-12 relative"
+        className="max-w-6xl mx-auto flex flex-col justify-center h-full px-6 md:px-8 relative w-full hero-container"
         style={{
           '--mouse-x': `${mouseX.get()}px`,
           '--mouse-y': `${mouseY.get()}px`
         }}
       >
         <motion.div 
-          className="flex flex-col items-start text-left max-w-3xl"
+          className="flex flex-col items-start text-left max-w-4xl w-full"
           style={{ 
             y: titleY,
             opacity,
-            perspective: 1000,
-            rotateX,
-            rotateY
+            perspective: 1000
           }}
         >
           <motion.div 
@@ -182,7 +179,6 @@ const Hero = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.5 }}
-                  whileHover={{ scale: 1.02 }}
                 >
                   Innovative purpose driven
                 </motion.span>
@@ -207,7 +203,6 @@ const Hero = () => {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.8 }}
-                  whileHover={{ scale: 1.02 }}
                 >
                   crafting scalable solutions.
                 </motion.span>
