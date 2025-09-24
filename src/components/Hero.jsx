@@ -1,6 +1,8 @@
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 // import { MdEmail } from 'react-icons/md';
 import { content } from '../data/content';
+import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
 import { Link as RouterLink } from 'react-router-dom';
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { WordRotate } from './ui/WordRotate';
@@ -258,26 +260,32 @@ const Hero = () => {
               initial="initial"
               animate="animate"
             >
-              {['LINKEDIN', 'GITHUB', 'INSTAGRAM', 'GMAIL'].map((link, index) => (
+              {[
+                { key: 'linkedin', Icon: FaLinkedin, url: content.contact.social.linkedin, label: 'LinkedIn' },
+                { key: 'github', Icon: FaGithub, url: content.contact.social.github, label: 'GitHub' },
+                { key: 'instagram', Icon: FaInstagram, url: content.contact.social.instagram, label: 'Instagram' },
+                { key: 'gmail', Icon: MdEmail, url: `mailto:${content.contact.email}`, label: 'Email' },
+              ].map(({ key, Icon, url, label }) => (
                 <motion.a
-                  key={index}
-                  href={content.contact.social[link.toLowerCase()]}
+                  key={key}
+                  href={url}
                   target="_blank"
                   rel="noreferrer"
-                  className="social-link relative group"
+                  className="social-link relative group flex items-center gap-2 text-current"
                   variants={socialLinkVariants}
                   whileHover="hover"
                   onHoverStart={() => setIsHovered(true)}
                   onHoverEnd={() => setIsHovered(false)}
+                  aria-label={label}
                 >
                   <motion.div
                     className="absolute -inset-2 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"
-                    animate={isHovered ? { scale: [1, 1.1, 1] } : {}}
-                    transition={{ duration: 0.3 }}
+                    animate={isHovered ? { scale: [1, 1.05, 1] } : {}}
+                    transition={{ duration: 0.25 }}
                   />
-                  <span className="relative z-10">{link}</span>
+                  <Icon className="relative z-10 w-5 h-5 md:w-6 md:h-6" />
                   <motion.span
-                    className="relative z-10"
+                    className="relative z-10 hidden md:inline"
                     animate={{ 
                       x: [0, 4, 0],
                       y: [0, -4, 0]
