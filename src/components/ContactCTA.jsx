@@ -9,13 +9,13 @@ const ContactCTA = () => {
   const navigate = useNavigate();
 
   const handleGetInTouchClick = () => {
-    scrollToTop();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     navigate('/contact');
   };
 
   return (
     <section className="py-10">
-      <div className="max-w-6xl mx-auto px-4">
+  <div className="max-w-screen-2xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

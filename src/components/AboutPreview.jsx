@@ -16,7 +16,7 @@ const AboutPreview = () => {
 
   return (
     <section className="pb-20 bg-primary">
-      <div className="max-w-screen-lg mx-auto px-4">
+  <div className="max-w-screen-2xl mx-auto px-4">
         <ScrollReveal duration={1.0} delay={0.2}>
           <motion.div className="text-center">
             <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>

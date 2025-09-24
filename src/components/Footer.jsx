@@ -6,7 +6,7 @@ const Footer = () => {
   
   return (
     <footer className={`${theme === 'dark' ? 'bg-black' : 'bg-gray-100'} py-6 mt-auto`}>
-      <div className="max-w-5xl mx-auto px-4">
+  <div className="max-w-screen-2xl mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>&copy; 2025 Portfolio. All rights reserved.</p>

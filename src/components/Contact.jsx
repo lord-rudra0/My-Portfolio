@@ -16,9 +16,9 @@ const Contact = () => {
       exit={{ opacity: 0 }}
       className="min-h-screen bg-primary text-white py-20"
     >
-      <div className="max-w-screen-lg mx-auto px-4">
+  <div className="max-w-screen-2xl mx-auto px-4">
         <h1 className="text-4xl font-bold mb-4">Get in Touch</h1>
-        <p className="text-secondary text-lg mb-8">I'm always open to new opportunities and collaborations</p>
+  <p className="text-secondary text-lg mb-8">I&apos;m always open to new opportunities and collaborations</p>
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full md:w-1/2">
           <input
             type="text"
@@ -45,7 +45,7 @@ const Contact = () => {
           {errors.message && <p className="text-red-500">{errors.message.message}</p>}
 
           <button type="submit" className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 px-6 py-3 my-8 mx-auto flex items-center rounded-md hover:scale-110 duration-300">
-            Let's talk
+            Let&apos;s talk
           </button>
         </form>
       </div>

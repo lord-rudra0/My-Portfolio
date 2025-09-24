@@ -48,7 +48,7 @@ function AppContent() {
         <Navbar />
         <main className="flex-grow">
           <div className="w-full">
-            <div className="max-w-screen-xl mx-auto px-4 md:px-12">
+            <div className="max-w-screen-2xl mx-auto px-4 md:px-8">
               <AnimatedRoutes />
             </div>
           </div>

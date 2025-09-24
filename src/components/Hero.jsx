@@ -136,14 +136,14 @@ const Hero = () => {
 
       <div 
         ref={containerRef}
-        className="max-w-6xl mx-auto flex flex-col justify-center h-full px-6 md:px-8 relative w-full hero-container"
+        className="mx-auto flex flex-col justify-center h-full px-6 md:px-8 relative w-full hero-container"
         style={{
           '--mouse-x': `${mouseX.get()}px`,
           '--mouse-y': `${mouseY.get()}px`
         }}
       >
         <motion.div 
-          className="flex flex-col items-start text-left max-w-4xl w-full"
+          className="flex flex-col items-start text-left w-full"
           style={{ 
             y: titleY,
             opacity,

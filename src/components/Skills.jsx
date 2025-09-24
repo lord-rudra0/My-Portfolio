@@ -39,7 +39,7 @@ SkillBar.propTypes = {
 const Skills = () => {
   return (
     <section className="py-20 bg-primary">
-      <div className="max-w-screen-lg mx-auto">
+  <div className="max-w-screen-2xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

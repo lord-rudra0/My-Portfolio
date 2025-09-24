@@ -15,7 +15,8 @@
 
 /* Wider hero container and reduced side gutters for large screens */
 .hero-container {
-  max-width: 1200px;
+  /* don't artificially cap hero width here — let the page container control width */
+  max-width: 100%;
   padding-left: 1rem;
   padding-right: 1rem;
   width: 100%;

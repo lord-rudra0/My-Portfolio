@@ -200,7 +200,7 @@ export default function ProjectCard({ projects }) {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-8 p-4 [&>*:nth-child(even)]:md:mt-10">
+  <ul className="max-w-screen-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-8 p-4 [&>*:nth-child(even)]:md:mt-10">
         {projects.map((project) => (
           <motion.div
             layoutId={`card-${project.id}-${id}`}
