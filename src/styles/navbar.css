@@ -55,7 +55,7 @@
   max-width: 100%;
   padding-left: 1rem;  /* 16px */
   padding-right: 1rem; /* 16px */
-  margin-top: 1rem !important; /* 16px top margin for all screens */
+  margin-top: 0 !important; /* remove forced top margin */
 }
 
 @media (min-width: 768px) {

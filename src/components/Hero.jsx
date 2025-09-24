@@ -115,7 +115,7 @@ const Hero = () => {
 
   return (
     <motion.div 
-      className={`${isLargeScreen ? 'h-screen mt-20 pt-10' : 'mt-2 pt-2 mb-10'} w-full overflow-hidden relative mt-4`}
+      className={`${isLargeScreen ? 'h-screen flex items-center' : 'mt-2 pt-2 mb-10'} w-full overflow-hidden relative`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -135,7 +135,7 @@ const Hero = () => {
 
       <div 
         ref={containerRef}
-        className="max-w-screen-xl mx-auto flex flex-col justify-start h-full px-4 md:px-12 relative"
+        className="max-w-screen-xl mx-auto flex flex-col justify-center h-full px-4 md:px-12 relative"
         style={{
           '--mouse-x': `${mouseX.get()}px`,
           '--mouse-y': `${mouseY.get()}px`

@@ -30,7 +30,7 @@ const Home = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className={`min-h-screen theme-transition ${theme === 'dark' ? 'bg-dark text-white' : 'bg-light text-black'} pt-20`}
+    className={`min-h-screen theme-transition ${theme === 'dark' ? 'bg-dark text-white' : 'bg-light text-black'}`}
     >
       <motion.section
         initial="hidden"

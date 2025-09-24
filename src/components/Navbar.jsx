@@ -15,39 +15,26 @@ const Navbar = () => {
   
   // Check for screen size
   const isLargeScreen = window.matchMedia('(min-width: 768px) and (min-height: 600px)').matches;
-  
-  // For smaller screens, use fixed values. For larger screens, keep scroll animations
-  const headerHeight = isLargeScreen 
-    ? useTransform(scrollY, [0, 100], ['6rem', '3rem'])
-    : '3rem';
-    
-  const boxWidth = isLargeScreen 
-    ? useTransform(scrollY, [0, 100], ['100%', '70%'])
-    : '100%';
-    
-  const boxPadding = isLargeScreen 
-    ? useTransform(scrollY, [0, 100], ['0 3rem', '0.75rem'])
-    : '0.75rem';
-    
-  const boxBg = isLargeScreen 
-    ? useTransform(scrollY, [0, 100], ['rgba(255,255,255,0)', 'rgba(255,255,255,0.05)'])
-    : 'rgba(255,255,255,0.05)';
-    
-  const boxBorder = isLargeScreen 
-    ? useTransform(scrollY, [0, 100], ['0px', '1px'])
-    : '1px';
-    
-  const itemSpacing = isLargeScreen 
-    ? useTransform(scrollY, [0, 100], [40, 20])
-    : 20;
-    
-  const logoMargin = isLargeScreen 
-    ? useTransform(scrollY, [0, 100], ['0 4rem', '0 0.75rem'])
-    : '0 0.75rem';
-    
-  const blur = isLargeScreen 
-    ? useTransform(scrollY, [0, 100], [0, 8])
-    : 8;
+
+  // Call useTransform unconditionally to satisfy React hooks rules.
+  const headerHeightTransform = useTransform(scrollY, [0, 100], ['6rem', '3rem']);
+  const boxWidthTransform = useTransform(scrollY, [0, 100], ['100%', '70%']);
+  const boxPaddingTransform = useTransform(scrollY, [0, 100], ['0 3rem', '0.75rem']);
+  const boxBgTransform = useTransform(scrollY, [0, 100], ['rgba(255,255,255,0)', 'rgba(255,255,255,0.05)']);
+  const boxBorderTransform = useTransform(scrollY, [0, 100], ['0px', '1px']);
+  const itemSpacingTransform = useTransform(scrollY, [0, 100], [40, 20]);
+  const logoMarginTransform = useTransform(scrollY, [0, 100], ['0 4rem', '0 0.75rem']);
+  const blurTransform = useTransform(scrollY, [0, 100], [0, 8]);
+
+  // Select either the transform (motion value) for large screens or static fallbacks for small screens
+  const headerHeight = isLargeScreen ? headerHeightTransform : '3rem';
+  const boxWidth = isLargeScreen ? boxWidthTransform : '100%';
+  const boxPadding = isLargeScreen ? boxPaddingTransform : '0.75rem';
+  const boxBg = isLargeScreen ? boxBgTransform : 'rgba(255,255,255,0.05)';
+  const boxBorder = isLargeScreen ? boxBorderTransform : '1px';
+  const itemSpacing = isLargeScreen ? itemSpacingTransform : 20;
+  const logoMargin = isLargeScreen ? logoMarginTransform : '0 0.75rem';
+  const blur = isLargeScreen ? blurTransform : 8;
 
   const links = [
     { id: 1, link: 'home', path: '/' },
@@ -67,7 +54,7 @@ const Navbar = () => {
     <>
       <motion.div 
         style={{ height: headerHeight }}
-        className="flex flex-col justify-center items-center w-full fixed z-50 theme-transition mt-4"
+        className="flex flex-col justify-center items-center w-full fixed top-0 z-50 theme-transition"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
@@ -86,8 +73,9 @@ const Navbar = () => {
         >
           <motion.div 
             className="flex items-center"
+            style={{ margin: logoMargin }}
           >
-            <span className="h-8 ml-4">RPS</span>
+            <span className="h-8">RPS</span>
           </motion.div>
 
           <motion.div 

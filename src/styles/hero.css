@@ -1,20 +1,16 @@
-/* Add these styles to force remove any top margins */
-.h-screen,
-.h-screen > div,
-.h-screen > div > div,
-.hero-heading,
-.namaste-text,
-.hero-accent {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+/* Do not forcibly zero margins globally here; keep rules scoped */
+.h-screen {
+  /* make h-screen act as a flex container so children can be vertically centered */
+  display: flex;
+  align-items: center;
 }
 
-/* Adjust the content position from the top */
-.h-screen > div {
-  padding-top: var(--navbar-height, 4rem) !important; /* Adjust this value based on your navbar height */
+/* helper in case some pages need explicit centering */
+.center-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
-/* Remove any potential inherited margins */
-* {
-  margin-block-start: 0;
-}
+/* Keep global reset in index.css instead of here */
