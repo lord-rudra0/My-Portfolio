@@ -156,7 +156,7 @@ const About = () => {
         `}
       </style>
 
-      <div className="max-w-screen-lg mx-auto px-4">
+  <div className="max-w-screen-2xl mx-auto px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -185,7 +185,7 @@ const About = () => {
             <SkillsRow />
           </div>
 
-          <div className="relative flex w-full flex-col items-center justify-center mb-16 px-[100px]">
+          <div className="relative flex w-full flex-col items-center justify-center mb-16 px-4 md:px-8">
             {/* First Skills Scroll */}
             <div className="w-full flex flex-col gap-[2px] mt-0 mb-0">
               <div className="relative w-full perspective-1000 my-0">
