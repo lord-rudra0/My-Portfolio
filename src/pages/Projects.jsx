@@ -30,7 +30,7 @@ const Projects = () => {
         exit={{ opacity: 0 }}
         className="min-h-screen bg-primary text-white py-20"
       >
-        <div className="max-w-5xl mx-auto px-4">
+          <div className="max-w-screen-2xl mx-auto px-4 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
