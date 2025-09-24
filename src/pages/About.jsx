@@ -21,74 +21,7 @@ const sectionVariants = {
   }
 };
 
-// Add this new CSS at the top of your About.jsx or in your styles
-const tunnelStyle = `
-  .tunnel-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .tunnel-entrance {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 250px;
-    z-index: 20;
-    pointer-events: none;
-  }
-
-  .tunnel-left {
-    left: 0;
-    background: radial-gradient(
-      ellipse at left,
-      var(--color-primary) 0%,
-      var(--color-primary) 40%,
-      transparent 70%
-    );
-    transform-origin: left;
-    animation: tunnelPulseLeft 3s ease-in-out infinite;
-  }
-
-  .tunnel-right {
-    right: 0;
-    background: radial-gradient(
-      ellipse at right,
-      var(--color-primary) 0%,
-      var(--color-primary) 40%,
-      transparent 70%
-    );
-    transform-origin: right;
-    animation: tunnelPulseRight 3s ease-in-out infinite;
-  }
-
-  @keyframes tunnelPulseLeft {
-    0%, 100% { transform: scaleX(1); }
-    50% { transform: scaleX(1.1); }
-  }
-
-  @keyframes tunnelPulseRight {
-    0%, 100% { transform: scaleX(1); }
-    50% { transform: scaleX(1.1); }
-  }
-
-  .glow-line {
-    height: 2px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      var(--color-accent) 50%,
-      transparent 100%
-    );
-    opacity: 0.6;
-    animation: glowPulse 2s ease-in-out infinite;
-  }
-
-  @keyframes glowPulse {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
-  }
-`;
+// Portal/tunnel animation removed per request
 
 const About = () => {
   const { theme } = useTheme();
@@ -102,7 +35,6 @@ const About = () => {
       className={`min-h-screen bg-${theme} text-white pt-20 overflow-hidden`}
     >
       <style>
-        {tunnelStyle}
         {`
           .perspective-1000 {
             perspective: 1000px;
@@ -189,91 +121,7 @@ const About = () => {
             {/* First Skills Scroll */}
             <div className="w-full flex flex-col gap-[2px] mt-0 mb-0">
               <div className="relative w-full perspective-1000 my-0">
-                {/* Left Portal */}
-                {isLargeScreen && ( // Only render on large screens
-                  <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[100px] h-[100px] z-0 overflow-hidden sm:w-[75px] sm:h-[75px] lg:w-[200px] lg:h-[200px]">
-                    <div className="absolute left-[5%] top-0 w-full h-full">
-                      {[...Array(8)].map((_, i) => (
-                        <div
-                          key={i}
-                          className="absolute inset-0 rounded-full border-2 border-green-500/30"
-                          style={{
-                            transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
-                            animation: `
-                              pulse ${2 + i * 0.2}s infinite alternate,
-                              glow ${3 + i * 0.5}s infinite alternate,
-                              rotate ${10 + i}s infinite linear
-                            `,
-                            boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
-                          }}
-                        />
-                      ))}
-                      {/* Inner glow effect */}
-                      <div 
-                        className="absolute inset-[20%] rounded-full blur-md bg-green-500/10"
-                        style={{
-                          animation: 'innerGlow 2s infinite alternate'
-                        }}
-                      />
-                      {/* Spinning particles */}
-                      {[...Array(12)].map((_, i) => (
-                        <div
-                          key={`particle-${i}`}
-                          className="absolute w-1 h-1 bg-green-500/40 rounded-full"
-                          style={{
-                            left: '50%',
-                            top: '50%',
-                            transform: `rotate(${i * 30}deg) translateX(${50 + (i % 3) * 10}px)`,
-                            animation: `particle ${3 + (i % 3)}s infinite linear`
-                          }}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Right Portal */}
-                {isLargeScreen && ( // Only render on large screens
-                  <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[100px] h-[100px] z-0 overflow-hidden sm:w-[75px] sm:h-[75px] lg:w-[200px] lg:h-[200px]">
-                    <div className="absolute right-[5%] top-0 w-full h-full">
-                      {[...Array(8)].map((_, i) => (
-                        <div
-                          key={i}
-                          className="absolute inset-0 rounded-full border-2 border-green-500/30"
-                          style={{
-                            transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
-                            animation: `
-                              pulse ${2 + i * 0.2}s infinite alternate,
-                              glow ${3 + i * 0.5}s infinite alternate,
-                              rotateReverse ${10 + i}s infinite linear
-                            `,
-                            boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
-                          }}
-                        />
-                      ))}
-                      {/* Inner glow effect */}
-                      <div 
-                        className="absolute inset-[20%] rounded-full blur-md bg-green-500/10"
-                        style={{
-                          animation: 'innerGlow 2s infinite alternate'
-                        }}
-                      />
-                      {/* Spinning particles */}
-                      {[...Array(12)].map((_, i) => (
-                        <div
-                          key={`particle-${i}`}
-                          className="absolute w-1 h-1 bg-green-500/40 rounded-full"
-                          style={{
-                            left: '50%',
-                            top: '50%',
-                            transform: `rotate(${i * 30}deg) translateX(${50 + (i % 3) * 10}px)`,
-                            animation: `particleReverse ${3 + (i % 3)}s infinite linear`
-                          }}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                )}
+                {/* Portal animations removed per request */}
 
                 {/* VelocityScroll with adjusted z-index */}
                 {isLargeScreen && ( // Only render on large screens
@@ -302,91 +150,7 @@ const About = () => {
             {/* Second Skills Scroll */}
             <div className="w-full flex flex-col gap-0">
               <div className="relative w-full perspective-1000 my-0">
-                {/* Left Portal */}
-                {isLargeScreen && ( // Only render on large screens
-                  <div className="absolute -left-[100px] top-1/2 -translate-y-1/2 w-[100px] h-[100px] z-0 overflow-hidden sm:w-[75px] sm:h-[75px] lg:w-[200px] lg:h-[200px]">
-                    <div className="absolute left-[5%] top-0 w-full h-full">
-                      {[...Array(8)].map((_, i) => (
-                        <div
-                          key={i}
-                          className="absolute inset-0 rounded-full border-2 border-green-500/30"
-                          style={{
-                            transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
-                            animation: `
-                              pulse ${2 + i * 0.2}s infinite alternate,
-                              glow ${3 + i * 0.5}s infinite alternate,
-                              rotate ${10 + i}s infinite linear
-                            `,
-                            boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
-                          }}
-                        />
-                      ))}
-                      {/* Inner glow effect */}
-                      <div 
-                        className="absolute inset-[20%] rounded-full blur-md bg-green-500/10"
-                        style={{
-                          animation: 'innerGlow 2s infinite alternate'
-                        }}
-                      />
-                      {/* Spinning particles */}
-                      {[...Array(12)].map((_, i) => (
-                        <div
-                          key={`particle-${i}`}
-                          className="absolute w-1 h-1 bg-green-500/40 rounded-full"
-                          style={{
-                            left: '50%',
-                            top: '50%',
-                            transform: `rotate(${i * 30}deg) translateX(${50 + (i % 3) * 10}px)`,
-                            animation: `particle ${3 + (i % 3)}s infinite linear`
-                          }}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Right Portal */}
-                {isLargeScreen && ( // Only render on large screens
-                  <div className="absolute -right-[100px] top-1/2 -translate-y-1/2 w-[100px] h-[100px] z-0 overflow-hidden sm:w-[75px] sm:h-[75px] lg:w-[200px] lg:h-[200px]">
-                    <div className="absolute right-[5%] top-0 w-full h-full">
-                      {[...Array(8)].map((_, i) => (
-                        <div
-                          key={i}
-                          className="absolute inset-0 rounded-full border-2 border-green-500/30"
-                          style={{
-                            transform: `translateZ(${i * -10}px) scale(${1 - i * 0.05})`,
-                            animation: `
-                              pulse ${2 + i * 0.2}s infinite alternate,
-                              glow ${3 + i * 0.5}s infinite alternate,
-                              rotateReverse ${10 + i}s infinite linear
-                            `,
-                            boxShadow: `0 0 ${10 + i * 2}px rgba(34, 197, 94, ${0.2 - i * 0.02})`,
-                          }}
-                        />
-                      ))}
-                      {/* Inner glow effect */}
-                      <div 
-                        className="absolute inset-[20%] rounded-full blur-md bg-green-500/10"
-                        style={{
-                          animation: 'innerGlow 2s infinite alternate'
-                        }}
-                      />
-                      {/* Spinning particles */}
-                      {[...Array(12)].map((_, i) => (
-                        <div
-                          key={`particle-${i}`}
-                          className="absolute w-1 h-1 bg-green-500/40 rounded-full"
-                          style={{
-                            left: '50%',
-                            top: '50%',
-                            transform: `rotate(${i * 30}deg) translateX(${50 + (i % 3) * 10}px)`,
-                            animation: `particleReverse ${3 + (i % 3)}s infinite linear`
-                          }}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                )}
+                {/* Portal animations removed per request */}
 
                 {/* VelocityScroll for the second skills scroll */}
                 {isLargeScreen && ( // Only render on large screens
