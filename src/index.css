@@ -216,14 +216,16 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Specific styles for h1 in Hero section */
-.hero-heading {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  font-size: 4.5rem;
-  line-height: 1.1;
-  color: var(--color-accent);
+/* Specific styles for h1 in Hero section (apply on md+ only so utilities can hide on small screens) */
+@media (min-width: 768px) {
+  .hero-heading {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    font-size: 4.5rem;
+    line-height: 1.1;
+    color: var(--color-accent);
+  }
 }
 
 .webName {

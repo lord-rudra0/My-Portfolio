@@ -36,3 +36,52 @@
 }
 
 /* Keep global reset in index.css instead of here */
+
+/* Aggressive mobile tightening: ensure hero fits in one small viewport */
+@media (max-width: 420px) {
+  /* Hide secondary hero lines that take vertical space */
+  .hero-heading {
+    display: none !important;
+  }
+
+  /* Reduce main namaste/title size if present */
+  .namaste-text,
+  .hero-accent {
+    font-size: 12px !important;
+    line-height: 1 !important;
+  }
+
+  /* Make description very compact */
+  .hero-description p {
+    font-size: 11px !important;
+    line-height: 1.1 !important;
+    opacity: 0.95;
+  }
+
+  /* Hide CTA on very small screens to save space */
+  .know-me-button,
+  .know-more-btn {
+    display: none !important;
+  }
+
+  /* Reduce padding inside hero container */
+  .hero-container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+}
+
+/* Ensure hero-heading is fully hidden on small screens up to md breakpoint */
+@media (max-width: 767px) {
+  .hero-heading {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 0 !important;
+  }
+
+  /* Also hide rotating word container if present */
+  /* keep hero-accent visible (rotator will be hidden via md utilities) */
+}

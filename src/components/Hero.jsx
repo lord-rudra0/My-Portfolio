@@ -116,7 +116,7 @@ const Hero = () => {
 
   return (
     <motion.div 
-      className={`${isLargeScreen ? 'h-screen flex items-center' : 'mt-2 pt-2 mb-10'} w-full overflow-hidden relative`}
+      className={`w-full h-screen overflow-hidden relative flex items-center`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -136,14 +136,14 @@ const Hero = () => {
 
       <div 
         ref={containerRef}
-        className="mx-auto flex flex-col justify-center h-full px-6 md:px-8 relative w-full hero-container"
+        className="mx-auto flex flex-col justify-center h-full px-3 md:px-8 relative w-full hero-container"
         style={{
           '--mouse-x': `${mouseX.get()}px`,
           '--mouse-y': `${mouseY.get()}px`
         }}
       >
         <motion.div 
-          className="flex flex-col items-start text-left w-full"
+          className="flex flex-col items-center md:items-start text-center md:text-left w-full"
           style={{ 
             y: titleY,
             opacity,
@@ -157,14 +157,14 @@ const Hero = () => {
             className="relative"
           >
             <motion.h2 
-              className="text-5xl md:text-7xl font-bold leading-tight mt-0 pt-0" 
+              className="text-sm sm:text-lg md:text-7xl font-extrabold leading-tight mt-0 pt-0" 
               style={{ fontFamily: 'Clash Display, sans-serif' }}
               // variants={floatingAnimation}
               initial="initial"
               animate="animate"
             >
               <TypingAnimation 
-                className="namaste-text hero-accent mt-2 pt-2"
+                className="namaste-text hero-accent mt-0 pt-0"
                 delay={300}
                 duration={150}
               >
@@ -177,7 +177,7 @@ const Hero = () => {
                 transition={{ delay: 1.2 }}
               >
                 <motion.span 
-                  className="hero-heading"
+                  className="hero-heading hidden md:block md:text-6xl leading-tight"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.5 }}
@@ -185,7 +185,7 @@ const Hero = () => {
                   Innovative purpose driven
                 </motion.span>
                 <div className="relative">
-                  <WordRotate words={["Web developer ", "App developer"]} className="hero-heading hero-accent" />
+                  <WordRotate words={["Web developer ", "App developer"]} className="hero-heading hero-accent text-lg sm:text-2xl md:text-6xl font-semibold leading-tight text-[var(--color-accent)]" />
                   <motion.div
                     className="absolute -inset-2 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-lg blur-xl"
                     animate={{
@@ -200,24 +200,26 @@ const Hero = () => {
                     }}
                   />
                 </div>
-                <motion.span 
-                  className='hero-heading'
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.8 }}
-                >
-                  crafting scalable solutions.
-                </motion.span>
+                {isLargeScreen && (
+                  <motion.span 
+                    className='hero-heading md:text-6xl leading-tight'
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1.8 }}
+                  >
+                    crafting scalable solutions.
+                  </motion.span>
+                )}
               </motion.div>
             </motion.h2>
           </motion.div>
         </motion.div>
 
         <motion.div 
-          className="flex flex-col items-end gap-8 relative"
+          className="flex flex-col items-center md:items-end gap-4 md:gap-8 relative"
           style={{ y: descriptionY }}
         >
-          <div className="w-full flex items-center justify-end gap-8">
+          <div className="w-full flex items-center justify-center md:justify-end gap-8">
             <motion.div 
               className="w-32 h-[1px] bg-[var(--color-accent)] opacity-50 hidden md:block"
               initial="hidden"
@@ -225,7 +227,7 @@ const Hero = () => {
               variants={lineAnimation}
             />
             <motion.div 
-              className="hero-description text-lg md:text-xl max-w-2xl relative"
+              className="hero-description text-sm sm:text-base md:text-xl max-w-md md:max-w-2xl mx-auto md:mx-0 relative"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
@@ -243,15 +245,14 @@ const Hero = () => {
                   ease: "easeInOut"
                 }}
               />
-              <p className='hero-description relative z-10'>
-                A passionate web developer who thrives on problem-solving and building scalable, impactful solutions. 
-                With a strong foundation in mathematics, I create sustainable systems that drive innovation.
+              <p className='hero-description relative z-10 leading-relaxed text-[0.95rem] sm:text-sm md:text-base'>
+                A passionate web developer who thrives on problem-solving and building scalable, impactful solutions. With a strong foundation in mathematics, I create sustainable systems that drive innovation.
               </p>
             </motion.div>
           </div>
 
           <motion.div 
-            className="w-full flex justify-between items-center"
+            className="w-full flex justify-center md:justify-between items-center"
             style={{ y: socialsY }}
           >
             <motion.div 
@@ -306,7 +307,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
-              className="mx-auto md:mx-0"
+              className="mx-auto md:mx-0 mt-4 md:mt-0"
             >
               <RouterLink 
                 to="/about"
@@ -318,7 +319,7 @@ const Hero = () => {
                   whileHover={{ scale: 1.1 }}
                 />
                 <InteractiveHoverButton 
-                  className="know-more-btn inline-flex items-center transition-all duration-300 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm relative z-10"
+                  className="know-more-btn inline-flex items-center transition-all duration-300 bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm relative z-10 text-sm"
                 >
                   <motion.span
                     initial={{ x: 0 }}
