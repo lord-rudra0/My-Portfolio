@@ -71,7 +71,7 @@ export default function ProjectCard({ projects }) {
         {active && typeof active === "object" ? (
           <div className="fixed inset-0 grid place-items-center z-[100]">
             <motion.button
-              key={`button-${active.title}-${id}`}
+              key={`button-${active.__stableId || `${active.id}-${active.__index || 0}-${id}`}`}
               layout
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -82,11 +82,11 @@ export default function ProjectCard({ projects }) {
               <CloseIcon />
             </motion.button>
             <motion.div
-              layoutId={`card-${active.title}-${id}`}
+              layoutId={`card-${active.__stableId || `${active.id}-${active.__index || 0}-${id}`}`}
               ref={ref}
               className={`w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col ${theme === 'dark' ? 'bg-neutral-900' : 'bg-white'} sm:rounded-3xl overflow-hidden shadow-2xl relative z-20`}
             >
-              <motion.div layoutId={`image-${active.title}-${id}`}>
+              <motion.div layoutId={`image-${active.__stableId || `${active.id}-${active.__index || 0}-${id}`}`}>
                 <img
                   src={active.src || active.image}
                   alt={active.title}
@@ -98,13 +98,14 @@ export default function ProjectCard({ projects }) {
                 <div className="flex justify-between items-start p-4">
                   <div className="">
                     <motion.h3
-                      layoutId={`title-${active.title}-${id}`}
-                      className={`font-medium ${theme === 'dark' ? 'text-white' : 'text-black'} text-base`}
+                      layoutId={`title-${active.__stableId || `${active.id}-${active.__index || 0}-${id}`}`}
+                      className={`font-medium text-base`}
+                      style={{ color: 'var(--color-text)' }}
                     >
-                      {active.title}
+                      {active.title || active.projectName || 'Untitled Project'}
                     </motion.h3>
                     <motion.p
-                      layoutId={`description-${active.description}-${id}`}
+                      layoutId={`description-${active.__stableId || `${active.id}-${active.__index || 0}-${id}`}`}
                       className={`text-neutral-600 ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'} text-base`}
                     >
                       {active.description}
@@ -200,17 +201,20 @@ export default function ProjectCard({ projects }) {
           </div>
         ) : null}
       </AnimatePresence>
-  <ul className="max-w-screen-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-8 p-4 [&>*:nth-child(even)]:md:mt-10">
-        {projects.map((project) => (
-          <motion.div
-            layoutId={`card-${project.id}-${id}`}
-            key={project.id}
-            onClick={() => setActive(project)}
-            onHoverStart={() => setHoveredCard(project.title)}
-            onHoverEnd={() => setHoveredCard(null)}
-            className="relative group"
-          >
+      <ul className="max-w-screen-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-8 p-4">
+        {projects.map((project, index) => {
+          const titleKey = (project.title || project.projectName || '').toString().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'untitled';
+          const stableId = `${project.id ?? 'x'}-${index}-${id}-${titleKey.slice(0, 30)}`;
+          return (
             <motion.div
+              layoutId={`card-${stableId}`}
+              key={`${stableId}`}
+              onClick={() => setActive({ ...project, __index: index, __stableId: stableId })}
+              onHoverStart={() => setHoveredCard(project.title)}
+              onHoverEnd={() => setHoveredCard(null)}
+              className="relative group mb-6"
+            >
+              <motion.div
               animate={{
                 scale: hoveredCard === project.title ? 1.02 : 1,
                 filter: hoveredCard && hoveredCard !== project.title ? "blur(0.1px)" : "blur(0px)",
@@ -224,26 +228,32 @@ export default function ProjectCard({ projects }) {
             >
               <div className="flex gap-4 flex-col w-full">
                 <motion.div
-                  layoutId={`image-${project.id}-${id}`}
+                  layoutId={`image-${stableId}`}
                   className="relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-300"
                 >
                   <motion.div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <img
                     src={project.src || project.image}
                     alt={project.title}
-                    className="w-full h-72 rounded-lg object-cover object-top transform-gpu transition-transform duration-500 group-hover:scale-105 rounded-xl"
+                    className="w-full h-56 md:h-72 rounded-lg object-cover object-top transform-gpu transition-transform duration-500 group-hover:scale-105 rounded-xl"
                   />
+                  {/* Overlay caption to guarantee title visibility */}
+                  <div className="absolute left-0 right-0 bottom-0 z-30 px-3 py-3 bg-gradient-to-t from-black/85 to-transparent text-center pointer-events-none">
+                    <motion.span
+                      layoutId={`title-${stableId}`}
+                      className="text-sm md:text-base font-semibold text-white block"
+                      style={{ whiteSpace: 'normal' }}
+                    >
+                      {project.title || project.projectName || 'Untitled Project'}
+                    </motion.span>
+                  </div>
                 </motion.div>
               </div>
             </motion.div>
-            <motion.h3
-              layoutId={`title-${project.title}-${id}`}
-              className={`font-medium ${theme === 'dark' ? 'text-white' : 'text-black'} text-center text-xl mt-4 transition-colors duration-300`}
-            >
-              {project.title}
-            </motion.h3>
+            {/* title moved into overlay caption (above) to avoid duplicate visible headings */}
           </motion.div>
-        ))}
+        );
+        })}
       </ul>
     </>
   )
