@@ -15,7 +15,7 @@ import { content } from '../data/content';
 import ProjectCard from "../components/ProjectCard"
 import { useTheme } from '../context/ThemeContext';
 import SkillsRow from '../components/SkillsRow';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Home = () => {
   const sectionVariants = {
@@ -49,7 +49,20 @@ const Home = () => {
   });
 
   // Split projects into pages of 4 so remaining projects appear on subsequent slides
-  const projectsPerPage = 4;
+  const [isMobile, setIsMobile] = useState(false);
+
+  // track small viewport to collapse pagination into single mobile page
+  useEffect(() => {
+    const mq = () => window.innerWidth <= 768;
+    function onResize() {
+      setIsMobile(mq());
+    }
+    onResize();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  const projectsPerPage = isMobile ? 2 : 4;
   const projectPages = [];
   for (let i = 0; i < currentProjects.length; i += projectsPerPage) {
     projectPages.push(currentProjects.slice(i, i + projectsPerPage));
