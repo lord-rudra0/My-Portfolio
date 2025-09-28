@@ -4,6 +4,7 @@ import logoImg from '../assets/react.svg';
 // import { FaBars, FaTimes } from 'react-icons/fa';
 // import { useTheme } from '../context/ThemeContext';
 import ThemeToggle from './ThemeToggle';
+import MobileNav from './MobileNav';
 import PillNav from './PillNav';
 import '../styles/navbar.css';
 
@@ -24,6 +25,7 @@ const Navbar = () => {
   };
 
   return (
+    <>
     <div className="fixed w-full top-0 z-50">
       <div className="max-w-[1400px] mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
@@ -36,6 +38,7 @@ const Navbar = () => {
               logo={logoImg}
               items={links.map(l => ({ label: l.label, href: l.href }))}
               activeHref={links.find(l => isActive(l.href))?.href || '/'}
+              showLogo={false}
               className="pill-nav-inline"
             />
           </div>
@@ -55,6 +58,9 @@ const Navbar = () => {
         </div>
       </div>
     </div>
+    {/* Mobile bottom nav */}
+    <MobileNav links={links.map(l => ({ id: l.id, link: l.label, path: l.href }))} />
+    </>
   );
 };
 

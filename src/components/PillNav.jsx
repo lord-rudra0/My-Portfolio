@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import './PillNav.css';
 
+// showLogo: when false, the pill nav will not render its internal logo.
+// This is useful when the parent header already renders a logo/badge (e.g. left-side RPS).
 const PillNav = ({
   logo,
   logoAlt = 'Logo',
@@ -14,6 +16,7 @@ const PillNav = ({
   pillColor = '#060010',
   hoveredPillTextColor = '#060010',
   pillTextColor,
+  showLogo = true,
   onMobileMenuClick,
   initialLoadAnimation = true
 }) => {
@@ -225,32 +228,34 @@ const PillNav = ({
   return (
     <div className="pill-nav-container" style={cssVars}>
       <nav className={`pill-nav ${className}`} aria-label="Primary">
-        {isRouterLink(items?.[0]?.href) ? (
-          <Link
-            className="pill-logo"
-            to={items[0].href}
-            aria-label="Home"
-            onMouseEnter={handleLogoEnter}
-            role="menuitem"
-            ref={el => {
-              logoRef.current = el;
-            }}
-          >
-            {logo ? <img src={logo} alt={logoAlt} ref={logoImgRef} /> : <span className="pill-logo-text">RPS</span>}
-          </Link>
-        ) : (
-          <a
-            className="pill-logo"
-            href={items?.[0]?.href || '#'}
-            aria-label="Home"
-            onMouseEnter={handleLogoEnter}
-            ref={el => {
-              logoRef.current = el;
-            }}
-          >
-            {logo ? <img src={logo} alt={logoAlt} ref={logoImgRef} /> : <span className="pill-logo-text">RPS</span>}
-          </a>
-        )}
+        {showLogo ? (
+          isRouterLink(items?.[0]?.href) ? (
+            <Link
+              className="pill-logo"
+              to={items[0].href}
+              aria-label="Home"
+              onMouseEnter={handleLogoEnter}
+              role="menuitem"
+              ref={el => {
+                logoRef.current = el;
+              }}
+            >
+              {logo ? <img src={logo} alt={logoAlt} ref={logoImgRef} /> : <span className="pill-logo-text">RPS</span>}
+            </Link>
+          ) : (
+            <a
+              className="pill-logo"
+              href={items?.[0]?.href || '#'}
+              aria-label="Home"
+              onMouseEnter={handleLogoEnter}
+              ref={el => {
+                logoRef.current = el;
+              }}
+            >
+              {logo ? <img src={logo} alt={logoAlt} ref={logoImgRef} /> : <span className="pill-logo-text">RPS</span>}
+            </a>
+          )
+        ) : null}
 
         <div className="pill-nav-items desktop-only" ref={navItemsRef}>
           <ul className="pill-list" role="menubar">
