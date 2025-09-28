@@ -19,6 +19,7 @@ import SkillsRow from '../components/SkillsRow';
 // import { TextReveal } from '../components/ui/text-reveal';
 
 // Small search control reused from Home page
+// eslint-disable-next-line react/prop-types
 function SearchSkills({ value, onChange }) {
   const [open, setOpen] = useState(false);
   return (
