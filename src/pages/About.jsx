@@ -83,8 +83,8 @@ const About = () => {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45 }}
-              className="w-full max-w-screen-2xl mx-auto px-4 md:px-8 pt-32 pb-8"
-                style={{ height: 'calc(100vh - 4rem)', overflow: 'auto' }}
+              className="w-full max-w-screen-2xl mx-auto px-4 md:px-8 pt-32 pb-8 hide-scrollbar"
+              style={{ height: 'calc(100vh - 4rem)', overflow: 'auto' }}
               ref={educationRef}
             >
                 <h1 className="text-4xl font-bold mb-6 text-center" style={{ scrollMarginTop: '6rem' }}>Education</h1>
@@ -96,39 +96,48 @@ const About = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="min-h-screen flex items-center justify-center">
-            <section className="w-full max-w-screen-2xl mx-auto px-4 md:px-8">
-              <div className="mt-8">
-                <h1 className="text-4xl font-bold mb-6 text-center text-white">Skills</h1>
+          <div role="region" aria-label="Skills section" className="min-h-screen flex items-start justify-center">
+            <motion.section
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45 }}
+              className="w-full max-w-screen-2xl mx-auto px-4 md:px-8 pt-24 pb-8 hide-scrollbar"
+              style={{ height: 'calc(100vh - 4rem)', overflow: 'auto' }}
+            >
+              <h1 className="text-4xl font-bold mb-6 text-center text-white" style={{ scrollMarginTop: '6rem' }}>
+                Skills
+              </h1>
 
-                <div className="block md:hidden mb-4">
-                  <SkillsRow />
-                </div>
+              <div className="block md:hidden mb-4">
+                <SkillsRow />
+              </div>
 
-                <div className="relative flex w-full flex-col items-center justify-center mb-16 px-4 md:px-8">
-                  {isLargeScreen && (
-                    <div className="relative z-10 transform-gpu">
-                      <VelocityScroll
-                        numRows={1}
-                        defaultVelocity={-0.5}
-                        className="[mask-image:linear-gradient(to_right,transparent_0%,white_20%,white_80%,transparent_100%)]"
-                      >
-                        <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl px-0 sm:px-0 lg:px-0`}>
-                          Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
-                          Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
-                          NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
-                          TensorFlow ✧ Git ✧ GitHub ✧ Unity ✧ Postman ✧ Docker
-                        </span>
-                      </VelocityScroll>
-                    </div>
-                  )}
-
-                  <div className="">
-                    <Skill />
+              <div className="relative flex w-full flex-col items-center justify-start mb-12 px-4 md:px-8">
+                {isLargeScreen && (
+                  <div className="relative z-10 transform-gpu">
+                    <VelocityScroll
+                      numRows={1}
+                      defaultVelocity={-0.5}
+                      className="[mask-image:linear-gradient(to_right,transparent_0%,white_20%,white_80%,transparent_100%)]"
+                    >
+                      <span className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-4xl px-0 sm:px-0 lg:px-0`}>
+                        Velocity ✧ Scroll ✧ C ✧ CSharp ✧ Java ✧ CSS3 ✧ JavaScript ✧ HTML5 ✧ Python ✧ AssemblyScript ✧ TypeScript ✧
+                        Vercel ✧ Render ✧ Netlify ✧ Heroku ✧ Firebase ✧ Bootstrap ✧ EJS ✧ ExpressJS ✧ FastAPI ✧ Flask ✧ Jinja ✧
+                        NodeDotJS ✧ NPM ✧ React ✧ Vite ✧ TailwindCSS ✧ MongoDB ✧ MySQL ✧ SQLite ✧ Figma ✧ Canva ✧ NumPy ✧ Pandas ✧
+                        TensorFlow ✧ Git ✧ GitHub ✧ Unity ✧ Postman ✧ Docker
+                      </span>
+                    </VelocityScroll>
                   </div>
+                )}
+
+                <div className="">
+                  <Skill />
                 </div>
               </div>
-            </section>
+
+              {/* bottom spacer so inner scroll can reach all content */}
+              <div style={{ height: 160 }} aria-hidden="true" />
+            </motion.section>
           </div>
         </SwiperSlide>
 
