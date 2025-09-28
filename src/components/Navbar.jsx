@@ -117,8 +117,20 @@ const Navbar = () => {
           <motion.div 
             className="flex items-center absolute right-4"
           >
-            <div className="scale-75 md:scale-100">
-              <ThemeToggle />
+            <div className="hidden md:flex items-center gap-3">
+              {/* Desktop CTA: Resume (opens resume.pdf in new tab) */}
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r from-green-400 to-teal-400 text-black shadow-lg hover:opacity-95"
+                aria-label="Open resume"
+              >
+                Resume
+              </a>
+              <div className="scale-75 md:scale-100">
+                <ThemeToggle />
+              </div>
             </div>
           </motion.div>
         </motion.div>
