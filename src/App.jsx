@@ -10,7 +10,6 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
-import EducationPage from './pages/EducationPage';
 import Footer from './components/Footer';
 import ThemeTransition from './components/ThemeTransition';
 import ProjectDetails from './components/ProjectDetails';
@@ -24,8 +23,7 @@ function AnimatedRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/education" element={<EducationPage />} />
+  <Route path="/contact" element={<Contact />} />
         {/* <Route path="/:projectName" element={<ProjectDetails />} /> */}
         <Route path="/project/:projectName" element={<ProjectDetails />} />
       </Routes>

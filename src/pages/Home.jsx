@@ -100,6 +100,13 @@ const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
   const contactIndex = 3 + projectPages.length; // Hero(0), About(1), Skills(2), Projects pages start at 3
+  const totalSlides = 4 + projectPages.length; // Hero, About, Skills, Projects pages..., Contact
+
+  // initialize indicator on mount
+  useEffect(() => {
+    const ev = new CustomEvent('aboutSlideChange', { detail: { activeIndex: 0, totalSlides } });
+    window.dispatchEvent(ev);
+  }, [totalSlides]);
 
   return (
     <motion.div
@@ -118,7 +125,11 @@ const Home = () => {
         speed={700}
         mousewheel={{ forceToAxis: true, sensitivity: 0.65, releaseOnEdges: true }}
         keyboard={{ enabled: true }}
-        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+        onSlideChange={(swiper) => {
+          setActiveIndex(swiper.activeIndex);
+          const ev = new CustomEvent('aboutSlideChange', { detail: { activeIndex: swiper.activeIndex, totalSlides } });
+          window.dispatchEvent(ev);
+        }}
         style={{ height: '100vh' }}
       >
         <SwiperSlide>
