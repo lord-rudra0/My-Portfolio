@@ -143,23 +143,43 @@ body {
 
 ::-webkit-scrollbar-track {
   background: transparent;
+  backdrop-filter: blur(2px);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(34, 197, 94, 0.22); /* green-500 at medium alpha */
-  border-radius: 8px;
-  border: 3px solid transparent;
+  background: linear-gradient(180deg, rgba(34,197,94,0.28), rgba(16,185,129,0.22));
+  border-radius: 999px;
+  border: 3px solid rgba(0,0,0,0.0);
   background-clip: padding-box;
+  transition: background 180ms ease, transform 220ms cubic-bezier(.2,.9,.3,1), box-shadow 200ms ease;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.02) inset;
+  opacity: 0; /* start hidden, will show when scrolling or hovering */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(34, 197, 94, 0.32);
+  transform: scaleX(1.05) translateZ(0);
+  background: linear-gradient(180deg, rgba(34,197,94,0.36), rgba(16,185,129,0.28));
+  box-shadow: 0 6px 18px rgba(16,185,129,0.06);
+}
+
+/* Show thumb when user hovers anywhere or when body has .scrolling (set by JS while scrolling) */
+body.scrolling ::-webkit-scrollbar-thumb,
+body:hover ::-webkit-scrollbar-thumb {
+  opacity: 0.98;
 }
 
 /* Firefox scrollbar color/width */
 * {
   scrollbar-width: thin;
   scrollbar-color: rgba(34,197,94,0.22) transparent;
+}
+
+/* Make Firefox thumb slightly smoother using background and transition (limited control) */
+@-moz-document url-prefix() {
+  ::-moz-scrollbar-thumb {
+    background: rgba(34,197,94,0.22);
+    border-radius: 8px;
+  }
 }
 
 /* Utility to hide scrollbars visually while keeping scroll functional */

@@ -2,25 +2,40 @@ import { motion } from 'framer-motion';
 import { content } from '../data/content';
 import ProjectCard from '../components/ProjectCard';
 import ContactCTA from '../components/ContactCTA';
-// import { useState } from 'react';
-
-const sectionVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.6 }
-  }
-};
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Mousewheel, Keyboard } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/mousewheel';
+import 'swiper/css/keyboard';
+import { useState, useEffect } from 'react';
 
 
 const Projects = () => {
-  // const [hoveredIndex, setHoveredIndex] = useState(null);
-  const finishedProjects = content.finishedProjects;
+  const finishedProjects = content.finishedProjects || [];
+  const [isMobile, setIsMobile] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  // const handleHover = (index) => {
-  //   setHoveredIndex(index);
-  // };
+  useEffect(() => {
+    function onResize() {
+      setIsMobile(window.innerWidth <= 768);
+    }
+    onResize();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  const projectsPerPage = isMobile ? 2 : 4;
+  const pages = [];
+  for (let i = 0; i < finishedProjects.length; i += projectsPerPage) {
+    pages.push(finishedProjects.slice(i, i + projectsPerPage));
+  }
+
+  const totalSlides = pages.length + 1; // project pages + Contact
+
+  useEffect(() => {
+    const ev = new CustomEvent('aboutSlideChange', { detail: { activeIndex, totalSlides } });
+    window.dispatchEvent(ev);
+  }, [activeIndex, totalSlides]);
 
   return (
     <div className="relative">
@@ -30,47 +45,45 @@ const Projects = () => {
         exit={{ opacity: 0 }}
         className="min-h-screen bg-primary text-white py-20"
       >
-          <div className="max-w-screen-2xl mx-auto px-4 md:px-8">
+        <div className="max-w-screen-2xl mx-auto px-4 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
-            <h1 className="text-4xl font-bold mb-4 text-center text-white mt-10">My Finished Projects</h1>
-            <p className="text-secondary text-lg">
-              Here are some of the projects I&#39;ve worked on
-            </p>
+            <h1 className="text-4xl font-bold mb-4 text-center text-white mt-6">My Finished Projects</h1>
+            <p className="text-secondary text-lg">Here are some of the projects I&#39;ve worked on</p>
           </motion.div>
 
-          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {finishedProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                className={`transition-opacity duration-300 ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-50' : 'opacity-100'}`}
-              >
-                <ProjectCard 
-                  project={project} 
-                  index={index} 
-                  isActive={() => window.location.pathname === project.path} 
-                  onHover={() => handleHover(index)}
-                />
-              </motion.div>
-            ))}
-          </div> */}
-          <section>
-            {/* <h2 className="text-3xl font-bold mb-6 text-center"> Projects</h2> */}
-            <ProjectCard projects={finishedProjects} />
-          </section>
-          
-          <motion.section
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={sectionVariants}
+          <Swiper
+            modules={[Mousewheel, Keyboard]}
+            direction="vertical"
+            slidesPerView={1}
+            speed={650}
+            mousewheel={{ forceToAxis: true, sensitivity: 0.6, releaseOnEdges: true }}
+            keyboard={{ enabled: true }}
+            onSlideChange={(s) => setActiveIndex(s.activeIndex)}
+            style={{ height: 'calc(100vh - 6rem)' }}
           >
-            <ContactCTA />
-          </motion.section>
+            {pages.map((pageProjects, idx) => (
+              <SwiperSlide key={`proj-page-${idx}`}>
+                <div className="min-h-screen flex items-start justify-center">
+                  <motion.section className="w-full pt-12" style={{ maxHeight: 'calc(100vh - 7rem)', overflow: 'auto' }}>
+                    <ProjectCard projects={pageProjects} />
+                  </motion.section>
+                </div>
+              </SwiperSlide>
+            ))}
+
+            <SwiperSlide>
+              <div className="min-h-screen flex items-center justify-center">
+                <section className="w-full px-4 md:px-8">
+                  <ContactCTA />
+                </section>
+              </div>
+            </SwiperSlide>
+          </Swiper>
         </div>
       </motion.div>
     </div>
