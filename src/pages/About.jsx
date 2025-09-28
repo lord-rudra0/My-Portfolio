@@ -18,6 +18,28 @@ import SkillsRow from '../components/SkillsRow';
 // import Test from '../components/Education';
 // import { TextReveal } from '../components/ui/text-reveal';
 
+// Small search control reused from Home page
+function SearchSkills({ value, onChange }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="flex items-center">
+      <button aria-label="Search skills" onClick={() => setOpen((o) => !o)} className="p-1 rounded-full hover:bg-gray-700">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
+        </svg>
+      </button>
+      {open && (
+        <input
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          className="ml-2 px-2 py-1 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none"
+          placeholder="Search skills..."
+        />
+      )}
+    </div>
+  );
+}
+
 // (sectionVariants removed - not used in About page because Swiper handles per-slide animation)
 
 // Portal/tunnel animation removed per request
@@ -26,6 +48,7 @@ const About = () => {
   const { theme } = useTheme();
   const isLargeScreen = window.matchMedia('(min-width: 768px)').matches; // Check for screen size
   const [activeIndex, setActiveIndex] = useState(0);
+  const [skillQuery, setSkillQuery] = useState('');
   const educationRef = useRef(null);
   const totalSlides = 4; // Intro, Education, Skills, Contact
 
@@ -123,12 +146,18 @@ const About = () => {
               className="w-full max-w-screen-2xl mx-auto px-4 md:px-8 pt-24 pb-8 hide-scrollbar"
               style={{ height: 'calc(100vh - 4rem)', overflow: 'auto' }}
             >
-              <h1 className="text-4xl font-bold mb-6 text-center text-white" style={{ scrollMarginTop: '6rem' }}>
-                Skills
-              </h1>
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <h1 className="text-4xl font-bold mb-0 text-center text-white" style={{ scrollMarginTop: '6rem' }}>Skills</h1>
+                <div className="hidden md:block">
+                  <SearchSkills value={skillQuery} onChange={setSkillQuery} />
+                </div>
+              </div>
 
               <div className="block md:hidden mb-4">
-                <SkillsRow />
+                <SearchSkills value={skillQuery} onChange={setSkillQuery} />
+                <div className="mt-3">
+                  <SkillsRow filterText={skillQuery} />
+                </div>
               </div>
 
               <div className="relative flex w-full flex-col items-center justify-start mb-12 px-4 md:px-8">
@@ -151,6 +180,10 @@ const About = () => {
 
                 <div className="">
                   <Skill />
+                </div>
+                {/* Desktop: show skills row filtered by query below the velocity scroll */}
+                <div className="w-full mt-6 hidden md:block">
+                  <SkillsRow filterText={skillQuery} />
                 </div>
               </div>
 
