@@ -185,7 +185,14 @@ const Hero = () => {
                   Innovative purpose driven
                 </motion.span>
                 <div className="relative">
-                  <WordRotate words={["Web developer ", "App developer"]} className="hero-heading hero-accent text-lg sm:text-2xl md:text-6xl font-semibold leading-tight text-[var(--color-accent)]" />
+                  {/* Large rotating heading for md+ screens */}
+                  <div className="hidden md:block">
+                    <WordRotate words={["Web developer ", "An developer"]} className="hero-heading hero-accent md:text-6xl font-semibold leading-tight text-[var(--color-accent)]" />
+                  </div>
+                  {/* Small static heading for mobile */}
+                  <div className="md:hidden text-center">
+                    <h3 className="text-2xl sm:text-2xl font-semibold text-[var(--color-accent)]">Web developer</h3>
+                  </div>
                   <motion.div
                     className="absolute -inset-2 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-lg blur-xl"
                     animate={{
