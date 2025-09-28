@@ -292,20 +292,6 @@ const Hero = () => {
                     transition={{ duration: 0.25 }}
                   />
                   <Icon className="relative z-10 w-5 h-5 md:w-6 md:h-6" />
-                  <motion.span
-                    className="relative z-10 hidden md:inline"
-                    animate={{ 
-                      x: [0, 4, 0],
-                      y: [0, -4, 0]
-                    }}
-                    transition={{ 
-                      duration: 1.5, 
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    ↗
-                  </motion.span>
                 </motion.a>
               ))}
             </motion.div>

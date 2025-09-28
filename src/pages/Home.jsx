@@ -16,6 +16,34 @@ import ProjectCard from "../components/ProjectCard"
 import { useTheme } from '../context/ThemeContext';
 import SkillsRow from '../components/SkillsRow';
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+
+// small search control for skills
+function SearchSkills({ value, onChange }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="flex items-center">
+      <button aria-label="Search skills" onClick={() => setOpen((o) => !o)} className="p-1 rounded-full hover:bg-gray-700">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
+        </svg>
+      </button>
+      {open && (
+        <input
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          className="ml-2 px-2 py-1 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none"
+          placeholder="Search skills..."
+        />
+      )}
+    </div>
+  );
+}
+
+SearchSkills.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+};
 
 const Home = () => {
   const sectionVariants = {
@@ -70,6 +98,7 @@ const Home = () => {
 
   const { theme } = useTheme();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [searchQuery, setSearchQuery] = useState('');
   const contactIndex = 3 + projectPages.length; // Hero(0), About(1), Skills(2), Projects pages start at 3
 
   return (
@@ -126,9 +155,12 @@ const Home = () => {
               variants={sectionVariants}
               className="w-full"
             >
-              <h1 className="text-4xl font-bold mb-2 text-center text-white">Skills</h1>
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <h1 className="text-4xl font-bold text-center text-white">Skills</h1>
+                <SearchSkills value={searchQuery} onChange={setSearchQuery} />
+              </div>
               <div className="mb-20">
-                <SkillsRow />
+                <SkillsRow filterText={searchQuery} />
               </div>
             </motion.section>
           </div>

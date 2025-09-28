@@ -1,4 +1,4 @@
-// import React from 'react';
+import PropTypes from 'prop-types';
 
 const skills = [
   "C", "C#", "Java", "Python", "JavaScript", 
@@ -6,24 +6,49 @@ const skills = [
   "Tailwind CSS", "FastAPI", "Flask", "Jinja", "NPM", "Vite", "MongoDB",
   "MySQL", "SQLite", "Vercel", "Render", "Netlify", "Heroku", "Firebase",
   "Figma", "Canva", "Git", "GitHub",
-  "Unity", "Postman", 
+  "Unity", "Postman",
 ];
 
-const SkillsRow = () => {
+const SkillsRow = ({ filterText = '' }) => {
+  const q = (filterText || '').toString().trim().toLowerCase();
+  const filteredSkills = skills.filter((skill) => skill.toLowerCase().includes(q));
+
+  // Helper to highlight matched substring
+  const highlight = (skill) => {
+    if (!q) return skill;
+    const idx = skill.toLowerCase().indexOf(q);
+    if (idx === -1) return skill;
+    const before = skill.slice(0, idx);
+    const match = skill.slice(idx, idx + q.length);
+    const after = skill.slice(idx + q.length);
+    return (
+      <span>
+        {before}<mark className="bg-yellow-300 text-black px-1 rounded">{match}</mark>{after}
+      </span>
+    );
+  };
+
+  const showInfinite = q === '';
+
   return (
     <div className="overflow-hidden whitespace-nowrap">
-      <div className="inline-block animate-scroll">
-        {skills.concat(skills).map((skill, index) => (
-          <span 
-            key={index} 
-            className="skill-button mx-2 transition-transform duration-500 ease-in-out transform hover:scale-110 animate-word"
-            style={{ animationDelay: `${index * 0.1}s` }}
-          >
-            {skill}
-          </span>
-        ))}
+      <div className={`inline-block ${showInfinite ? 'animate-scroll' : ''}`}>
+        {filteredSkills.length === 0 ? (
+          <span className="skill-button mx-2">No skills found</span>
+        ) : (
+          (showInfinite ? filteredSkills.concat(filteredSkills) : filteredSkills).map((skill, index) => (
+            <span 
+              key={`${skill}-${index}`} 
+              className="skill-button mx-2 transition-transform duration-500 ease-in-out transform hover:scale-110 animate-word"
+              style={{ animationDelay: `${index * 0.05}s` }}
+            >
+              {highlight(skill)}
+            </span>
+          ))
+        )}
       </div>
-      <style jsx>{`
+
+      <style>{`
         .animate-scroll {
           animation: scroll 40s linear infinite;
         }
@@ -91,4 +116,8 @@ const SkillsRow = () => {
   );
 };
 
-export default SkillsRow; 
+SkillsRow.propTypes = {
+  filterText: PropTypes.string
+};
+
+export default SkillsRow;
