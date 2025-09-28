@@ -39,6 +39,7 @@ const Navbar = () => {
   const links = [
     { id: 1, link: 'home', path: '/' },
     { id: 2, link: 'about', path: '/about' },
+    { id: 2.5, link: 'education', path: '/education' },
     { id: 3, link: 'projects', path: '/projects' },
     { id: 4, link: 'contact', path: '/contact' },
   ];

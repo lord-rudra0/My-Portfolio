@@ -1,24 +1,14 @@
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FaGraduationCap } from 'react-icons/fa';
 import { useTheme } from '../context/ThemeContext';
-import { useRef } from 'react';
+// ...existing code...
 
 const Education = () => {
   const { theme } = useTheme();
-  const containerRef = useRef(null);
-
-  // Scroll animations setup
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  // Transform values for scroll animations
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
-  const scale = useTransform(scrollYProgress, [0, 0.2], [0.8, 1]);
-  const y = useTransform(scrollYProgress, [0, 0.2], [100, 0]);
+  // Use a simple mount animation instead of scroll-driven transforms so
+  // the component remains visible when rendered inside full-page Swiper slides.
 
   // Define colors based on theme
   const colors = {
@@ -79,13 +69,10 @@ const Education = () => {
 
   return (
     <motion.div
-      ref={containerRef}
-      style={{
-        opacity,
-        scale,
-        y
-      }}
-      className="py-10"
+      initial={{ opacity: 0, y: 20, scale: 0.98 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.6 }}
+      className="py-6"
     >
       <VerticalTimeline animate={true} lineColor={colors.border}>
         {/* BSc Mathematics and Physics */}
@@ -99,8 +86,7 @@ const Education = () => {
             <motion.div
               variants={iconVariants}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              animate="visible"
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
               className="w-full h-full flex items-center justify-center"
@@ -112,8 +98,7 @@ const Education = () => {
           <motion.div
             variants={cardVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
             whileHover={{ scale: 1.02 }}
             className="relative overflow-hidden group"
           >
@@ -146,8 +131,7 @@ const Education = () => {
             <motion.div
               variants={iconVariants}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              animate="visible"
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
               className="w-full h-full flex items-center justify-center"
@@ -159,8 +143,7 @@ const Education = () => {
           <motion.div
             variants={cardVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
             whileHover={{ scale: 1.02 }}
             className="relative overflow-hidden group"
           >
@@ -193,8 +176,7 @@ const Education = () => {
             <motion.div
               variants={iconVariants}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              animate="visible"
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
               className="w-full h-full flex items-center justify-center"
@@ -206,8 +188,7 @@ const Education = () => {
           <motion.div
             variants={cardVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
             whileHover={{ scale: 1.02 }}
             className="relative overflow-hidden group"
           >
@@ -239,8 +220,7 @@ const Education = () => {
             <motion.div
               variants={iconVariants}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              animate="visible"
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
               className="w-full h-full flex items-center justify-center"
@@ -252,8 +232,7 @@ const Education = () => {
           <motion.div
             variants={cardVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
             whileHover={{ scale: 1.02 }}
             className="relative overflow-hidden group"
           >
@@ -287,7 +266,20 @@ const Education = () => {
             margin-bottom: 0;
           }
           .vertical-timeline-element {
-            margin: 2em 0;
+            margin: 0.6em 0; /* tighter spacing so more cards fit in the viewport */
+          }
+          .vertical-timeline-element-content {
+            padding: 0.75rem 1rem !important; /* reduce content padding */
+            border-radius: 6px;
+          }
+          .vertical-timeline-element-title {
+            font-size: 1rem; /* slightly smaller title */
+            line-height: 1.15;
+            margin-bottom: 0.25rem;
+          }
+          .vertical-timeline-element-subtitle {
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
           }
           .vertical-timeline.vertical-timeline--animate .vertical-timeline-element-content.is-hidden {
             visibility: visible !important;
