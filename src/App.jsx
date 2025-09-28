@@ -5,6 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import Navbar from './components/Navbar';
+import ScrollProgress from './components/ScrollProgress';
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
@@ -48,6 +49,7 @@ function AppContent() {
       <div className="flex flex-col min-h-screen relative z-0 bg-primary transition-colors duration-300 dark:bg-black light:bg-white">
         <ThemeTransition isTransitioning={isTransitioning} />
         <Navbar />
+        <ScrollProgress />
         <main className="flex-grow">
           <div className="w-full">
             <div className="max-w-screen-2xl mx-auto px-4 md:px-8">

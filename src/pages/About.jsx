@@ -27,13 +27,32 @@ const About = () => {
   const isLargeScreen = window.matchMedia('(min-width: 768px)').matches; // Check for screen size
   const [activeIndex, setActiveIndex] = useState(0);
   const educationRef = useRef(null);
+  const totalSlides = 4; // Intro, Education, Skills, Contact
 
   useEffect(() => {
     if (activeIndex === 1 && educationRef.current) {
       // Ensure the education container is scrolled to top when activated
       educationRef.current.scrollTop = 0;
     }
+
+    // dispatch custom event so global scroll progress can react
+    const ev = new CustomEvent('aboutSlideChange', { detail: { activeIndex, totalSlides } });
+    window.dispatchEvent(ev);
   }, [activeIndex]);
+
+  // initialize indicator on mount
+  useEffect(() => {
+    const ev = new CustomEvent('aboutSlideChange', { detail: { activeIndex: 0, totalSlides } });
+    window.dispatchEvent(ev);
+  }, []);
+
+  // Hide native scrollbar visuals for the About full-page experience while mounted
+  useEffect(() => {
+    document.body.classList.add('hide-scrollbar');
+    return () => {
+      document.body.classList.remove('hide-scrollbar');
+    };
+  }, []);
 
   return (
     <motion.div
