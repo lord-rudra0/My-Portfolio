@@ -50,6 +50,7 @@ const About = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [skillQuery, setSkillQuery] = useState('');
   const educationRef = useRef(null);
+  const outerSwiperRef = useRef(null);
   const totalSlides = 4; // Intro, Education, Skills, Contact
 
   useEffect(() => {
@@ -62,6 +63,40 @@ const About = () => {
     const ev = new CustomEvent('aboutSlideChange', { detail: { activeIndex, totalSlides } });
     window.dispatchEvent(ev);
   }, [activeIndex]);
+
+  // Listen for inner swiper events to temporarily lock/unlock the outer Swiper
+  useEffect(() => {
+    const onInnerStart = () => {
+      const sw = outerSwiperRef.current;
+      if (sw) {
+        try {
+          sw.allowTouchMove = false;
+          if (sw.mousewheel) sw.mousewheel.disable();
+        } catch {
+          // ignore
+        }
+      }
+    };
+
+    const onInnerEnd = () => {
+      const sw = outerSwiperRef.current;
+      if (sw) {
+        try {
+          sw.allowTouchMove = true;
+          if (sw.mousewheel) sw.mousewheel.enable();
+        } catch {
+          // ignore
+        }
+      }
+    };
+
+    window.addEventListener('innerSwiperStart', onInnerStart);
+    window.addEventListener('innerSwiperEnd', onInnerEnd);
+    return () => {
+      window.removeEventListener('innerSwiperStart', onInnerStart);
+      window.removeEventListener('innerSwiperEnd', onInnerEnd);
+    };
+  }, []);
 
   // initialize indicator on mount
   useEffect(() => {
@@ -92,6 +127,7 @@ const About = () => {
         mousewheel={{ forceToAxis: true, sensitivity: 0.65, releaseOnEdges: true }}
         keyboard={{ enabled: true }}
         onSlideChange={(s) => setActiveIndex(s.activeIndex)}
+        onSwiper={(sw) => { outerSwiperRef.current = sw; }}
         style={{ height: '100vh' }}
       >
         {/* track active slide so we can reset inner scroll on Education */}
@@ -126,7 +162,7 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45 }}
               className="w-full max-w-screen-2xl mx-auto px-4 md:px-8 pt-32 pb-8 hide-scrollbar"
-              style={{ height: 'calc(100vh - 4rem)', overflow: 'auto' }}
+              style={{ height: 'calc(100vh - 4rem)', overflow: 'auto', overscrollBehavior: 'contain' }}
               ref={educationRef}
             >
                 <h1 className="text-4xl font-bold mb-6 text-center" style={{ scrollMarginTop: '6rem' }}>Education</h1>
