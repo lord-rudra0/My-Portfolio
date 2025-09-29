@@ -218,10 +218,7 @@ const About = () => {
                 <div className="">
                   <Skill />
                 </div>
-                {/* Desktop: show skills row filtered by query below the velocity scroll */}
-                <div className="w-full mt-6 hidden md:block">
-                  <SkillsRow filterText={skillQuery} />
-                </div>
+                {/* Desktop: SkillsRow removed per user request */}
               </div>
 
               {/* bottom spacer so inner scroll can reach all content */}
