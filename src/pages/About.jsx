@@ -190,9 +190,9 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="block md:hidden mb-4">
+              <div className="block md:hidden mb-8">
                 <SearchSkills value={skillQuery} onChange={setSkillQuery} />
-                <div className="mt-3">
+                <div className="mt-8">
                   <SkillsRow filterText={skillQuery} />
                 </div>
               </div>
