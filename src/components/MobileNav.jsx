@@ -1,4 +1,4 @@
-import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import PropTypes from 'prop-types';
 import { FaHome, FaUser, FaCode, FaEnvelope, FaTimes, FaBars, FaArrowUp } from 'react-icons/fa';
@@ -7,7 +7,6 @@ import { useState, useEffect } from 'react';
 
 const MobileNav = ({ links }) => {
   const location = useLocation();
-  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(true); // Set initially to true
   const [showScrollButton, setShowScrollButton] = useState(false); // State for scroll button visibility
 
@@ -38,9 +37,9 @@ const MobileNav = ({ links }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleNavigation = (path) => {
-    scrollToTop(); // Scroll to top before navigating
-    navigate(path); // Use navigate to change the route
+  // Let RouterLink handle navigation. Only scroll to top on click.
+  const handleNavigation = () => {
+    scrollToTop(); // Scroll to top; RouterLink will handle the route change
   };
 
   // Effect to handle scroll position
@@ -94,13 +93,13 @@ const MobileNav = ({ links }) => {
                 damping: 24
               }}
             >
-              <RouterLink 
-                to={path}
-                className={`nav-link flex flex-col items-center relative ${
-                  isActive(path) ? 'text-[var(--color-accent)]' : 'text-white/70'
-                }`}
-                onClick={() => handleNavigation(path)}
-              >
+                <RouterLink
+                  to={path}
+                  className={`nav-link flex flex-col items-center relative ${
+                    isActive(path) ? 'text-[var(--color-accent)]' : 'text-white/70'
+                  }`}
+                  onClick={() => handleNavigation(path)}
+                >
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
