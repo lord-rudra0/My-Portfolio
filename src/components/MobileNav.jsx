@@ -37,7 +37,7 @@ const MobileNav = ({ links }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Let RouterLink handle navigation. Only scroll to top on click.
+  // Let RouterLink handle navigation. Only scroll to top on click; keep menu open.
   const handleNavigation = () => {
     scrollToTop(); // Scroll to top; RouterLink will handle the route change
   };
@@ -98,7 +98,7 @@ const MobileNav = ({ links }) => {
                   className={`nav-link flex flex-col items-center relative ${
                     isActive(path) ? 'text-[var(--color-accent)]' : 'text-white/70'
                   }`}
-                  onClick={() => handleNavigation(path)}
+                  onClick={handleNavigation}
                 >
                 <motion.div
                   whileHover={{ scale: 1.1 }}
