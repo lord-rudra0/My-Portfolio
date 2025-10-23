@@ -1,6 +1,7 @@
 // import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import logoImg from '../assets/react.svg';
+import resumePDF from '../data/Rudra.pdf';
 // import { FaBars, FaTimes } from 'react-icons/fa';
 // import { useTheme } from '../context/ThemeContext';
 import ThemeToggle from './ThemeToggle';
@@ -35,15 +36,31 @@ const Navbar = () => {
             </div>
 
             <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-[var(--color-accent,#10b981)] text-black shadow-lg hover:opacity-95"
-                aria-label="Open resume"
-              >
-                Resume
-              </a>
+              <div className="inline-flex items-center gap-2">
+                <a
+                  href={resumePDF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-[var(--color-accent,#10b981)] text-black shadow-lg hover:opacity-95"
+                  aria-label="Open resume"
+                  title="Open resume in new tab"
+                >
+                  Resume
+                </a>
+                <a
+                  href={resumePDF}
+                  download="Rudra-RPS-Resume.pdf"
+                  className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/90 text-black shadow hover:opacity-90"
+                  aria-label="Download resume"
+                  title="Download resume"
+                >
+                  {/* simple download icon */}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                    <path d="M12 3v10.586l3.293-3.293 1.414 1.414L12 17.414l-4.707-4.707 1.414-1.414L11 13.586V3h1z" />
+                    <path d="M5 19h14v2H5z" />
+                  </svg>
+                </a>
+              </div>
             </div>
 
             <div className="absolute right-0 top-1/2 transform -translate-y-1/2 pr-0">
@@ -72,15 +89,30 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center gap-3">
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r from-green-400 to-teal-400 text-black shadow-lg hover:opacity-95"
-                aria-label="Open resume"
-              >
-                Resume
-              </a>
+              <div className="inline-flex items-center gap-2">
+                <a
+                  href={resumePDF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r from-green-400 to-teal-400 text-black shadow-lg hover:opacity-95"
+                  aria-label="Open resume"
+                  title="Open resume in new tab"
+                >
+                  Resume
+                </a>
+                <a
+                  href={resumePDF}
+                  download="Rudra-RPS-Resume.pdf"
+                  className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/90 text-black shadow hover:opacity-90"
+                  aria-label="Download resume"
+                  title="Download resume"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                    <path d="M12 3v10.586l3.293-3.293 1.414 1.414L12 17.414l-4.707-4.707 1.414-1.414L11 13.586V3h1z" />
+                    <path d="M5 19h14v2H5z" />
+                  </svg>
+                </a>
+              </div>
               <ThemeToggle />
             </div>
           </div>
