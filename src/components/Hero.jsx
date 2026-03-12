@@ -187,7 +187,7 @@ const Hero = () => {
                 <div className="relative">
                   {/* Large rotating heading for md+ screens */}
                   <div className="hidden md:block">
-                    <WordRotate words={["Web developer ", "An developer"]} className="hero-heading hero-accent md:text-6xl font-semibold leading-tight text-[var(--color-accent)]" />
+                    <WordRotate words={["Web developer ", "Android developer"]} className="hero-heading hero-accent md:text-6xl font-semibold leading-tight text-[var(--color-accent)]" />
                   </div>
                   {/* Small static heading for mobile */}
                   <div className="md:hidden text-center">
